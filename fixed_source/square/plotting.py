@@ -45,7 +45,7 @@ if __name__ == "__main__":
     phi_mc = np.load("../openmc/square/mesh_flux.npy")
     phi_mc_stdev = np.load("../openmc/square/mesh_stdev.npy")
 
-    num_ordinates = [16, 64, 256, 1024, 4096, 16384, 65536]
+    num_ordinates = [16, 64, 256, 1024, 4096, 16384, 65536, 262144]
     degrees = [2, 3, 4, 6]
     eps = [1e-8, 1e-5, 1e-3]
 
