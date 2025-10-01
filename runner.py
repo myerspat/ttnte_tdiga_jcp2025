@@ -121,6 +121,9 @@ class Runner:
                     start = time.time()
                     try:
                         lsoptions.gpu_idx = device
+                        lsoptions.solve_method = (
+                            "incremental" if device is None else "batched"
+                        )
                         results = self._run_case(
                             num_ordinates,
                             factor,
@@ -174,6 +177,8 @@ class Runner:
                         "eps": eps,
                         "device": device,
                     }
+                    # Reset TTs
+                    self._tts = None
                     self._idx += 1
                     gc.collect()
 
@@ -348,8 +353,8 @@ class Runner:
                 "B_out": self._tts.B_out.ranks,
             }
             if isinstance(self._tts.B_in, TTOperator):
-                result["nelements"]["tt"]["B_in"] = self._tts.B_in.nelements
-                result["compression"]["tt"]["B_in"] = self._tts.B_in.compression
+                result["nelements"]["tts"]["B_in"] = self._tts.B_in.nelements
+                result["compression"]["tts"]["B_in"] = self._tts.B_in.compression
                 result["ranks"]["B_in"] = self._tts.B_in.ranks
 
         except Exception as e:
