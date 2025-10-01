@@ -299,7 +299,7 @@ if __name__ == "__main__":
         dir / "direction/processed_direction.jsonl",
         lambda line_data: (
             (True, line_data["compression"]["tts"])
-            if line_data["device"] == "cpu"
+            if line_data["device"] == "cpu" and "tts" in line_data["compression"]
             else (False, None)
         ),
     )
