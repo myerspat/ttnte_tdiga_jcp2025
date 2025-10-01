@@ -41,7 +41,7 @@ if __name__ == "__main__":
     (dir / "direction/figs").mkdir(parents=True, exist_ok=True)
 
     # Solutions from OpenMC
-    leakage_frac_openmc = [0.42095701399999963, 2.2038687252709062e-05]
+    leakage_frac_openmc = [0.43995423399999983, 2.2245143201699137e-05]
 
     num_ordinates = [16, 64, 256, 1024, 4096, 16384, 65536, 262144]
     degrees = [2, 3, 4, 6]
