@@ -304,10 +304,33 @@ if __name__ == "__main__":
         ),
     )
 
+    data2 = get_jsonl_data(
+        dir / "direction/processed_direction.jsonl",
+        lambda line_data: (
+            (True, line_data["compression"]["matrix"])
+            if line_data["device"] == "cpu" and "matrix" in line_data["compression"]
+            else (False, None)
+        ),
+    )
+
     plt.clf()
     for op in ["H", "S", "B_out"]:
         for degree in degrees:
             plt.clf()
+            plt.plot(
+                [
+                    d["num_ordinates"]
+                    for d in data2
+                    if d["eps"] == eps[0] and d["degree"] == degree
+                ],
+                [
+                    np.array(d[op]).max()
+                    for d in data2
+                    if d["eps"] == eps[0] and d["degree"] == degree
+                ],
+                "-o",
+                label=f"CSR: $p={degree}$",
+            )
             for i in range(len(eps)):
                 plt.plot(
                     [
@@ -321,7 +344,7 @@ if __name__ == "__main__":
                         if d["eps"] == eps[i] and d["degree"] == degree
                     ],
                     "-o",
-                    label=f"$p={degree},\\epsilon={eps2str(eps[i])}$",
+                    label=f"TT: $p={degree},\\epsilon={eps2str(eps[i])}$",
                 )
             plt.xlabel("Number of Ordinates")
             plt.ylabel(f"Compression of ${prettyOp(op, 'TT')}$")
