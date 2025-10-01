@@ -223,23 +223,26 @@ if __name__ == "__main__":
         # Iterate through eps
         plt.clf()
         for i in range(len(eps)):
+            ordinates = [
+                d["num_ordinates"]
+                for d in data
+                if len(d["value"]) > i and d["eps"] == eps[i] and d["degree"] == degree
+            ]
             plt.plot(
-                [
-                    d["num_ordinates"]
-                    for d in data
-                    if d["eps"] == eps[i] and d["degree"] == degree
-                ],
+                ordinates,
                 np.abs(
                     np.array(
                         [
                             abs(d["value"][-1])
                             for d in data
-                            if d["eps"] == eps[i] and d["degree"] == degree
+                            if len(d["value"]) > i
+                            and d["eps"] == eps[i]
+                            and d["degree"] == degree
                         ]
                     )
-                    - csr[1]
+                    - csr[1][: len(ordinates)]
                 )
-                / csr[1],
+                / csr[1][: len(ordinates)],
                 "-o",
                 label=f"TT (rounded): $p={degree},\\epsilon={eps2str(eps[i])}$",
             )
