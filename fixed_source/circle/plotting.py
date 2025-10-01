@@ -371,25 +371,21 @@ if __name__ == "__main__":
 
     # SVD truncation tolerance doesn't actually change the number of ranks
     for degree in degrees:
-        plt.clf()
         for i in range(len(eps)):
-            for j, name in enumerate(
-                ["CSR", "TT", "Mixed", "TT (rounded)"]
-                if i == 0
-                else ["TT", "Mixed", "TT (rounded)"]
-            ):
+            plt.clf()
+            for j, name in enumerate(["CSR", "TT", "Mixed", "TT (rounded)"]):
                 plt.plot(
                     [
                         d["num_ordinates"]
                         for d in data
-                        if d["eps"] == eps[0]
+                        if d["eps"] == (eps[i] if name != "CSR" else eps[0])
                         and d["degree"] == degree
                         and name in d["solve_method"]
                     ],
                     [
                         d["total"][d["solve_method"].index(name)]
                         for d in data
-                        if d["eps"] == eps[i]
+                        if d["eps"] == (eps[i] if name != "CSR" else eps[0])
                         and d["degree"] == degree
                         and name in d["solve_method"]
                     ],
