@@ -347,7 +347,7 @@ if __name__ == "__main__":
                     label=f"TT: $p={degree},\\epsilon={eps2str(eps[i])}$",
                 )
             plt.xlabel("Number of Ordinates")
-            plt.ylabel(f"Compression of ${prettyOp(op, 'TT')}$")
+            plt.ylabel(f"Compression of ${prettyOp(op, '')}$")
             plt.xscale("log")
             plt.yscale("log")
             plt.legend()
