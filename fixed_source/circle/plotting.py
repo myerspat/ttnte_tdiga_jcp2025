@@ -354,32 +354,57 @@ if __name__ == "__main__":
             plt.tight_layout()
             plt.savefig(f"./direction/figs/{op}_compression_p{degree}.png", dpi=300)
 
-    # data = get_jsonl_data(
-    #     dir / "direction/processed_direction.jsonl",
-    #     lambda line_data: (
-    #         (True, {"total", line_data["compression"]["total"]})
-    #         if line_data["device"] == "cpu"
-    #         else (False, None)
-    #     ),
-    # )
+    data = get_jsonl_data(
+        dir / "direction/processed_direction.jsonl",
+        lambda line_data: (
+            (
+                True,
+                {
+                    "total": line_data["compression"]["total"],
+                    "solve_method": line_data["solve_method"],
+                },
+            )
+            if line_data["device"] == "cpu" and "total" in line_data["compression"]
+            else (False, None)
+        ),
+    )
 
-    # TODO: Rerun to make sure we actually get this for all operators
-    # # SVD truncation tolerance doesn't actually change the number of ranks
-    # clf.eps()
-    # for degree in degrees:
-    #     for i, name in enumerate(["CSR", "TT", "Mixed", "TT (rounded)"]):
-    #         plt.plot(
-    #             [
-    #                 d["num_ordinates"]
-    #                 for d in data
-    #                 if d["eps"] == eps[0] and d["degree"] == degree
-    #             ],
-    #             [
-    #                 np.array(d[total]).max()
-    #                 for d in data
-    #                 if d["eps"] == eps[i] and d["degree"] == degree
-    #             ],
-    #         )
+    # SVD truncation tolerance doesn't actually change the number of ranks
+    for degree in degrees:
+        plt.clf()
+        for i in range(len(eps)):
+            for j, name in enumerate(
+                ["CSR", "TT", "Mixed", "TT (rounded)"]
+                if i == 0
+                else ["TT", "Mixed", "TT (rounded)"]
+            ):
+                plt.plot(
+                    [
+                        d["num_ordinates"]
+                        for d in data
+                        if d["eps"] == eps[0]
+                        and d["degree"] == degree
+                        and name in d["solve_method"]
+                    ],
+                    [
+                        d["total"][d["solve_method"].index(name)]
+                        for d in data
+                        if d["eps"] == eps[i]
+                        and d["degree"] == degree
+                        and name in d["solve_method"]
+                    ],
+                    "-o",
+                    label=name,
+                )
+            plt.xlabel("Number of Ordinates")
+            plt.ylabel(f"Compression of ${prettyOp('T', '')}$")
+            plt.xscale("log")
+            plt.yscale("log")
+            plt.legend()
+            plt.tight_layout()
+            plt.savefig(
+                f"./direction/figs/T_compression_p{degree}_eps{eps[i]}.png", dpi=300
+            )
 
     # ========================================================================
     # Matvec scaling
