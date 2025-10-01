@@ -264,7 +264,7 @@ if __name__ == "__main__":
         dir / "direction/processed_direction.jsonl",
         lambda line_data: (
             (True, line_data["ranks"])
-            if line_data["device"] == "cpu"
+            if line_data["device"] == "cpu" and "ranks" in line_data
             else (False, None)
         ),
     )
