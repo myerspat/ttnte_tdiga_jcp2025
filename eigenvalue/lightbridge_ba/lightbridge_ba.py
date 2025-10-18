@@ -86,13 +86,13 @@ if __name__ == "__main__":
     tn.set_default_dtype(tn.float64)
 
     # Change number of threads used by PyTorch
-    # num_threads = 128 - 8
-    # tn.set_num_threads(num_threads)
-    # tn.set_num_interop_threads(num_threads)
+    num_threads = 128 - 8
+    tn.set_num_threads(num_threads)
+    tn.set_num_interop_threads(num_threads)
 
     # Discretization
-    num_ordinates = 64
-    factor = 3
+    num_ordinates = 1024
+    factor = 10
     degree = 2
     X = 1.36 / 2
 
@@ -192,9 +192,8 @@ if __name__ == "__main__":
 
     def mixed():
         return (
-            tts.H.clone()
+            (tts.H.clone() - tts.S.clone()).round(1e-5)
             + (mats.B_out.clone() - mats.B_in.clone()).combine()
-            - tts.S.clone()
         ), tts.F
 
     # =====================================================================
@@ -211,9 +210,9 @@ if __name__ == "__main__":
             T=T,
             F=F,
             tol=1e-8,
-            maxiter=500,
+            maxiter=1000,
             gpu_idx=0,
-            lsoptions=LinearSolverOptions(restart=50, maxiter=5, tol=1e-8),
+            lsoptions=LinearSolverOptions(restart=75, maxiter=10, tol=1e-8),
         )
 
         # Ravel solution back
