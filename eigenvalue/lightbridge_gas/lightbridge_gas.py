@@ -234,7 +234,7 @@ if __name__ == "__main__":
     # Load OpenMC solution
     # =====================================================================
     # Get OpenMC solution
-    k_mc = [0.8394194157475255, 5.56599699347134e-05]
+    k_mc = [1.256694399791112, 6.641896241106302e-05]
     phi_mc = np.load("./openmc/mesh_flux.npy")
     phi_mc_stdev = np.load("./openmc/mesh_stdev.npy")
 
