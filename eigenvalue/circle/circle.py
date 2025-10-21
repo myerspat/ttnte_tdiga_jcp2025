@@ -91,14 +91,14 @@ if __name__ == "__main__":
     tn.set_default_dtype(tn.float64)
 
     # Change number of threads used by PyTorch
-    # num_threads = 128 - 8
-    # tn.set_num_threads(num_threads)
-    # tn.set_num_interop_threads(num_threads)
+    num_threads = 128 - 8
+    tn.set_num_threads(num_threads)
+    tn.set_num_interop_threads(num_threads)
 
     # Discretization
     num_ordinates = 4096
     factor = 10
-    degree = 2
+    degree = 4
 
     # Critical radius
     rc = 4.279960  # cm
@@ -156,7 +156,7 @@ if __name__ == "__main__":
     solutions = {}
     for name, get_ops in zip(
         ["CSR", "Mixed", "TT"],
-        [csr_only, mixed, tts_only, tts_only_rounded],
+        [csr_only, mixed, tts_only_rounded],
     ):
         T, F = get_ops()
         print(f"Total Compression: {T.compression}")
@@ -166,7 +166,7 @@ if __name__ == "__main__":
             tol=1e-8,
             maxiter=500,
             gpu_idx=0,
-            lsoptions=LinearSolverOptions(restart=20, maxiter=5, tol=1e-8),
+            lsoptions=LinearSolverOptions(restart=30, maxiter=10, tol=1e-10),
         )
 
         # Ravel solution back
@@ -221,8 +221,6 @@ if __name__ == "__main__":
         stats["psi"]["rc"]["l2 error"].append(
             np.trapz((points[:, 1] - 0.2926) ** 2, points[:, 0])
         )
-
-    print(stats)
 
     # Save results
     with open("stats.pkl", "wb") as f:
