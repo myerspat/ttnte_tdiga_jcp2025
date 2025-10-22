@@ -12,7 +12,7 @@ from ttnte.assemblers import MatrixAssembler, TTAssembler
 from ttnte.cad import Patch
 from ttnte.cad.surfaces import circle
 from ttnte.iga import IGAMesh
-from ttnte.linalg import LinearSolverOptions, cpp_available, power
+from ttnte.linalg import LinearSolverOptions, TTOperator, cpp_available, power
 from ttnte.xs.benchmarks import pu239
 
 
@@ -159,7 +159,6 @@ if __name__ == "__main__":
         [csr_only, mixed, tts_only_rounded],
     ):
         T, F = get_ops()
-        print(f"Total Compression: {T.compression}")
         psi, k = power(
             T=T,
             F=F,
@@ -174,6 +173,8 @@ if __name__ == "__main__":
 
         # Append solution
         solutions[name] = (psi, k)
+
+    assert 0 == 1
 
     # Save solutions
     with open("solutions.pkl", "wb") as f:
@@ -214,12 +215,14 @@ if __name__ == "__main__":
         points = evaluate_radius(mesh, 0.5 * rc, tol=1e-10)
         stats["psi"]["0.5rc"]["l2 error"].append(
             np.trapz((points[:, 1] - 0.8093) ** 2, points[:, 0])
+            / (2 * np.pi * 0.8093**2)
         )
 
         # Flux statistics at r = rc
         points = evaluate_boundary(mesh)
         stats["psi"]["rc"]["l2 error"].append(
             np.trapz((points[:, 1] - 0.2926) ** 2, points[:, 0])
+            / (2 * np.pi * 0.2926**2)
         )
 
     # Save results
@@ -252,7 +255,7 @@ if __name__ == "__main__":
     ax.set_xticks(ticks)
     ax.set_xticklabels(tick_labels)
     ax.set_xlabel(r"$\theta$")
-    ax.set_ylabel(r"$\epsilon_r(r = 0.5r_c, \theta)$")
+    ax.set_ylabel(r"$\epsilon_1(r = 0.5r_c, \theta)$")
     plt.legend()
     plt.tight_layout()
     plt.savefig(f"./figs/error_0.5rc.png", dpi=300)
@@ -278,7 +281,7 @@ if __name__ == "__main__":
     ax.set_xticks(ticks)
     ax.set_xticklabels(tick_labels)
     ax.set_xlabel(r"$\theta$")
-    ax.set_ylabel(r"$\epsilon_r(r = r_c, \theta)$")
+    ax.set_ylabel(r"$\epsilon_1(r = r_c, \theta)$")
     plt.legend()
     plt.tight_layout()
     plt.savefig(f"./figs/error_rc.png", dpi=300)
@@ -300,15 +303,16 @@ if __name__ == "__main__":
     pos = ax.get_position()  # returns Bbox: (x0, y0, x1, y1)
 
     # Choose a new width for the colorbar (e.g., 40% of figure)
-    cbar_width = 0.4
-    cbar_height = 0.03
+    cbar_width = 0.03
+    cbar_height = 0.4
     cbar_bottom = 0.18  # your chosen vertical position
 
     # Compute centered left coordinate relative to the 3D plot
     left = pos.x0 + (pos.width - cbar_width) / 2 + 0.005
-    cax = fig.add_axes([left, cbar_bottom, cbar_width, cbar_height])
-    cbar = fig.colorbar(ax.collections[0], cax=cax, orientation="horizontal")
-    cbar.set_label("$\\phi(\\hat{x}, \\hat{y})$")
+    cax = fig.add_axes([left + 0.19, cbar_bottom + 0.085, cbar_width, cbar_height])
+    cbar = fig.colorbar(ax.collections[0], cax=cax, orientation="vertical")
+    cbar.ax.tick_params(labelrotation=0, labelsize=12)
+    cbar.set_label("$\\phi(\\hat{x}, \\hat{y})$", rotation=0, labelpad=25, fontsize=14)
     ax.grid(False)
     # Turn off panes and ticks
     ax.set_xticks([])
