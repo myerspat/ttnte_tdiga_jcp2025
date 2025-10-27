@@ -24,7 +24,7 @@ from ttnte.iga import IGAMesh
 
 
 class Runner:
-    configs = ["CSR", "TT", "Mixed", "TT (rounded)"]
+    configs = ["CSR", "TT", "Mixed", "TT (rounded)", "Mixed (rounded)"]
 
     def __init__(
         self,
@@ -55,6 +55,14 @@ class Runner:
         # Path to meshes
         self._mesh_dir = self._study_path / "meshes"
         self._rnorm_dir = self._study_path / "rnorms"
+
+        self._methods = {
+            "CSR": self._pureCSR,
+            "TT": self._pureTT,
+            "Mixed": self._mixed,
+            "TT (rounded)": self._pureTTrounded,
+            "Mixed (rounded)": self._mixed_rounded,
+        }
 
     # ======================================================================
     # Methods
@@ -367,10 +375,7 @@ class Runner:
             raise RuntimeError("Operators failed to build")
 
         # Iterate through each case
-        for name, get_total_op in zip(
-            self.configs,
-            [self._pureCSR, self._pureTT, self._mixed, self._pureTTrounded],
-        ):
+        for name in self.configs:
             # Skip whats already been done
             if name == "CSR" and eps != self._eps[0]:
                 continue
@@ -394,7 +399,7 @@ class Runner:
 
             try:
                 # Get total operator
-                T = get_total_op(self._mats, self._tts, eps)
+                T = self._methods[name](self._mats, self._tts, eps)
 
                 # Add total operator data
                 subresult["nelements"] = T.nelements
@@ -473,12 +478,12 @@ class Runner:
                 print(f"Config {name} failed with exception {e}")
 
                 # Clear problematic operators if needed
-                if name in ("CSR", "Mixed"):
+                if name in ("CSR", "Mixed", "Mixed (rounded)"):
                     del self._mats
                     gc.collect()
                     self._mats = None
 
-                if name in ("TT", "Mixed", "TT (rounded)"):
+                if name in ("TT", "Mixed", "TT (rounded)", "Mixed (rounded)"):
                     del self._tts
                     gc.collect()
                     self._tts = None
@@ -600,4 +605,16 @@ class Runner:
                 if mats.B_in is not None
                 else (mats.B_out)
             )
+        )
+
+    @staticmethod
+    def _mixed_rounded(mats: OperatorData, tts: OperatorData, eps: float):
+        """"""
+        assert tts.H is not None
+        assert mats.B_out is not None
+        assert tts.S is not None
+        return (tts.H - tts.S).round(eps) + (
+            (mats.B_out - mats.B_in).combine()
+            if mats.B_in is not None
+            else (mats.B_out)
         )

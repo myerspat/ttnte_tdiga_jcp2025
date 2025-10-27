@@ -159,6 +159,10 @@ if __name__ == "__main__":
         [csr_only, mixed, tts_only_rounded],
     ):
         T, F = get_ops()
+        print(f"Compression: {T.compression}")
+        for op in T.operators:
+            if isinstance(op, TTOperator):
+                print(f"Ranks: {op.ranks}")
         psi, k = power(
             T=T,
             F=F,
@@ -173,8 +177,6 @@ if __name__ == "__main__":
 
         # Append solution
         solutions[name] = (psi, k)
-
-    assert 0 == 1
 
     # Save solutions
     with open("solutions.pkl", "wb") as f:

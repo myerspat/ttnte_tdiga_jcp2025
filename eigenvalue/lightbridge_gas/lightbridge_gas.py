@@ -14,8 +14,10 @@ from ttnte.assemblers import MatrixAssembler, TTAssembler
 from ttnte.cad import Patch
 from ttnte.cad.curves import qtrlobe
 from ttnte.iga import IGAMesh
-from ttnte.linalg import LinearSolverOptions, cpp_available, power
+from ttnte.linalg import LinearSolverOptions, TTOperator, cpp_available, power
 from ttnte.xs.benchmarks import kaist
+
+plt.rcParams["legend.fontsize"] = 14
 
 
 def get_mesh(
@@ -103,7 +105,7 @@ if __name__ == "__main__":
     # Plot the problem
     # =====================================================================
     mesh = get_mesh(
-        factor=3, degree=2, materials=["Displacer", "Fuel", "Cladding", "Water"]
+        factor=3, degree=2, materials=["Gas", "UO2 3%", "Guide Tube", "Water"]
     )
     print(mesh)
 
@@ -113,9 +115,9 @@ if __name__ == "__main__":
         plot_ctrlpts=False,
         color_by="material",
         colors={
-            "Displacer": "#800080",
-            "Fuel": "#E69F00",
-            "Cladding": "#ABABAB",
+            "Gas": "#800080",
+            "UO2 3%": "#E69F00",
+            "Guide Tube": "#ABABAB",
             "Water": "#0072B2",
         },
     )
@@ -142,6 +144,8 @@ if __name__ == "__main__":
             linewidth=1.5,
         )
         ax.add_patch(outline)
+
+    plt.axis("off")
 
     plt.tight_layout()
     dx = 0.01 * (ax.get_xlim()[1] - ax.get_xlim()[0])
@@ -200,23 +204,31 @@ if __name__ == "__main__":
             + (mats.B_out.clone() - mats.B_in.clone()).combine()
         ), tts.F
 
+    def tt_only():
+        return (
+            tts.H.clone() - tts.S.clone() + tts.B_out.clone() - tts.B_in.clone()
+        ).round(1e-5), tts.F
+
     # =====================================================================
     # Solve each problem
     # =====================================================================
     solutions = {}
     for name, get_ops in zip(
-        ["CSR", "Mixed"],
-        [csr_only, mixed],
+        ["TT"],
+        [tt_only],
     ):
         T, F = get_ops()
         print(f"Total Compression: {T.compression}")
+        for op in T.operators:
+            if isinstance(op, TTOperator):
+                print(f"Ranks: {op.ranks}")
         psi, k = power(
             T=T,
             F=F,
             tol=1e-8,
             maxiter=1000,
             gpu_idx=0,
-            lsoptions=LinearSolverOptions(restart=75, maxiter=10, tol=1e-8),
+            lsoptions=LinearSolverOptions(restart=75, maxiter=10, tol=1e-10),
         )
 
         # Ravel solution back
@@ -255,12 +267,6 @@ if __name__ == "__main__":
             "std_score": [],
         },
         "psi": {
-            "minimum": [],
-            "q1": [],
-            "median": [],
-            "q2": [],
-            "maximum": [],
-            "mean": [],
             "error": {
                 "minimum": [],
                 "q1": [],
@@ -378,7 +384,8 @@ if __name__ == "__main__":
     # =====================================================================
     # Plot results
     # =====================================================================
-    psi, k = solutions[stats["methods"][np.argmin(stats["k"]["error"])]]
+    # psi, k = solutions[stats["methods"][np.argmin(stats["k"]["error"])]]
+    psi, k = solutions["CSR"]
 
     # Integrate angular component to get scalar flux
     phi = assembler.angular_integral(psi).numpy()
@@ -396,7 +403,9 @@ if __name__ == "__main__":
         # Plot
         plt.clf()
         ax, cbar = mesh.plot(plot_ctrlpts=False)
-        cbar.set_label(f"$\\phi_{g + 1}" + "(\\hat{x}, \\hat{y})$")
+        cbar.set_label(f"$\\phi_{g + 1}" + "(\\hat{x}, \\hat{y})$", fontsize=14)
+        cbar.ax.tick_params(labelsize=12)
+        ax.axis("off")
         plt.tight_layout()
         plt.savefig(f"./figs/phi_{g + 1}.png", dpi=300)
 
@@ -427,5 +436,6 @@ if __name__ == "__main__":
             ax.set_aspect("equal")
             ax.set_xlabel(r"$x(\hat{x}, \hat{y})~(cm)$")
             ax.set_ylabel(r"$y(\hat{x}, \hat{y})~(cm)$")
+            ax.axis("off")
             plt.tight_layout()
             plt.savefig(f"./figs/{error_name}_{g + 1}.png", transparent=True, dpi=300)
