@@ -2,7 +2,7 @@ import multiprocessing
 import pickle
 import sys
 import time
-from typing import Literal
+from typing import Literal, Tuple, Union
 
 if __name__ == "__main__":
     multiprocessing.set_start_method("spawn")
@@ -13,71 +13,47 @@ import torch as tn
 from igakit import cad
 from ttnte.assemblers import MatrixAssembler, TTAssembler
 from ttnte.cad import Patch
-from ttnte.cad.curves import qtrlobe
 from ttnte.iga import IGAMesh
 from ttnte.linalg import LinearSolverOptions, TTOperator, cpp_available, power
-from ttnte.xs.benchmarks import kaist
+from ttnte.xs.benchmarks import c5g7
 
 from runner import Runner
 
 
 def get_xs(num_groups: Literal[7]):
     """"""
-    server = kaist()
+    server = c5g7()
     assert server.num_groups == num_groups
     return server
 
 
-def get_mesh(
-    factor, degree, materials=["BA (UO2 FA)", "UO2 3%", "Guide Tube", "Water"]
-):
-    D = 1.26  # Fuel width
-    D2 = D * 0.5
-    X = 1.36  # Channel pitch
-    delta = 0.306  # Width of lobes
-    y2 = delta * 0.5
-    d = 0.04  # Thickness of cladding at valleys
-    dmax = 0.102  # Thickness of cladding at ends of the lobes
-    R = 0.297  # Radius defining outer curve of valleys
-    a = 0.156  # Displacer width
+def get_mesh(factor: Union[int, Tuple[int]], degree: Union[int, Tuple[int]]):
+    """"""
+    # Create quarter circle NURBS surface
+    radius = 0.54  # cm
+    pitch = 1.26  # cm
+    c0 = cad.circle(radius=radius, angle=np.pi / 2)
+    c1 = c0.slice(0, 0, 0.5)
+    c2 = c0.slice(0, 0.5, 1)
+    l0 = cad.line(p0=(0, 0), p1=(0, 0))
 
-    y1 = y2 - d  # Half of width of inner lobe
-    x1 = D2 - R - y2 - dmax  # Portrusion of innerlobe
-    x2 = x1 + dmax  # Portrusion of outer lobe
+    # Create water patch
+    l1 = cad.line(p0=(pitch / 2, 0), p1=(pitch / 2, pitch / 2))
+    l2 = cad.line(p0=(pitch / 2, pitch / 2), p1=(0, pitch / 2))
 
-    # NURBS curves
-    origin = cad.line(p0=(0, 0), p1=(0, 0))
-    burn = cad.line(p1=(a / (2**0.5), 0), p0=(0, a / (2**0.5)))
-    fuel = qtrlobe(outrad=R + d, portrs=x1, hfwidth=y1)
-    clad = qtrlobe(outrad=R, portrs=x2, hfwidth=y2)
-    topedge = cad.line(p0=(0, X / 2), p1=(X / 2, X / 2))
-    corner = cad.line(p1=(X / 2, X / 2), p0=(X / 2, X / 2))
-    rightedge = cad.line(p1=(X / 2, 0), p0=(X / 2, X / 2))
+    # Create NURBS surfaces
+    fuel = [Patch(cad.ruled(l0, c1), "UO2"), Patch(cad.ruled(l0, c2), "UO2")]
+    water = [Patch(cad.ruled(c1, l1), "Water"), Patch(cad.ruled(c2, l2), "Water")]
 
-    # Create IGA mesh object
+    # Initialize IGA mesh and add the patches
     mesh = IGAMesh(max_processes=32)
+    for patch in fuel + water:
+        mesh.add_patch(patch)
 
-    # Create NURBS surfaces and add them
-    sections = [0, 1 / 3, 2 / 3, 1]
-    edges = [topedge, corner, rightedge]
-
-    for i in range(len(sections) - 1):
-        # Line sections
-        osec = origin.slice(0, sections[i], sections[i + 1])
-        bsec = burn.slice(0, sections[i], sections[i + 1])
-        fsec = fuel.slice(0, sections[i], sections[i + 1])
-        csec = clad.slice(0, sections[i], sections[i + 1])
-
-        # Create patches
-        mesh.add_patch(Patch(cad.ruled(osec, bsec), materials[0]))
-        mesh.add_patch(Patch(cad.ruled(bsec, fsec), materials[1]))
-        mesh.add_patch(Patch(cad.ruled(fsec, csec), materials[2]))
-        mesh.add_patch(Patch(cad.ruled(csec, edges[i]), materials[3]))
-
-    # Refine mesh
+    # Refine each patch to have 6 knot spans with degree 2
     mesh.refine(factor, degree)
 
-    # Finalize mesh
+    # Connect patches
     mesh.connect()
 
     # Set reflective boundary conditions
@@ -102,7 +78,7 @@ if __name__ == "__main__":
     tn.set_num_interop_threads(num_threads)
 
     # Discretization
-    num_ordinates = 256
+    num_ordinates = 1024
     factor = 10
     degree = 2
     eps = 1e-5
@@ -157,7 +133,6 @@ if __name__ == "__main__":
         mesh=mesh,
         xs_server=xs_server,
         num_ordinates=num_ordinates,
-        max_processes=4,
     )
     mats = assembler.build()
 
