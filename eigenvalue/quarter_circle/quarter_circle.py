@@ -2,7 +2,7 @@ import multiprocessing
 import pickle
 import sys
 import time
-from typing import Literal
+from typing import Literal, Tuple, Union
 
 if __name__ == "__main__":
     multiprocessing.set_start_method("spawn")
@@ -13,75 +13,40 @@ import torch as tn
 from igakit import cad
 from ttnte.assemblers import MatrixAssembler, TTAssembler
 from ttnte.cad import Patch
-from ttnte.cad.curves import qtrlobe
 from ttnte.iga import IGAMesh
 from ttnte.linalg import LinearSolverOptions, TTOperator, cpp_available, power
-from ttnte.xs.benchmarks import kaist
+from ttnte.xs.benchmarks import pu239
 
 from runner import Runner
 
 
-def get_xs(num_groups: Literal[7]):
+def get_xs(num_groups: Literal[1, 2]):
     """"""
-    server = kaist()
+    server = pu239(num_groups)
     assert server.num_groups == num_groups
     return server
 
 
-def get_mesh(
-    factor, degree, materials=["BA (UO2 FA)", "UO2 3%", "Guide Tube", "Water"]
-):
-    D = 1.26  # Fuel width
-    D2 = D * 0.5
-    X = 1.36  # Channel pitch
-    delta = 0.306  # Width of lobes
-    y2 = delta * 0.5
-    d = 0.04  # Thickness of cladding at valleys
-    dmax = 0.102  # Thickness of cladding at ends of the lobes
-    R = 0.297  # Radius defining outer curve of valleys
-    a = 0.156  # Displacer width
+def get_mesh(factor: Union[int, Tuple[int]], degree: Union[int, Tuple[int]]):
+    """"""
+    # Create NURBS surface
+    rc = 4.279960  # Critical radius (cm)
+    c0 = cad.circle(radius=rc, angle=np.pi / 2)
+    l0 = cad.line(p0=(0, 0), p1=(0, 0))
+    patch = Patch(cad.ruled(l0, c0), "Pu-239")
 
-    y1 = y2 - d  # Half of width of inner lobe
-    x1 = D2 - R - y2 - dmax  # Portrusion of innerlobe
-    x2 = x1 + dmax  # Portrusion of outer lobe
+    # Create mesh
+    mesh = IGAMesh()
+    mesh.add_patch(patch)
 
-    # NURBS curves
-    origin = cad.line(p0=(0, 0), p1=(0, 0))
-    burn = cad.line(p1=(a / (2**0.5), 0), p0=(0, a / (2**0.5)))
-    fuel = qtrlobe(outrad=R + d, portrs=x1, hfwidth=y1)
-    clad = qtrlobe(outrad=R, portrs=x2, hfwidth=y2)
-    topedge = cad.line(p0=(0, X / 2), p1=(X / 2, X / 2))
-    corner = cad.line(p1=(X / 2, X / 2), p0=(X / 2, X / 2))
-    rightedge = cad.line(p1=(X / 2, 0), p0=(X / 2, X / 2))
+    # Refine mesh resolution
+    mesh.refine(factor=factor, degree=degree)
 
-    # Create IGA mesh object
-    mesh = IGAMesh(max_processes=32)
-
-    # Create NURBS surfaces and add them
-    sections = [0, 1 / 3, 2 / 3, 1]
-    edges = [topedge, corner, rightedge]
-
-    for i in range(len(sections) - 1):
-        # Line sections
-        osec = origin.slice(0, sections[i], sections[i + 1])
-        bsec = burn.slice(0, sections[i], sections[i + 1])
-        fsec = fuel.slice(0, sections[i], sections[i + 1])
-        csec = clad.slice(0, sections[i], sections[i + 1])
-
-        # Create patches
-        mesh.add_patch(Patch(cad.ruled(osec, bsec), materials[0]))
-        mesh.add_patch(Patch(cad.ruled(bsec, fsec), materials[1]))
-        mesh.add_patch(Patch(cad.ruled(fsec, csec), materials[2]))
-        mesh.add_patch(Patch(cad.ruled(csec, edges[i]), materials[3]))
-
-    # Refine mesh
-    mesh.refine(factor, degree)
-
-    # Finalize mesh
+    # Connect patches
     mesh.connect()
 
     # Set reflective boundary conditions
-    mesh.set_reflective_conditions(("left", "bottom", "top", "right"))
+    mesh.set_reflective_conditions(("left", "bottom"))
 
     # Finalize mesh
     mesh.finalize()
@@ -102,14 +67,14 @@ if __name__ == "__main__":
     tn.set_num_interop_threads(num_threads)
 
     # Discretization
-    num_ordinates = 256
-    factor = 10
-    degree = 2
+    num_ordinates = 4096
+    factor = [6, 12]
+    degree = 4
     eps = 1e-5
 
     # Power iteration options
     tol = 1e-8
-    maxiter = 1000
+    maxiter = 500
     gpu_idx = 0
     verbose = True
 
@@ -117,13 +82,13 @@ if __name__ == "__main__":
     lsoptions = LinearSolverOptions(
         tol=1e-10,
         maxiter=10,
-        restart=75,
+        restart=30,
         solve_method="batched",
         verbose=True,
     )
 
     # Get XS data
-    xs_server = get_xs(7)
+    xs_server = get_xs(1)
 
     # Get mesh
     mesh = get_mesh(factor=factor, degree=degree)
@@ -157,7 +122,6 @@ if __name__ == "__main__":
         mesh=mesh,
         xs_server=xs_server,
         num_ordinates=num_ordinates,
-        max_processes=4,
     )
     mats = assembler.build()
 
@@ -211,8 +175,14 @@ if __name__ == "__main__":
     # =====================================================================
     solutions = {}
     for name, get_ops in zip(
-        ["CSR", "Mixed", "Mixed (rounded)"],
-        [Runner._pureCSR, Runner._mixed, Runner._mixed_rounded],
+        ["TT", "TT (rounded)", "CSR", "Mixed", "Mixed (rounded)"],
+        [
+            Runner._pureTT,
+            Runner._pureTTrounded,
+            Runner._pureCSR,
+            Runner._mixed,
+            Runner._mixed_rounded,
+        ],
     ):
         print(name)
         # Get total operator
