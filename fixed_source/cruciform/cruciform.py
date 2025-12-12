@@ -227,6 +227,7 @@ if __name__ == "__main__":
         ["CSR", "Mixed", "Mixed (rounded)"],
         [Runner._pureCSR, Runner._mixed, Runner._mixed_rounded],
     ):
+        print(name)
         # Get total operator
         T = get_ops(mats, tts, eps)
         print(f"Total Compression: {T.compression}")
