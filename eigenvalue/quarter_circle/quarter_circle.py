@@ -74,7 +74,7 @@ if __name__ == "__main__":
 
     # Power iteration options
     tol = 1e-8
-    maxiter = 500
+    maxiter = 1000
     gpu_idx = 0
     verbose = True
 
