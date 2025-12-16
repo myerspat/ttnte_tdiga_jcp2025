@@ -102,7 +102,7 @@ if __name__ == "__main__":
     tn.set_num_interop_threads(num_threads)
 
     # Discretization
-    num_ordinates = 256
+    num_ordinates = 1024
     factor = 10
     degree = 2
     eps = 1e-5

@@ -26,10 +26,10 @@ if __name__ == "__main__":
     # Solutions from OpenMC
     k_mc = [0.8394194157475255, 5.56599699347134e-05]
     phi_mc = np.load(
-        "/home/myerspat/research/tensor_trains/tt_nte/notebooks/eigenvalue/lightbridge/openmc/openmc_ba/data/mesh_flux.npy"
+        "../../../ttnte/notebooks/eigenvalue/lightbridge/openmc/openmc_ba/data/mesh_flux.npy"
     )
     phi_mc_stdev = np.load(
-        "/home/myerspat/research/tensor_trains/tt_nte/notebooks/eigenvalue/lightbridge/openmc/openmc_ba/data/mesh_stdev.npy"
+        "../../../ttnte/notebooks/eigenvalue/lightbridge/openmc/openmc_ba/data/mesh_stdev.npy"
     )
     phi_mc_stdev /= np.linalg.norm(phi_mc.flatten(), 2)
     phi_mc /= np.linalg.norm(phi_mc.flatten(), 2)
