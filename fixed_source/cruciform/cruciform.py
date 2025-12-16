@@ -122,8 +122,8 @@ if __name__ == "__main__":
 
     # Discretization
     num_ordinates = 4096
-    factor = 10
-    degree = 2
+    factor = 13
+    degree = 3
     eps = 1e-5
 
     # GMRES options

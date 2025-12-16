@@ -20,7 +20,6 @@ plt.rcParams["axes.labelsize"] = 16
 plt.rcParams["xtick.labelsize"] = 14
 plt.rcParams["ytick.labelsize"] = 14
 plt.rcParams["legend.fontsize"] = 14
-plt.rcParams["axes.grid"] = True
 
 if __name__ == "__main__":
     # Solutions from OpenMC
@@ -75,11 +74,10 @@ if __name__ == "__main__":
     dy = 0.01 * (ax.get_ylim()[1] - ax.get_ylim()[0])
     plt.xlim((ax.get_xlim()[0] - dx, ax.get_xlim()[1] + dx))
     plt.ylim((ax.get_ylim()[0] - dy, ax.get_ylim()[1] + dy))
-    plt.grid(False)
     plt.savefig("./figs/cruciform.png", dpi=300, transparent=True)
 
     # Create matrix assembler
-    assembler = MatrixAssembler(mesh, get_xs(1), data["num_ordinates"])
+    assembler = MatrixAssembler(mesh, get_xs(data["num_groups"]), data["num_ordinates"])
 
     # Calculate scalar flux
     phi = assembler.angular_integral(
@@ -95,7 +93,6 @@ if __name__ == "__main__":
     mesh.set_phi(phi[0,])
     ax, cbar = mesh.plot(plot_ctrlpts=False)
     cbar.set_label(r"$\phi(\hat{x}, \hat{y})$")
-    plt.grid(False)
     plt.tight_layout()
     plt.savefig("./figs/phi.png", dpi=300, transparent=True)
 
@@ -221,10 +218,9 @@ if __name__ == "__main__":
                 ax.set_aspect("equal")
                 ax.set_xlabel(r"$x(\hat{x}, \hat{y})~(cm)$")
                 ax.set_ylabel(r"$y(\hat{x}, \hat{y})~(cm)$")
-                ax.axis("off")
                 plt.tight_layout()
                 plt.savefig(
-                    f"./figs/{error_name}_{g + 1}.png", transparent=True, dpi=300
+                    f"./figs/{error_name}_{g + 1}_{name}.png", transparent=True, dpi=300
                 )
 
             minimum[-1] = np.min(minimum[:-1])

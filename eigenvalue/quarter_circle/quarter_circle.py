@@ -68,7 +68,7 @@ if __name__ == "__main__":
 
     # Discretization
     num_ordinates = 4096
-    factor = [6, 12]
+    factor = [10, 16]
     degree = 4
     eps = 1e-5
 

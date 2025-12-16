@@ -124,7 +124,8 @@ if __name__ == "__main__":
         )
 
         # Plot error
-        ax.plot(points[:, 0], np.abs(points[:, 1] - 0.8093) / 0.8093, label=name)
+        if name == "CSR" or name == "Mixed (rounded)":
+            ax.plot(points[:, 0], (points[:, 1] - 0.8093) / 0.8093, label=name)
         i += 1
 
     ticks = [0, np.pi / 6, np.pi / 4, np.pi / 3, np.pi / 2]
@@ -132,7 +133,7 @@ if __name__ == "__main__":
         "0",
         r"$\frac{\pi}{6}$",
         r"$\frac{\pi}{4}$",
-        r"$\frac{\pi}{2}$",
+        r"$\frac{\pi}{3}$",
         r"$\frac{\pi}{2}$",
     ]
 
@@ -163,14 +164,15 @@ if __name__ == "__main__":
         )
 
         # Plot error
-        ax.plot(points[:, 0], np.abs(points[:, 1] - 0.2926) / 0.2926, label=name)
+        if name == "CSR" or name == "Mixed (rounded)":
+            ax.plot(points[:, 0], (points[:, 1] - 0.2926) / 0.2926, label=name)
 
     ticks = [0, np.pi / 6, np.pi / 4, np.pi / 3, np.pi / 2]
     tick_labels = [
         "0",
         r"$\frac{\pi}{6}$",
         r"$\frac{\pi}{4}$",
-        r"$\frac{\pi}{2}$",
+        r"$\frac{\pi}{3}$",
         r"$\frac{\pi}{2}$",
     ]
 
