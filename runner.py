@@ -407,16 +407,21 @@ class Runner:
                 if name == "CSR":
                     assert len(T.operators) == 2
                     subresult["nnz"] = T.operators[-1].nnz
-
-                if name == "TT (rounded)":
+                elif name == "TT (rounded)":
                     assert len(T.operators) == 1
                     subresult["ranks"] = T.operators[0].ranks
+                elif name == "Mixed":
+                    assert len(T.operators) == 3
+                elif name == "Mixed (rounded)":
+                    assert len(T.operators) == 2
 
                 # Run total operator through matvecs to get timing results
                 if lsoptions.gpu_idx is not None:
                     T.cuda(lsoptions.gpu_idx)
                 times = np.zeros(1000, dtype=np.float64)
-                vec = tn.rand(*T.input_shape, dtype=tn.float64, device=T.device)
+                vec = tn.rand(
+                    *T.input_shape, dtype=tn.float64, device=T.device
+                ).reshape((-1, 1))
 
                 for i in range(times.size):
                     start = time.time()
@@ -598,12 +603,12 @@ class Runner:
         assert tts.S is not None
         return (
             tts.H
-            - tts.S
             + (
                 (mats.B_out - mats.B_in).combine()
                 if mats.B_in is not None
                 else (mats.B_out)
             )
+            - tts.S
         )
 
     @staticmethod
