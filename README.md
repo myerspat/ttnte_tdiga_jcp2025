@@ -5,6 +5,12 @@ This repository stores all figures and scripts to generate the results for the s
 - Corresponding Authors: Patrick A. Myers (myerspat@umich.edu) and Brian C. Kiedrowski (bckiedro@umich.edu)
 - Target Journal: Journal of Computational Physics
 
+Specifications of the cluster used to generate these results:
+- CPU: AMD Ryzen Threadripper PRO 7985WX 64-Cores
+- GPU: NVIDIA RTX PRO 6000 Blackwell Max-Q
+- RAM: (8) Micron 64GB DDR5 5600 MT/s (Configured memory speed of 5200 MT/s)
+  - Totaling 512 GB of RAM
+
 ## Installation and Setup
 We recommend creating a new Python environment for this code. Clone commit `a19363b` for [`ttnte`](https://github.com/myerspat/ttnte/tree/a19363b610a760d1d8dd587c310cdca9739968ad):
 ```shell
