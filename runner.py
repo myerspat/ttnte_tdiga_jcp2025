@@ -1,26 +1,25 @@
-import os
 import gc
-import json
-import time
-import pickle
 import itertools
-from typing import Union, List, Tuple, Optional, Callable
+import json
+import os
+import pickle
+import time
 from pathlib import Path
+from typing import Callable, List, Optional, Tuple, Union
 
-import torch as tn
 import numpy as np
-
+import torch as tn
+from ttnte.assemblers import MatrixAssembler, OperatorData, TTAssembler
+from ttnte.iga import IGAMesh
 from ttnte.linalg import (
-    LinearSolverOptions,
-    gmres,
     LinearOperator,
-    SparseOperator,
+    LinearSolverOptions,
     ScatterOperator,
+    SparseOperator,
     TTOperator,
+    gmres,
 )
 from ttnte.xs import Server
-from ttnte.assemblers import MatrixAssembler, TTAssembler, OperatorData
-from ttnte.iga import IGAMesh
 
 
 class Runner:
@@ -564,8 +563,8 @@ class Runner:
         assert mats.S is not None
         return (
             mats.H
-            - mats.S
             + ((mats.B_out - mats.B_in) if mats.B_in is not None else (mats.B_out))
+            - mats.S
         ).combine()
 
     @staticmethod

@@ -182,11 +182,14 @@ if __name__ == "__main__":
     with open("solutions.pkl", "wb") as f:
         pickle.dump(solutions, f)
 
+    # with open("solutions.pkl", "rb") as f:
+    #     solutions = pickle.load(f)
+
     # =====================================================================
     # Calculate statistics
     # =====================================================================
     stats = {
-        "methods": ["CSR", "Mixed", "TT", "TT (rounded)"],
+        "methods": ["CSR", "Mixed", "TT"],
         "k": {
             "error": [],
         },
@@ -216,15 +219,15 @@ if __name__ == "__main__":
         # Flux statistics at r = 0.5rc
         points = evaluate_radius(mesh, 0.5 * rc, tol=1e-10)
         stats["psi"]["0.5rc"]["l2 error"].append(
-            np.trapz((points[:, 1] - 0.8093) ** 2, points[:, 0])
-            / (2 * np.pi * 0.8093**2)
+            np.sqrt(np.trapz((points[:, 1] - 0.8093) ** 2, points[:, 0]))
+            / np.sqrt((2 * np.pi * 0.8093**2))
         )
 
         # Flux statistics at r = rc
         points = evaluate_boundary(mesh)
         stats["psi"]["rc"]["l2 error"].append(
-            np.trapz((points[:, 1] - 0.2926) ** 2, points[:, 0])
-            / (2 * np.pi * 0.2926**2)
+            np.sqrt(np.trapz((points[:, 1] - 0.2926) ** 2, points[:, 0]))
+            / np.sqrt(2 * np.pi * 0.2926**2)
         )
 
     # Save results

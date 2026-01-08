@@ -10,7 +10,6 @@ if __name__ == "__main__":
 
 import numpy as np
 import torch as tn
-from igakit import cad
 
 from ttnte.xs.benchmarks import Server
 from ttnte.iga import IGAMesh
@@ -113,28 +112,28 @@ if __name__ == "__main__":
         lsoptions=lsoptions,
     )
 
-    # # =======================================================
-    # # Mesh scaling study
-    # num_ordinates = [256]
-    # factors = np.geomspace(5, 100, 8).astype(int).tolist()
-    #
-    # # Create runner
-    # runner = Runner(
-    #     study_name="meshsize",
-    #     study_path=dir / "meshsize",
-    #     num_ordinates=num_ordinates,
-    #     num_groups=num_groups,
-    #     factors=factors,
-    #     degrees=degrees,
-    #     eps=eps,
-    #     gpu_idx=0,
-    #     cpu_and_gpu=True,
-    #     verbose=True,
-    # )
-    #
-    # # Run problems
-    # runner.run(
-    #     get_xs=get_xs,
-    #     get_mesh=get_mesh,
-    #     lsoptions=lsoptions,
-    # )
+    # =======================================================
+    # Mesh scaling study
+    num_ordinates = [256]
+    factors = np.geomspace(5, 100, 12).astype(int).tolist()
+
+    # Create runner
+    runner = Runner(
+        study_name="meshsize",
+        study_path=dir / "meshsize",
+        num_ordinates=num_ordinates,
+        num_groups=num_groups,
+        factors=factors,
+        degrees=degrees,
+        eps=eps,
+        gpu_idx=0,
+        cpu_and_gpu=True,
+        verbose=True,
+    )
+
+    # Run problems
+    runner.run(
+        get_xs=get_xs,
+        get_mesh=get_mesh,
+        lsoptions=lsoptions,
+    )

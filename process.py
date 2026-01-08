@@ -1,10 +1,11 @@
 import json
 import pickle
 from pathlib import Path
-from typing import Union, Callable, List, Optional
+from typing import Callable, List, Optional, Union
 
 import numpy as np
 import torch as tn
+from torchtt import TT
 from ttnte.assemblers import MatrixAssembler
 
 
@@ -26,6 +27,8 @@ def process(
     regular_mesh = None
 
     i = 0
+    phi_csr = {}
+    phi_csr_avg = {}
     with open(jsonl_file, "r", encoding="utf-8") as infile, open(
         jsonl_file.with_name(f"processed_{jsonl_file.name}"), "w"
     ) as outfile:
@@ -106,6 +109,11 @@ def process(
                 "error": [],
                 "zscore": [],
             }
+            result["flux_stats"] = {
+                "ranks": [],
+                "compression": [],
+                "l2 error (pointwise)": [],
+            }
 
             if mc_solution is not None:
                 result["flux_stats"] = {
@@ -116,9 +124,13 @@ def process(
                     "maximum": [],
                     "mean": [],
                     "l2 error": [],
+                    "l2 error (pointwise)": [],
+                    "l2 error to csr": [],
+                    "ranks": [],
+                    "compression": [],
                 }
 
-            for psi in solution.values():
+            for name, psi in solution.items():
                 # Get leakage fraction data
                 result["leakage_fraction"]["value"].append(
                     float(
@@ -135,6 +147,74 @@ def process(
                     result["leakage_fraction"]["error"][-1] / mc_leakage_frac[1]
                 )
 
+                tt = TT(
+                    np.squeeze(psi.reshape(assembler.discretization)),
+                    eps=result["eps"] if name != "CSR" else 0,
+                )
+                result["flux_stats"]["ranks"].append(np.array(tt.R[1:-1]).tolist())
+                result["flux_stats"]["compression"].append(
+                    float(np.prod(psi.shape) / sum(tn.numel(c) for c in tt.cores))
+                )
+
+                # Get scalar flux
+                phi = assembler.angular_integral(
+                    tn.tensor(psi.reshape(assembler.discretization))
+                ).reshape(assembler.discretization[-4:])
+
+                phi_pointwise = np.empty(
+                    (xs_server.num_groups, mesh.num_patches, 128, 128)
+                )
+                l2error = []
+                key = tuple(
+                    [
+                        result[key]
+                        for key in [
+                            "num_ordinates",
+                            "num_groups",
+                            "factor",
+                            "degree",
+                        ]
+                    ]
+                )
+                for g in range(xs_server.num_groups):
+                    mesh.set_phi(phi[0,])
+
+                    X, Y = np.meshgrid(np.linspace(0, 1, 128), np.linspace(0, 1, 128))
+
+                    phi_pointwise[g,] = np.array(
+                        [
+                            c[:, -1]
+                            for c in mesh(
+                                np.concatenate(
+                                    [X.reshape((-1, 1)), Y.reshape((-1, 1))], axis=1
+                                )
+                            )
+                        ]
+                    ).reshape((mesh.num_patches, 128, 128))
+
+                    if name == "CSR":
+                        continue
+                    else:
+                        assert isinstance(phi_csr[key], np.ndarray)
+                        l2error.append(
+                            np.linalg.norm(
+                                (phi_pointwise[g,] - phi_csr[key][g,]).flatten(), 2
+                            )
+                            / np.linalg.norm(phi_csr[key][g,].flatten(), 2)
+                        )
+
+                if name == "CSR":
+                    phi_csr[key] = phi_pointwise
+
+                else:
+                    assert key in phi_csr
+                    assert isinstance(phi_csr[key], np.ndarray)
+                    l2error.append(
+                        np.linalg.norm((phi_pointwise - phi_csr[key]).flatten(), 2)
+                        / np.linalg.norm(phi_csr[key].flatten(), 2)
+                    )
+                    result["flux_stats"]["l2 error (pointwise)"].append(l2error)
+
                 # Get stats for solution vector
                 if mc_solution is not None:
                     assert regular_mesh is not None
@@ -147,6 +227,9 @@ def process(
                     # Get phi average
                     error = np.empty(mc_solution[0].shape)
 
+                    if name == "CSR":
+                        phi_csr_avg[key] = np.zeros((xs_server.num_groups, 128, 128))
+
                     # Calculate stats comparing to MC solution
                     minimum = []
                     q1 = []
@@ -155,15 +238,16 @@ def process(
                     maximum = []
                     mean = []
                     l2 = []
+                    l2tocsr = []
 
                     for g in range(xs_server.num_groups):
                         # Set control points
                         mesh.set_phi(phi[g,])
 
+                        sol = mesh.regular_mesh(*regular_mesh)
+
                         # Set phi for mesh
-                        error[g,] = (
-                            mesh.regular_mesh(*regular_mesh) - mc_solution[0][g,]
-                        )
+                        error[g,] = sol - mc_solution[0][g,]
 
                         z = np.abs(error[g,] / mc_solution[1][g,])
                         minimum.append(np.min(z))
@@ -177,6 +261,21 @@ def process(
                             / np.linalg.norm(mc_solution[0][g,].flatten(), 2)
                         )
 
+                        if name == "CSR":
+                            assert key in phi_csr_avg
+                            assert isinstance(phi_csr_avg[key], np.ndarray)
+                            phi_csr_avg[key][g,] = sol
+
+                        elif not (phi_csr_avg[key] == 0).all():
+                            assert key in phi_csr_avg
+                            assert isinstance(phi_csr_avg[key], np.ndarray)
+                            l2tocsr.append(
+                                np.linalg.norm(
+                                    (sol - phi_csr_avg[key][g,]).flatten(), 2
+                                )
+                                / np.linalg.norm(phi_csr_avg[key][g,].flatten(), 2)
+                            )
+
                     z = np.abs(error / mc_solution[1])
                     minimum.append(np.min(z))
                     q1.append(np.percentile(z, 25))
@@ -189,6 +288,14 @@ def process(
                         / np.linalg.norm(mc_solution[0].flatten(), 2)
                     )
 
+                    if name != "CSR":
+                        assert key in phi_csr_avg
+                        assert (
+                            isinstance(phi_csr_avg[key], np.ndarray)
+                            and not (phi_csr_avg[key] == 0).all()
+                        )
+                        l2tocsr.append(np.sqrt(np.sum(np.array(l2tocsr) ** 2)))
+
                     # Add stats to total result
                     result["flux_stats"]["minimum"].append(minimum)
                     result["flux_stats"]["q1"].append(q1)
@@ -197,5 +304,8 @@ def process(
                     result["flux_stats"]["maximum"].append(maximum)
                     result["flux_stats"]["mean"].append(mean)
                     result["flux_stats"]["l2 error"].append(l2)
+                    result["flux_stats"]["l2 error to csr"].append(l2tocsr)
+
+            print(result)
 
             outfile.write(json.dumps(result) + "\n")

@@ -1,0 +1,1210 @@
+import multiprocessing
+import os
+import pickle
+import sys
+from pathlib import Path
+
+if __name__ == "__main__":
+    multiprocessing.set_start_method("forkserver")
+    sys.path.append("../..")
+
+import matplotlib.pyplot as plt
+import numpy as np
+import torch as tn
+from matplotlib.patches import Polygon
+from mpl_toolkits.axes_grid1 import make_axes_locatable
+from quarter_circle import get_mesh, get_xs
+from scipy import stats
+from ttnte.assemblers import MatrixAssembler
+
+from extract import get_jsonl_data
+
+# Change plotting label sizes
+plt.rcParams["font.size"] = 14
+plt.rcParams["axes.labelsize"] = 16
+plt.rcParams["xtick.labelsize"] = 14
+plt.rcParams["ytick.labelsize"] = 14
+plt.rcParams["legend.fontsize"] = 14
+plt.rcParams["axes.grid"] = True
+
+
+def eps2str(eps):
+    for i in range(10):
+        if eps == float(f"1e-{i}"):
+            return "10^{" + str(-i) + "}"
+
+    raise RuntimeError(f"Failed to find string for eps={eps}")
+
+
+def prettyOp(op, format=None):
+    name = r"\mathcal{" + op + "}"
+    if op == "B_in":
+        name = r"\mathcal{B}_{\text{in}}"
+    if op == "B_out":
+        name = r"\mathcal{B}_{\text{out}}"
+
+    if format is not None:
+        name += "^{" + format + "}"
+
+    return name
+
+
+if __name__ == "__main__":
+    # Path to this directory
+    dir = Path(os.path.dirname(os.path.abspath(__file__)))
+
+    # Make figure directory
+    (dir / "direction/figs").mkdir(parents=True, exist_ok=True)
+
+    # Solutions from OpenMC
+    leakage_frac_openmc = [0.43995486599999994, 2.2442114486922458e-05]
+    phi_mc = np.load(
+        "../../../ttnte/notebooks/fixed_source/quarter_circle/openmc/data/mesh_flux.npy"
+    )
+    phi_mc_stdev = np.load(
+        "../../../ttnte/notebooks/fixed_source/quarter_circle/openmc/data/mesh_stdev.npy"
+    )
+
+    num_ordinates = [16, 64, 256, 1024, 4096, 16384, 65536, 262144]
+    degrees = [2, 3, 4, 6]
+    eps = [1e-8, 1e-5, 1e-3]
+
+    linestyles = ["-", "--", ":", "-."]
+    markers = ["o", "s", "^", "D"]
+    colors = [
+        "#0072B2",
+        "#E69F00",
+        "#56B4E9",
+        "#D55E00",
+        "#009E73",
+        "#F0E442",
+        "#000000",
+    ]
+
+    # ========================================================================
+    # Get an example mesh
+    # ========================================================================
+    factor = 8
+    degree = 2
+    N = 16384
+    mesh = get_mesh(factor=factor, degree=degree)
+    ax = mesh.plot(
+        figsize=(6, 6),
+        color_by="material",
+        colors={"Source": "#E69F00", "Void": "#0072B2"},
+    )
+
+    # Plot boundaries of patches
+    for patch in mesh.patches.values():
+        # Get boundary in parametric space
+        coords = np.zeros((4, 128, 2))
+        coords[0, :, 0] = np.linspace(0, 1, 128)
+        coords[1, :, 0] = 1
+        coords[1, :, 1] = np.linspace(0, 1, 128)
+        coords[2, :, 1] = 1
+        coords[2, :, 0] = np.linspace(0, 1, 128)[::-1]
+        coords[3, :, 1] = np.linspace(0, 1, 128)[::-1]
+
+        boundary = patch(coords.reshape((-1, 2)))
+
+        # Create outline
+        outline = Polygon(
+            boundary[:, :-1],
+            closed=True,
+            edgecolor="black",
+            facecolor="none",
+            linewidth=1.5,
+        )
+        ax.add_patch(outline)
+
+    plt.tight_layout()
+    dx = 0.01 * (ax.get_xlim()[1] - ax.get_xlim()[0])
+    dy = 0.01 * (ax.get_ylim()[1] - ax.get_ylim()[0])
+    plt.xlim((ax.get_xlim()[0] - dx, ax.get_xlim()[1] + dx))
+    plt.ylim((ax.get_ylim()[0] - dy, ax.get_ylim()[1] + dy))
+    plt.grid()
+    plt.savefig("./direction/figs/quarter_circle.png", dpi=300, transparent=True)
+
+    # Create matrix assembler
+    assembler = MatrixAssembler(mesh, get_xs(1), 16384)
+
+    # Load data
+    psi = pickle.load(
+        open(
+            f"./direction/meshes/N{N}_G1_A{factor + degree}_B{factor + degree}_p{degree}_q{degree}_eps1e-08gpu.pkl",
+            "rb",
+        )
+    )["CSR"].reshape(assembler.discretization)
+
+    # Calculate scalar flux
+    phi = assembler.angular_integral(tn.tensor(psi))
+
+    # Plot CSR
+    plt.clf()
+    mesh.set_phi(phi[0,])
+    ax, cbar = mesh.plot(plot_ctrlpts=False)
+    cbar.set_label(r"$\phi(\hat{x}, \hat{y})$")
+    ax.grid(False)
+    plt.tight_layout()
+    plt.savefig(f"./direction/figs/phi.png", dpi=300, transparent=True)
+
+    # ========================================================================
+    # Leakage Fraction Plots
+    # ========================================================================
+
+    # Extract leakage fraction data
+    data = get_jsonl_data(
+        dir / "direction/processed_direction.jsonl",
+        lambda line_data: (
+            (True, line_data["leakage_fraction"])
+            if line_data["device"] == "gpu"
+            else (False, None)
+        ),
+    )
+
+    # Plot leakage fraction
+    plt.clf()
+    plt.hlines(
+        [leakage_frac_openmc[0]],
+        num_ordinates[0],
+        num_ordinates[-1],
+        label=r"$f_{\text{Leak}}^{\text{ref}}\pm 2\sigma$",
+        color="black",
+    )
+    plt.fill_between(
+        num_ordinates,
+        leakage_frac_openmc[0] - 2 * leakage_frac_openmc[-1],
+        leakage_frac_openmc[0] + 2 * leakage_frac_openmc[-1],
+        color="black",
+        alpha=0.2,
+    )
+    for i, degree in enumerate(degrees):
+        plt.plot(
+            [
+                d["num_ordinates"]
+                for d in data
+                if d["eps"] == eps[0]
+                and d["degree"] == degree
+                and "CSR" in d["solve_method"]
+            ],
+            [
+                d["value"][
+                    np.argwhere(np.array(d["solve_method"]) == "CSR").flatten()[0]
+                ]
+                for d in data
+                if d["eps"] == eps[0]
+                and d["degree"] == degree
+                and "CSR" in d["solve_method"]
+            ],
+            "-o",
+            label=r"$p_{\hat{x}} = p_{\hat{y}} = " + f"{degree}$",
+        )
+    plt.ylabel(r"$f_{\text{leak}}^{\text{CSR, MC}}$")
+    plt.xlabel(r"$N_{\Omega}$")
+    plt.xscale("log")
+    plt.grid()
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig("./direction/figs/leakage.png", dpi=300, transparent=True)
+
+    # # Plot CSR leakage fraction Z-score to OpenMC
+    # plt.clf()
+    # plt.hlines(
+    #     [2],
+    #     num_ordinates[0],
+    #     num_ordinates[-1],
+    #     label=r"$2\sigma$",
+    #     color="black",
+    # )
+    # plt.hlines(
+    #     [1],
+    #     num_ordinates[0],
+    #     num_ordinates[-1],
+    #     linestyles="--",
+    #     label=r"$\sigma$",
+    #     color="black",
+    # )
+    # plt.fill_between(
+    #     num_ordinates,
+    #     0,
+    #     [2],
+    #     color="black",
+    #     alpha=0.2,
+    # )
+    # for i, degree in enumerate(degrees):
+    #     plt.plot(
+    #         [
+    #             d["num_ordinates"]
+    #             for d in data
+    #             if d["eps"] == eps[0]
+    #             and d["degree"] == degree
+    #             and "CSR" in d["solve_method"]
+    #         ],
+    #         [
+    #             abs(
+    #                 d["zscore"][
+    #                     np.argwhere(np.array(d["solve_method"]) == "CSR").flatten()[0]
+    #                 ]
+    #             )
+    #             for d in data
+    #             if d["eps"] == eps[0]
+    #             and d["degree"] == degree
+    #             and "CSR" in d["solve_method"]
+    #         ],
+    #         "-o",
+    #         label=r"CSR: $p_{\hat{x}} = p_{\hat{y}} = " + f"{degree}$",
+    #     )
+    # plt.ylabel(r"Number of $\sigma$ from $f_{\text{Leak}}^{\text{ref}}$")
+    # plt.xlabel(r"$N_{\Omega}$")
+    # plt.xscale("log")
+    # plt.yscale("log")
+    # plt.legend(ncol=2)
+    # plt.tight_layout()
+    # plt.savefig("./direction/figs/leakage_zscore.png", dpi=300, transparent=True)
+
+    # Plot CSR leakage fraction error to OpenMC
+    plt.clf()
+    plt.hlines(
+        [(2 * leakage_frac_openmc[1]) / leakage_frac_openmc[0]],
+        num_ordinates[0],
+        num_ordinates[-1],
+        label=r"$f_{\text{leak}}^{\text{X}} = f_{\text{leak}}^{\text{MC}} + 2\sigma$",
+        color="black",
+    )
+    plt.hlines(
+        [(leakage_frac_openmc[1]) / leakage_frac_openmc[0]],
+        num_ordinates[0],
+        num_ordinates[-1],
+        linestyles="--",
+        label=r"$f_{\text{leak}}^{\text{X}} = f_{\text{leak}}^{\text{MC}} + \sigma$",
+        color="black",
+    )
+    plt.fill_between(
+        num_ordinates,
+        0,
+        [(2 * leakage_frac_openmc[1]) / leakage_frac_openmc[0]],
+        color="black",
+        alpha=0.2,
+    )
+    for i, degree in enumerate(degrees):
+        plt.plot(
+            [
+                d["num_ordinates"]
+                for d in data
+                if d["eps"] == eps[0]
+                and d["degree"] == degree
+                and "CSR" in d["solve_method"]
+            ],
+            np.array(
+                [
+                    abs(
+                        d["error"][
+                            np.argwhere(np.array(d["solve_method"]) == "CSR").flatten()[
+                                0
+                            ]
+                        ]
+                    )
+                    for d in data
+                    if d["eps"] == eps[0]
+                    and d["degree"] == degree
+                    and "CSR" in d["solve_method"]
+                ]
+            )
+            / leakage_frac_openmc[0],
+            "-o",
+            label=r"$f_{\text{leak}}^{\text{X}} = f_{\text{leak}}^{\text{CSR}}$; $p_{\hat{x}} = p_{\hat{y}} = "
+            + f"{degree}$",
+        )
+    plt.ylabel(
+        r"$\delta f\left(f_{\text{leak}}^{\text{X}}, f_{\text{leak}}^{\text{MC}}\right)$"
+    )
+    plt.xlabel(r"$N_\Omega$")
+    plt.xscale("log")
+    plt.yscale("log")
+    plt.legend(ncol=2, loc="upper right", fontsize=10)
+    plt.tight_layout()
+    plt.savefig("./direction/figs/leakage_relerror.png", dpi=300, transparent=True)
+
+    # Look at errors relative to CSR
+    plt.clf()
+    for degree in degrees:
+        # Get CSR solution
+        csr = [
+            np.array(
+                [
+                    d["num_ordinates"]
+                    for d in data
+                    if d["eps"] == eps[0]
+                    and d["degree"] == degree
+                    and "CSR" in d["solve_method"]
+                ]
+            ),
+            np.array(
+                [
+                    abs(
+                        d["value"][
+                            np.argwhere(np.array(d["solve_method"]) == "CSR").flatten()[
+                                0
+                            ]
+                        ]
+                    )
+                    for d in data
+                    if d["eps"] == eps[0]
+                    and d["degree"] == degree
+                    and "CSR" in d["solve_method"]
+                ]
+            ),
+        ]
+        # Iterate through eps
+        for solve_method in ["Mixed", "Mixed (rounded)"]:
+            plt.clf()
+            for i in range(len(eps)):
+                method = np.array(
+                    [
+                        np.array(
+                            [
+                                d["num_ordinates"]
+                                for d in data
+                                if d["eps"] == eps[i]
+                                and d["degree"] == degree
+                                and solve_method in d["solve_method"]
+                            ]
+                        ),
+                        np.array(
+                            [
+                                abs(
+                                    d["value"][
+                                        np.argwhere(
+                                            np.array(d["solve_method"]) == solve_method
+                                        ).flatten()[0]
+                                    ]
+                                )
+                                for d in data
+                                if d["eps"] == eps[i]
+                                and d["degree"] == degree
+                                and solve_method in d["solve_method"]
+                            ]
+                        ),
+                    ]
+                )
+                plt.plot(
+                    method[0, np.isin(method[0], csr[0])],
+                    np.abs(
+                        method[1, np.isin(method[0], csr[0])]
+                        - csr[1][np.isin(csr[0], method[0])]
+                    )
+                    / csr[1][np.isin(csr[0], method[0])],
+                    "-o",
+                    label=rf"$\epsilon={eps2str(eps[i])}$",
+                )
+
+            plt.xlabel(r"$N_\Omega$")
+            plt.ylabel(
+                r"$\delta f\left(f_{\text{leak}}^{\text{"
+                + solve_method
+                + r"}}, f_{\text{leak}}^{\text{CSR}}\right)$"
+            )
+            plt.xscale("log")
+            plt.yscale("log")
+            plt.legend(fontsize=14)
+            plt.tight_layout()
+            plt.savefig(
+                f"./direction/figs/leakage_relerror_p{degree}_{solve_method}.png",
+                dpi=300,
+                transparent=True,
+            )
+
+    # ========================================================================
+    # Ranks and Compression
+    # ========================================================================
+
+    # Get ranks for all operators
+    data = get_jsonl_data(
+        dir / "direction/processed_direction.jsonl",
+        lambda line_data: (
+            (True, line_data["ranks"])
+            if line_data["device"] == "gpu"
+            else (False, None)
+        ),
+    )
+
+    plt.clf()
+    for op in ["H", "S", "B_out", "B_in"]:
+        for degree in degrees:
+            plt.clf()
+            for i in range(len(eps)):
+                plt.plot(
+                    [
+                        d["num_ordinates"]
+                        for d in data
+                        if op in d and d["eps"] == eps[i] and d["degree"] == degree
+                    ],
+                    [
+                        np.array(d[op]).max()
+                        for d in data
+                        if op in d and d["eps"] == eps[i] and d["degree"] == degree
+                    ],
+                    "-o",
+                    label=rf"$\epsilon={eps2str(eps[i])}$",
+                )
+            plt.xlabel(r"$N_{\Omega}$")
+            plt.ylabel(r"$r_{\text{max}}\left(" + prettyOp(op, "TT") + r"\right)$")
+            plt.xscale("log")
+            plt.legend()
+            plt.tight_layout()
+            plt.savefig(
+                f"./direction/figs/ranks_p{degree}_{op}.png", dpi=300, transparent=True
+            )
+
+    data = get_jsonl_data(
+        dir / "direction/processed_direction.jsonl",
+        lambda line_data: (
+            (True, line_data["compression"]["tts"])
+            if line_data["device"] == "gpu"
+            else (False, None)
+        ),
+    )
+    data2 = get_jsonl_data(
+        dir / "direction/processed_direction.jsonl",
+        lambda line_data: (
+            (True, line_data["compression"]["matrix"])
+            if line_data["device"] == "gpu" and line_data["eps"] == eps[0]
+            else (False, None)
+        ),
+    )
+
+    plt.clf()
+    for op in ["H", "S", "B_out", "B_in"]:
+        print(op)
+        for degree in degrees:
+            print(f"degree = {degree}")
+            plt.clf()
+            plt.plot(
+                [d["num_ordinates"] for d in data2 if d["degree"] == degree],
+                [np.array(d[op]).max() for d in data2 if d["degree"] == degree],
+                "--o",
+                label=r"CSR",
+            )
+            csr_data = [
+                np.array([d["num_ordinates"] for d in data2 if d["degree"] == degree])[
+                    :3
+                ],
+                np.array(
+                    [np.array(d[op]).max() for d in data2 if d["degree"] == degree]
+                )[:3],
+            ]
+            print(
+                "Slope = {}, intercept = {}, r_value = {}, p_value = {}, std_err = {}".format(
+                    *stats.linregress(np.log10(csr_data[0]), np.log10(csr_data[1]))
+                )
+            )
+            csr_data = [
+                np.array([d["num_ordinates"] for d in data2 if d["degree"] == degree])[
+                    -3:
+                ],
+                np.array(
+                    [np.array(d[op]).max() for d in data2 if d["degree"] == degree]
+                )[-3:],
+            ]
+            print(
+                "Slope = {}, intercept = {}, r_value = {}, p_value = {}, std_err = {}".format(
+                    *stats.linregress(np.log10(csr_data[0]), np.log10(csr_data[1]))
+                ),
+            )
+            for i in range(len(eps)):
+                print(f"eps = {eps[i]}")
+                tt_data = [
+                    np.array(
+                        [
+                            d["num_ordinates"]
+                            for d in data
+                            if d["eps"] == eps[i] and d["degree"] == degree
+                        ]
+                    )[:3],
+                    np.array(
+                        [
+                            np.array(d[op]).max()
+                            for d in data
+                            if d["eps"] == eps[i] and d["degree"] == degree
+                        ]
+                    )[:3],
+                ]
+                print(
+                    "Slope = {}, intercept = {}, r_value = {}, p_value = {}, std_err = {}".format(
+                        *stats.linregress(np.log10(tt_data[0]), np.log10(tt_data[1]))
+                    )
+                )
+                tt_data = [
+                    np.array(
+                        [
+                            d["num_ordinates"]
+                            for d in data
+                            if d["eps"] == eps[i] and d["degree"] == degree
+                        ]
+                    )[-3:],
+                    np.array(
+                        [
+                            np.array(d[op]).max()
+                            for d in data
+                            if d["eps"] == eps[i] and d["degree"] == degree
+                        ]
+                    )[-3:],
+                ]
+                print(
+                    "Slope = {}, intercept = {}, r_value = {}, p_value = {}, std_err = {}".format(
+                        *stats.linregress(np.log10(tt_data[0]), np.log10(tt_data[1]))
+                    ),
+                )
+
+                plt.plot(
+                    [
+                        d["num_ordinates"]
+                        for d in data
+                        if d["eps"] == eps[i] and d["degree"] == degree
+                    ],
+                    [
+                        np.array(d[op]).max()
+                        for d in data
+                        if d["eps"] == eps[i] and d["degree"] == degree
+                    ],
+                    "-o",
+                    label=rf"TT, $\epsilon={eps2str(eps[i])}$",
+                )
+            print()
+
+            plt.xlabel(r"$N_{\Omega}$")
+            plt.ylabel(r"$\text{CR}\left(" + prettyOp(op) + r"\right)$")
+            plt.xscale("log")
+            plt.yscale("log")
+            plt.legend()
+            plt.tight_layout()
+            plt.savefig(
+                f"./direction/figs/compression_p{degree}_{op}.png",
+                dpi=300,
+                transparent=True,
+            )
+
+            plt.clf()
+            csr = [
+                np.array([d["num_ordinates"] for d in data2 if d["degree"] == degree]),
+                np.array(
+                    [np.array(d[op]).max() for d in data2 if d["degree"] == degree]
+                ),
+            ]
+            for i in range(len(eps)):
+                tt = [
+                    np.array(
+                        [
+                            d["num_ordinates"]
+                            for d in data
+                            if d["eps"] == eps[i] and d["degree"] == degree
+                        ]
+                    ),
+                    np.array(
+                        [
+                            np.array(d[op]).max()
+                            for d in data
+                            if d["eps"] == eps[i] and d["degree"] == degree
+                        ]
+                    ),
+                ]
+                plt.plot(
+                    tt[0][np.isin(tt[0], csr[0])],
+                    tt[1][np.isin(tt[0], csr[0])] / csr[1][np.isin(csr[0], tt[0])],
+                    "-o",
+                    label=rf"$\epsilon={eps2str(eps[i])}$",
+                )
+            plt.xlabel(r"$N_{\Omega}$")
+            plt.ylabel(
+                r"$\text{CR}\left("
+                + prettyOp(op, "TT")
+                + r"\right)/\text{CR}\left("
+                + prettyOp(op, "CSR")
+                + r"\right)$"
+            )
+            plt.xscale("log")
+            plt.yscale("log")
+            plt.legend()
+            plt.tight_layout()
+            plt.savefig(
+                f"./direction/figs/compression_ratio_p{degree}_{op}.png",
+                dpi=300,
+                transparent=True,
+            )
+
+    data = get_jsonl_data(
+        dir / "direction/processed_direction.jsonl",
+        lambda line_data: (
+            (True, {"total": line_data["compression"]["total"]})
+            if line_data["device"] == "gpu"
+            else (False, None)
+        ),
+    )
+
+    for degree in degrees:
+        for i in range(len(eps)):
+            plt.clf()
+            plt.plot(
+                [
+                    d["num_ordinates"]
+                    for d in data
+                    if d["eps"] == eps[0]
+                    and d["degree"] == degree
+                    and "CSR" in d["solve_method"]
+                ],
+                [
+                    d["total"][
+                        np.argwhere(np.array(d["solve_method"]) == "CSR").flatten()[0]
+                    ]
+                    for d in data
+                    if d["eps"] == eps[0]
+                    and d["degree"] == degree
+                    and "CSR" in d["solve_method"]
+                ],
+                "-o",
+                color=colors[0],
+                label="CSR",
+                # label=f"{name}: "
+                # + r"$p_{\hat{x}} = p_{\hat{y}} = "
+                # + f"{degree}"
+                # + ("" if name == "CSR" else rf", \epsilon={eps2str(eps[i])}")
+                # + "$",
+            )
+
+            for j, name in enumerate(
+                ["TT", "Mixed", "TT (rounded)", "Mixed (rounded)"]
+            ):
+                plt.plot(
+                    [
+                        d["num_ordinates"]
+                        for d in data
+                        if d["eps"] == eps[i]
+                        and d["degree"] == degree
+                        and name in d["solve_method"]
+                    ],
+                    [
+                        d["total"][
+                            np.argwhere(np.array(d["solve_method"]) == name).flatten()[
+                                0
+                            ]
+                        ]
+                        for d in data
+                        if d["eps"] == eps[i]
+                        and d["degree"] == degree
+                        and name in d["solve_method"]
+                    ],
+                    "-o",
+                    color=colors[j + 1],
+                    label=name,
+                    # label=f"{name}: "
+                    # + r"$p_{\hat{x}} = p_{\hat{y}} = "
+                    # + f"{degree}"
+                    # + ("" if name == "CSR" else rf", \epsilon={eps2str(eps[i])}")
+                    # + "$",
+                )
+
+            plt.xlabel(r"$N_{\Omega}$")
+            plt.ylabel(
+                r"$\text{CR}\left("
+                + prettyOp("T")
+                + r"\right)$; $p_{\hat{x}} = p_{\hat{y}} = "
+                + rf"{degree}$, $\epsilon={eps2str(eps[i])}$"
+            )
+            plt.xscale("log")
+            plt.yscale("log")
+            plt.legend()
+            plt.tight_layout()
+            plt.savefig(
+                f"./direction/figs/compression_p{degree}_eps{eps[i]}_T.png",
+                dpi=300,
+                transparent=True,
+            )
+
+    # Get angular flux compression ranks and compression
+    data = get_jsonl_data(
+        dir / "direction/processed_direction.jsonl",
+        lambda line_data: (
+            (
+                True,
+                {
+                    "ranks": line_data["flux_stats"]["ranks"],
+                    "compression": line_data["flux_stats"]["compression"],
+                },
+            )
+            if line_data["device"] == "gpu"
+            else (False, None)
+        ),
+    )
+
+    for degree in degrees:
+        plt.clf()
+        for i in range(len(eps)):
+            if i == 0:
+                num_ords = np.array(
+                    [
+                        d["num_ordinates"]
+                        for d in data
+                        if "CSR" in d["solve_method"]
+                        and d["eps"] == eps[0]
+                        and d["degree"] == degree
+                    ]
+                )
+                ranks = np.array(
+                    [
+                        np.array(d["ranks"][0]).max()
+                        for d in data
+                        if "CSR" in d["solve_method"]
+                        and d["eps"] == eps[0]
+                        and d["degree"] == degree
+                    ]
+                )
+                plt.plot(
+                    num_ords,
+                    ranks,
+                    "-o",
+                    color=colors[-1],
+                    label=r"$\epsilon = 0$",
+                )
+            num_ords = np.array(
+                [
+                    d["num_ordinates"]
+                    for d in data
+                    if d["eps"] == eps[i] and d["degree"] == degree
+                ]
+            )
+            ranks = np.array(
+                [
+                    np.array(
+                        d["ranks"][(1 if "CSR" in d["solve_method"] else 0) :]
+                    ).max()
+                    for d in data
+                    if d["eps"] == eps[i] and d["degree"] == degree
+                ]
+            )
+            plt.plot(
+                num_ords,
+                ranks,
+                "--o",
+                color=colors[i],
+                label=rf"$\epsilon = {eps2str(eps[i])}$",
+            )
+
+        plt.xlabel(r"$N_\Omega$")
+        plt.ylabel(r"$r_{\text{max}}\left(\mathbf{\Psi}\right)$")
+        plt.xscale("log")
+        plt.yscale("log")
+        plt.legend(fontsize=14)
+        plt.tight_layout()
+        plt.savefig(
+            f"./direction/figs/ranks_p{degree}_psi.png", dpi=300, transparent=True
+        )
+
+    for degree in degrees:
+        plt.clf()
+        for i in range(len(eps)):
+            if i == 0:
+                num_ords = np.array(
+                    [
+                        d["num_ordinates"]
+                        for d in data
+                        if "CSR" in d["solve_method"]
+                        and d["eps"] == eps[0]
+                        and d["degree"] == degree
+                    ]
+                )
+                compression = np.array(
+                    [
+                        d["compression"][0]
+                        for d in data
+                        if "CSR" in d["solve_method"]
+                        and d["eps"] == eps[0]
+                        and d["degree"] == degree
+                    ]
+                )
+                plt.plot(
+                    num_ords,
+                    compression,
+                    "-o",
+                    color=colors[-1],
+                    label=r"$\epsilon = 0$",
+                )
+            num_ords = np.array(
+                [
+                    d["num_ordinates"]
+                    for d in data
+                    if d["eps"] == eps[i] and d["degree"] == degree
+                ]
+            )
+            compression = np.array(
+                [
+                    np.array(
+                        d["compression"][(1 if "CSR" in d["solve_method"] else 0) :]
+                    ).max()
+                    for d in data
+                    if d["eps"] == eps[i] and d["degree"] == degree
+                ]
+            )
+            plt.plot(
+                num_ords,
+                compression,
+                "--o",
+                color=colors[i],
+                label=rf"$\epsilon = {eps2str(eps[i])}$",
+            )
+
+        plt.xlabel(r"$N_\Omega$")
+        plt.ylabel(r"$\text{CR}\left(\mathbf{\Psi}^{\text{TT}}\right)$")
+        plt.xscale("log")
+        plt.yscale("log")
+        plt.legend(fontsize=14)
+        plt.tight_layout()
+        plt.savefig(
+            f"./direction/figs/compression_p{degree}_psi.png", dpi=300, transparent=True
+        )
+
+    # ========================================================================
+    # Matvec scaling
+    # ========================================================================
+
+    # Get Matvec information, In this case we don't care about eps as it had no effect
+    data = get_jsonl_data(
+        dir / "direction/processed_direction.jsonl",
+        lambda line_data: (
+            (True, line_data["matvec"]) if line_data["eps"] == eps[0] else (False, None)
+        ),
+    )
+
+    for degree in degrees:
+        plt.clf()
+        for device in ["gpu"]:
+            for i, case in enumerate(["CSR", "Mixed", "Mixed (rounded)"]):
+                num_ords = np.array(
+                    [
+                        d["num_ordinates"]
+                        for d in data
+                        if case in d["solve_method"]
+                        and (d["eps"] == eps[0] if case == "CSR" else eps[0])
+                        and d["degree"] == degree
+                        and d["device"] == device
+                    ]
+                )
+                time = (
+                    np.array(
+                        [
+                            d["time"][
+                                np.argwhere(
+                                    np.array(d["solve_method"]) == case
+                                ).flatten()[0]
+                            ]
+                            for d in data
+                            if case in d["solve_method"]
+                            and (d["eps"] == eps[0] if case == "CSR" else eps[0])
+                            and d["degree"] == degree
+                            and d["device"] == device
+                        ]
+                    )
+                    * 1000
+                )
+                stdev = (
+                    np.array(
+                        [
+                            d["stdev"][
+                                np.argwhere(
+                                    np.array(d["solve_method"]) == case
+                                ).flatten()[0]
+                            ]
+                            for d in data
+                            if case in d["solve_method"]
+                            and (d["eps"] == eps[0] if case == "CSR" else eps[0])
+                            and d["degree"] == degree
+                            and d["device"] == device
+                        ]
+                    )
+                    * 1000
+                )
+                plt.plot(
+                    num_ords[
+                        np.isin(
+                            num_ords,
+                            np.array(num_ordinates)[(2 if degree == 2 else 0) :],
+                        )
+                    ],
+                    time[
+                        np.isin(
+                            num_ords,
+                            np.array(num_ordinates)[(2 if degree == 2 else 0) :],
+                        )
+                    ],
+                    ("-" if device == "cpu" else "--") + "o",
+                    color=colors[i],
+                    label=f"{case}, {device.upper()}",
+                )
+                plt.fill_between(
+                    num_ords[
+                        np.isin(
+                            num_ords,
+                            np.array(num_ordinates)[(2 if degree == 2 else 0) :],
+                        )
+                    ],
+                    (time - stdev)[
+                        np.isin(
+                            num_ords,
+                            np.array(num_ordinates)[(2 if degree == 2 else 0) :],
+                        )
+                    ],
+                    (time + stdev)[
+                        np.isin(
+                            num_ords,
+                            np.array(num_ordinates)[(2 if degree == 2 else 0) :],
+                        )
+                    ],
+                    color=colors[i],
+                    alpha=0.5,
+                )
+
+        plt.xlabel(r"$N_{\Omega}$")
+        plt.ylabel(r"Average SpMV Time $(ms)$")
+        plt.xscale("log")
+        plt.yscale("log")
+        plt.legend(ncol=2, fontsize=10)
+        plt.tight_layout()
+        plt.savefig(
+            f"./direction/figs/matvec_time_p{degree}_eps{eps[0]}.png",
+            dpi=300,
+            transparent=True,
+        )
+
+    # ========================================================================
+    # GMRES scaling
+    # ========================================================================
+
+    # Get GMRES information, In this case we don't care about eps as it had no effect
+    data = get_jsonl_data(
+        dir / "direction/processed_direction.jsonl",
+        lambda line_data: (
+            (True, line_data["gmres"]) if line_data["eps"] == eps[0] else (False, None)
+        ),
+    )
+
+    for degree in degrees:
+        plt.clf()
+        for device in ["gpu"]:
+            for i, case in enumerate(["CSR", "Mixed", "Mixed (rounded)"]):
+                num_ords = np.array(
+                    [
+                        d["num_ordinates"]
+                        for d in data
+                        if case in d["solve_method"]
+                        and (d["eps"] == eps[0] if case == "CSR" else eps[0])
+                        and d["degree"] == degree
+                        and d["device"] == device
+                    ]
+                )
+                time = (
+                    np.array(
+                        [
+                            d["time"][
+                                np.argwhere(
+                                    np.array(d["solve_method"]) == case
+                                ).flatten()[0]
+                            ]
+                            for d in data
+                            if case in d["solve_method"]
+                            and (d["eps"] == eps[0] if case == "CSR" else eps[0])
+                            and d["degree"] == degree
+                            and d["device"] == device
+                        ]
+                    )
+                    * 1000
+                )
+                plt.plot(
+                    num_ords,
+                    time,
+                    ("-" if device == "cpu" else "--") + "o",
+                    color=colors[i],
+                    label=f"{case}, {device.upper()}",
+                )
+
+        plt.xlabel(r"$N_{\Omega}$")
+        plt.ylabel(r"GMRES Run Time $(s)$")
+        plt.xscale("log")
+        plt.yscale("log")
+        plt.legend(ncol=2, fontsize=10)
+        plt.tight_layout()
+        plt.savefig(
+            f"./direction/figs/gmres_time_p{degree}_eps{eps[0]}.png",
+            dpi=300,
+            transparent=True,
+        )
+
+    # ========================================================================
+    # L2-Error, zscore, etc
+    # ========================================================================
+
+    # Get flux information, only need 1e-8 eps as all operators are the same
+    data = get_jsonl_data(
+        dir / "direction/processed_direction.jsonl",
+        lambda line_data: (
+            (True, {**line_data["flux_stats"], "converged": line_data["gmres"]["converged"]})
+            if line_data["eps"] == eps[0] and line_data["device"] == "gpu"
+            else (False, None)
+        ),
+    )
+
+    plt.clf()
+    plt.hlines(
+        [
+            np.linalg.norm(2 * phi_mc_stdev.flatten(), 2)
+            / np.linalg.norm(phi_mc.flatten(), 2)
+        ],
+        num_ordinates[0],
+        num_ordinates[-1],
+        label=r"$\mathbf{\Phi}^{\text{X}} = \mathbf{\Phi}^{\text{MC}} + 2\boldsymbol{\sigma}^{\text{MC}}$",
+        color="black",
+    )
+    # plt.hlines(
+    #     [
+    #         np.linalg.norm(phi_mc_stdev.flatten(), 2)
+    #         / np.linalg.norm(phi_mc.flatten(), 2)
+    #     ],
+    #     num_ordinates[0],
+    #     num_ordinates[-1],
+    #     linestyles="--",
+    #     label=r"$\boldsymbol{\phi}^{\text{ref}}\pm \sigma^{\text{ref}}$",
+    #     color="black",
+    # )
+    plt.fill_between(
+        num_ordinates,
+        0,
+        [
+            np.linalg.norm(2 * phi_mc_stdev.flatten(), 2)
+            / np.linalg.norm(phi_mc.flatten(), 2)
+        ],
+        color="black",
+        alpha=0.2,
+    )
+    for i, degree in enumerate(degrees):
+        plt.plot(
+            [
+                d["num_ordinates"]
+                for d in data
+                if d["eps"] == eps[0] and d["degree"] == degree
+            ],
+            np.array(
+                [
+                    d["l2 error"][0][0]
+                    for d in data
+                    if d["eps"] == eps[0] and d["degree"] == degree
+                ]
+            ),
+            "-",
+            color=colors[i],
+            label=r"$\mathbf{\Phi}^{\text{X}} = \mathbf{\Phi}^{\text{CSR}}$; $p_{\hat{x}}=p_{\hat{y}}="
+            + f"{degree}$",
+        )
+        plt.plot(
+            [
+                d["num_ordinates"]
+                for d in data
+                if d["eps"] == eps[0] and d["degree"] == degree and d["converged"][0]
+            ],
+            np.array(
+                [
+                    d["l2 error"][0][0]
+                    for d in data
+                    if d["eps"] == eps[0] and d["degree"] == degree and d["converged"][0]
+                ]
+            ),
+            "o",
+            color=colors[i],
+        )
+        plt.plot(
+            [
+                d["num_ordinates"]
+                for d in data
+                if d["eps"] == eps[0] and d["degree"] == degree and not d["converged"][0]
+            ],
+            np.array(
+                [
+                    d["l2 error"][0][0]
+                    for d in data
+                    if d["eps"] == eps[0]
+                    and d["degree"] == degree
+                    and not d["converged"][0]
+                ]
+            ),
+            "o",
+            color=colors[i],
+            markerfacecolor="none",
+        )
+
+    plt.xlabel(r"$N_{\Omega}$")
+    plt.ylabel(
+        r"$\epsilon_2\left(\mathbf{\Phi}^{\text{X}}, \mathbf{\Phi}^{\text{MC}}\right)$"
+    )
+    plt.xscale("log")
+    plt.yscale("log")
+    plt.legend(ncol=2, fontsize=10)
+    plt.tight_layout()
+    plt.savefig("./direction/figs/flux_l2error.png", dpi=300, transparent=True)
+
+    data = get_jsonl_data(
+        dir / "direction/processed_direction.jsonl",
+        lambda line_data: (
+            (True, line_data["flux_stats"])
+            if line_data["device"] == "gpu"
+            else (False, None)
+        ),
+    )
+
+    for case in ["Mixed", "Mixed (rounded)"]:
+        for degree in degrees:
+            plt.clf()
+            for i in range(len(eps)):
+                tt = [
+                    np.array(
+                        [
+                            d["num_ordinates"]
+                            for d in data
+                            if case in d["solve_method"]
+                            and d["eps"] == eps[i]
+                            and d["degree"] == degree
+                        ]
+                    ),
+                    np.array(
+                        [
+                            d["l2 error to csr"][
+                                np.argwhere(
+                                    case == np.array(d["solve_method"])
+                                ).flatten()[0]
+                            ][0]
+                            for d in data
+                            if case in d["solve_method"]
+                            and d["eps"] == eps[i]
+                            and d["degree"] == degree
+                        ]
+                    ),
+                ]
+                plt.plot(
+                    tt[0],
+                    tt[1],
+                    linestyles[i] + "o",
+                    color=colors[i],
+                    label=rf"$\epsilon = {eps2str(eps[i])}$",
+                )
+
+            plt.xlabel(r"$N_{\Omega}$")
+            plt.ylabel(
+                r"$\epsilon_2\left(\mathbf{\Phi}^{\text{"
+                + case
+                + r"}}; \mathbf{\Phi}^{\text{CSR}}\right)$"
+            )
+            plt.xscale("log")
+            plt.yscale("log")
+            plt.legend(fontsize=14)
+            plt.tight_layout()
+            plt.savefig(
+                f"./direction/figs/flux_l2error2csr_p{degree}_{case}.png",
+                dpi=300,
+                transparent=True,
+            )

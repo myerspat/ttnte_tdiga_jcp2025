@@ -20,16 +20,15 @@ plt.rcParams["axes.labelsize"] = 16
 plt.rcParams["xtick.labelsize"] = 14
 plt.rcParams["ytick.labelsize"] = 14
 plt.rcParams["legend.fontsize"] = 14
-plt.rcParams["axes.grid"] = True
 
 if __name__ == "__main__":
     # Solutions from OpenMC
     k_mc = [1.325593334007463, 3.229591167123522e-05]
     phi_mc = np.load(
-        "/home/myerspat/research/tensor_trains/tt_nte/notebooks/eigenvalue/pincell/openmc/data/mesh_flux.npy"
+        "../../../ttnte/notebooks/eigenvalue/pincell/openmc/data/mesh_flux.npy"
     )
     phi_mc_stdev = np.load(
-        "/home/myerspat/research/tensor_trains/tt_nte/notebooks/eigenvalue/pincell/openmc/data/mesh_stdev.npy"
+        "../../../ttnte/notebooks/eigenvalue/pincell/openmc/data/mesh_stdev.npy"
     )
     phi_mc_stdev /= np.linalg.norm(phi_mc.flatten(), 2)
     phi_mc /= np.linalg.norm(phi_mc.flatten(), 2)
@@ -77,7 +76,6 @@ if __name__ == "__main__":
     dy = 0.01 * (ax.get_ylim()[1] - ax.get_ylim()[0])
     plt.xlim((ax.get_xlim()[0] - dx, ax.get_xlim()[1] + dx))
     plt.ylim((ax.get_ylim()[0] - dy, ax.get_ylim()[1] + dy))
-    plt.grid(False)
     plt.savefig("./figs/pincell.png", dpi=300, transparent=True)
 
     # Create matrix assembler
@@ -95,10 +93,9 @@ if __name__ == "__main__":
     # Plot CSR
     for g in range(data["num_groups"]):
         plt.clf()
-        mesh.set_phi(phi[0,])
+        mesh.set_phi(phi[g,])
         ax, cbar = mesh.plot(plot_ctrlpts=False)
         cbar.set_label(r"$\phi_{" + str(g + 1) + r"}(\hat{x}, \hat{y})$")
-        plt.grid(False)
         plt.tight_layout()
         plt.savefig(f"./figs/phi_{g + 1}.png", dpi=300, transparent=True)
 
@@ -145,22 +142,26 @@ if __name__ == "__main__":
         }
         plot_labals = {
             "error": lambda case, g: r"$\mathbf{\Phi}_"
-            + str(g)
-            + "^{"
+            + str(g + 1)
+            + r"^{\text{"
             + case
-            + r"}-\mathbf{\Phi}^{MC}_"
-            + str(g)
+            + r"}}-\mathbf{\Phi}^{\text{MC}}_"
+            + str(g + 1)
             + "$",
             "relative_error": lambda case, g: r"$\frac{\left|\mathbf{\Phi}_"
-            + str(g)
-            + "^{"
+            + str(g + 1)
+            + r"^{\text{"
             + case
-            + r"}-\mathbf{\Phi}^{MC}_"
-            + str(g)
-            + r"\right|}{\mathbf{\Phi}^{MC}_"
-            + str(g)
+            + r"}}-\mathbf{\Phi}^{\text{MC}}_"
+            + str(g + 1)
+            + r"\right|}{\mathbf{\Phi}^{\text{MC}}_"
+            + str(g + 1)
             + "}$",
-            "zscore": lambda case, g: r"$\mathbf{z}_" + str(g) + "^{" + case + "}$",
+            "zscore": lambda case, g: r"$\mathbf{z}_"
+            + str(g + 1)
+            + r"^{\text{"
+            + case
+            + "}}$",
         }
 
         # Calculate average scalar flux
@@ -212,7 +213,6 @@ if __name__ == "__main__":
                 ax.set_aspect("equal")
                 ax.set_xlabel(r"$x(\hat{x}, \hat{y})~(cm)$")
                 ax.set_ylabel(r"$y(\hat{x}, \hat{y})~(cm)$")
-                ax.axis("off")
                 plt.tight_layout()
                 plt.savefig(
                     f"./figs/{error_name}_{g + 1}_{name}.png", transparent=True, dpi=300

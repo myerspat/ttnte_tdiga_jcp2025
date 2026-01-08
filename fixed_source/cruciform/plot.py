@@ -1,5 +1,6 @@
 import multiprocessing
 import pickle
+import re
 import sys
 
 if __name__ == "__main__":
@@ -12,6 +13,7 @@ import torch as tn
 from cruciform import get_mesh, get_xs
 from matplotlib.patches import Polygon
 from mpl_toolkits.axes_grid1 import make_axes_locatable
+from scipy import stats
 from ttnte.assemblers import MatrixAssembler
 
 # Change plotting label sizes
@@ -25,10 +27,10 @@ if __name__ == "__main__":
     # Solutions from OpenMC
     leakage_frac_openmc = [0.06913173400000001, 1.1401809264552177e-05]
     phi_mc = np.load(
-        "/home/myerspat/research/tensor_trains/tt_nte/notebooks/fixed_source/cruciform/openmc/data/mesh_flux.npy"
+        "../../../tt_nte/notebooks/fixed_source/cruciform/openmc/void/data/mesh_flux.npy"
     )
     phi_mc_stdev = np.load(
-        "/home/myerspat/research/tensor_trains/tt_nte/notebooks/fixed_source/cruciform/openmc/data/mesh_stdev.npy"
+        "../../../tt_nte/notebooks/fixed_source/cruciform/openmc/void/data/mesh_stdev.npy"
     )
 
     # Read in data
@@ -152,23 +154,21 @@ if __name__ == "__main__":
             "zscore": lambda a, b, c: np.abs(a - b) / c,
         }
         plot_labals = {
-            "error": lambda case, g: r"$\mathbf{\Phi}_"
-            + str(g)
-            + "^{"
+            "error": lambda case, g: r"$\mathbf{\Phi}"
+            + r"^{\text{"
             + case
-            + r"}-\mathbf{\Phi}^{MC}_"
-            + str(g)
+            + r"}}-\mathbf{\Phi}^{\text{MC}}"
             + "$",
-            "relative_error": lambda case, g: r"$\frac{\left|\mathbf{\Phi}_"
-            + str(g)
-            + "^{"
+            "relative_error": lambda case, g: r"$\frac{\left|\mathbf{\Phi}"
+            + r"^{\text{"
             + case
-            + r"}-\mathbf{\Phi}^{MC}_"
-            + str(g)
-            + r"\right|}{\mathbf{\Phi}^{MC}_"
-            + str(g)
+            + r"}}-\mathbf{\Phi}^{\text{MC}}"
+            + r"\right|}{\mathbf{\Phi}^{\text{MC}}"
             + "}$",
-            "zscore": lambda case, g: r"$\mathbf{z}_" + str(g) + "^{" + case + "}$",
+            "zscore": lambda case, g: r"$\mathbf{z}"
+            + r"^{\text{"
+            + case
+            + "}}$",
         }
         phi_avg = np.zeros(phi_mc.shape)
 
@@ -252,3 +252,67 @@ if __name__ == "__main__":
     # Save data
     with open("data.pkl", "wb") as f:
         pickle.dump(data, f)
+
+    # Run through residuals in output file
+    with open("cruciform.out", "r") as f:
+        lines = f.readlines()
+
+    bnorm = 11.796007874815
+
+    # Get residual pattern
+    residual_pattern = re.compile(r"^\|r\| = ([\d\.]+)\s*$")
+
+    # Get sections
+    sections = ["CSR", "Mixed", "Mixed (rounded)"]
+
+    plt.clf()
+    for i, section in enumerate(sections):
+        section_data = []
+
+        # Find the starting index of the current section
+        start = -1
+        for number, line in enumerate(lines):
+            if section in line:
+                start = number
+                break
+
+        if start == -1:
+            continue
+
+        end = -1
+        if i + 1 < len(sections):
+            for number, line in enumerate(lines):
+                if sections[i + 1] in line:
+                    end = number
+                    break
+
+        # Find all matches in this section
+        for line in lines[start:end]:
+            match = residual_pattern.match(line.strip())
+
+            if match:
+                section_data.append(float(match.group(1)))
+
+        # Plot section data
+        if section == "CSR":
+            plt.plot(
+                np.linspace(1, 1000, 1000 * 100)[: len(section_data)],
+                np.array(section_data) / bnorm,
+                label=section,
+            )
+            print(
+                "Slope = {}, intercept = {}, r_value = {}, p_value = {}, std_err = {}".format(
+                    *stats.linregress(
+                        np.log10(np.linspace(1, 1000, 1000 * 100)[-300 * 100 :]),
+                        np.log10(np.array(section_data) / bnorm)[-300 * 100 :],
+                    )
+                )
+            )
+
+    plt.xlabel("Outer Iteration Index")
+    plt.ylabel(r"$\|\mathbf{r}\|_2/\|\mathbf{b}\|_2$")
+    plt.yscale("log")
+    plt.grid()
+    # plt.legend()
+    plt.tight_layout()
+    plt.savefig("./figs/gmres_convergence.png", dpi=300, transparent=True)

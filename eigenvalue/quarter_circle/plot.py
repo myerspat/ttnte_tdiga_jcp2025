@@ -119,8 +119,8 @@ if __name__ == "__main__":
         # Flux statistics at r = 0.5rc
         points = evaluate_radius(mesh, 0.5 * rc, tol=1e-10)
         data["psi"]["0.5rc l2 error"].append(
-            np.trapz((points[:, 1] - 0.8093) ** 2, points[:, 0])
-            / (np.pi / 2 * 0.8093**2)
+            np.sqrt(np.trapz((points[:, 1] - 0.8093) ** 2, points[:, 0]))
+            / np.sqrt((np.pi / 2 * 0.8093**2))
         )
 
         # Plot error
@@ -159,8 +159,8 @@ if __name__ == "__main__":
         # Flux statistics at r = 0.5rc
         points = evaluate_boundary(mesh)
         data["psi"]["rc l2 error"].append(
-            np.trapz((points[:, 1] - 0.2926) ** 2, points[:, 0])
-            / (np.pi / 2 * 0.2926**2)
+            np.sqrt(np.trapz((points[:, 1] - 0.2926) ** 2, points[:, 0]))
+            / np.sqrt(np.pi / 2 * 0.2926**2)
         )
 
         # Plot error

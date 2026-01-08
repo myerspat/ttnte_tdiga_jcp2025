@@ -119,7 +119,7 @@ if __name__ == "__main__":
         maxiter=10,
         restart=75,
         solve_method="batched",
-        verbose=True,
+        verbose=False,
     )
 
     # Get XS data
@@ -211,7 +211,7 @@ if __name__ == "__main__":
     # =====================================================================
     solutions = {}
     for name, get_ops in zip(
-        ["CSR", "Mixed", "Mixed (rounded)"],
+        ["CSR", "Mixed (rounded)"],
         [Runner._pureCSR, Runner._mixed, Runner._mixed_rounded],
     ):
         print(name)

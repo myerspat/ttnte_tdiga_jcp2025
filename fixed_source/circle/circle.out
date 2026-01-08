@@ -1,0 +1,1974 @@
+Running 640 combinations
+IGAMesh(id=0, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=0, name=None, shape=(12, 12), backend=geomdl)
+================================================================================
+Already ran case 0: N=16, G=1, A=12, B=12, p=2, q=2, eps=1e-08, device=cpu
+================================================================================
+Already ran case 1: N=16, G=1, A=12, B=12, p=2, q=2, eps=1e-08, device=gpu
+================================================================================
+Already ran case 2: N=16, G=1, A=12, B=12, p=2, q=2, eps=1e-05, device=cpu
+================================================================================
+Already ran case 3: N=16, G=1, A=12, B=12, p=2, q=2, eps=1e-05, device=gpu
+================================================================================
+Already ran case 4: N=16, G=1, A=12, B=12, p=2, q=2, eps=0.001, device=cpu
+================================================================================
+Already ran case 5: N=16, G=1, A=12, B=12, p=2, q=2, eps=0.001, device=gpu
+IGAMesh(id=1, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=1, name=None, shape=(13, 13), backend=geomdl)
+================================================================================
+Already ran case 6: N=16, G=1, A=13, B=13, p=3, q=3, eps=1e-08, device=cpu
+================================================================================
+Already ran case 7: N=16, G=1, A=13, B=13, p=3, q=3, eps=1e-08, device=gpu
+================================================================================
+Already ran case 8: N=16, G=1, A=13, B=13, p=3, q=3, eps=1e-05, device=cpu
+================================================================================
+Already ran case 9: N=16, G=1, A=13, B=13, p=3, q=3, eps=1e-05, device=gpu
+================================================================================
+Already ran case 10: N=16, G=1, A=13, B=13, p=3, q=3, eps=0.001, device=cpu
+================================================================================
+Already ran case 11: N=16, G=1, A=13, B=13, p=3, q=3, eps=0.001, device=gpu
+IGAMesh(id=2, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=2, name=None, shape=(14, 14), backend=geomdl)
+================================================================================
+Already ran case 12: N=16, G=1, A=14, B=14, p=4, q=4, eps=1e-08, device=cpu
+================================================================================
+Already ran case 13: N=16, G=1, A=14, B=14, p=4, q=4, eps=1e-08, device=gpu
+================================================================================
+Already ran case 14: N=16, G=1, A=14, B=14, p=4, q=4, eps=1e-05, device=cpu
+================================================================================
+Already ran case 15: N=16, G=1, A=14, B=14, p=4, q=4, eps=1e-05, device=gpu
+================================================================================
+Already ran case 16: N=16, G=1, A=14, B=14, p=4, q=4, eps=0.001, device=cpu
+================================================================================
+Already ran case 17: N=16, G=1, A=14, B=14, p=4, q=4, eps=0.001, device=gpu
+IGAMesh(id=3, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=3, name=None, shape=(16, 16), backend=geomdl)
+================================================================================
+Already ran case 18: N=16, G=1, A=16, B=16, p=6, q=6, eps=1e-08, device=cpu
+================================================================================
+Already ran case 19: N=16, G=1, A=16, B=16, p=6, q=6, eps=1e-08, device=gpu
+================================================================================
+Already ran case 20: N=16, G=1, A=16, B=16, p=6, q=6, eps=1e-05, device=cpu
+================================================================================
+Already ran case 21: N=16, G=1, A=16, B=16, p=6, q=6, eps=1e-05, device=gpu
+================================================================================
+Already ran case 22: N=16, G=1, A=16, B=16, p=6, q=6, eps=0.001, device=cpu
+================================================================================
+Already ran case 23: N=16, G=1, A=16, B=16, p=6, q=6, eps=0.001, device=gpu
+IGAMesh(id=4, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=4, name=None, shape=(12, 12), backend=geomdl)
+================================================================================
+Already ran case 24: N=64, G=1, A=12, B=12, p=2, q=2, eps=1e-08, device=cpu
+================================================================================
+Already ran case 25: N=64, G=1, A=12, B=12, p=2, q=2, eps=1e-08, device=gpu
+================================================================================
+Already ran case 26: N=64, G=1, A=12, B=12, p=2, q=2, eps=1e-05, device=cpu
+================================================================================
+Already ran case 27: N=64, G=1, A=12, B=12, p=2, q=2, eps=1e-05, device=gpu
+================================================================================
+Already ran case 28: N=64, G=1, A=12, B=12, p=2, q=2, eps=0.001, device=cpu
+================================================================================
+Already ran case 29: N=64, G=1, A=12, B=12, p=2, q=2, eps=0.001, device=gpu
+IGAMesh(id=5, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=5, name=None, shape=(13, 13), backend=geomdl)
+================================================================================
+Already ran case 30: N=64, G=1, A=13, B=13, p=3, q=3, eps=1e-08, device=cpu
+================================================================================
+Already ran case 31: N=64, G=1, A=13, B=13, p=3, q=3, eps=1e-08, device=gpu
+================================================================================
+Already ran case 32: N=64, G=1, A=13, B=13, p=3, q=3, eps=1e-05, device=cpu
+================================================================================
+Already ran case 33: N=64, G=1, A=13, B=13, p=3, q=3, eps=1e-05, device=gpu
+================================================================================
+Already ran case 34: N=64, G=1, A=13, B=13, p=3, q=3, eps=0.001, device=cpu
+================================================================================
+Already ran case 35: N=64, G=1, A=13, B=13, p=3, q=3, eps=0.001, device=gpu
+IGAMesh(id=6, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=6, name=None, shape=(14, 14), backend=geomdl)
+================================================================================
+Already ran case 36: N=64, G=1, A=14, B=14, p=4, q=4, eps=1e-08, device=cpu
+================================================================================
+Already ran case 37: N=64, G=1, A=14, B=14, p=4, q=4, eps=1e-08, device=gpu
+================================================================================
+Already ran case 38: N=64, G=1, A=14, B=14, p=4, q=4, eps=1e-05, device=cpu
+================================================================================
+Already ran case 39: N=64, G=1, A=14, B=14, p=4, q=4, eps=1e-05, device=gpu
+================================================================================
+Already ran case 40: N=64, G=1, A=14, B=14, p=4, q=4, eps=0.001, device=cpu
+================================================================================
+Already ran case 41: N=64, G=1, A=14, B=14, p=4, q=4, eps=0.001, device=gpu
+IGAMesh(id=7, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=7, name=None, shape=(16, 16), backend=geomdl)
+================================================================================
+Already ran case 42: N=64, G=1, A=16, B=16, p=6, q=6, eps=1e-08, device=cpu
+================================================================================
+Already ran case 43: N=64, G=1, A=16, B=16, p=6, q=6, eps=1e-08, device=gpu
+================================================================================
+Already ran case 44: N=64, G=1, A=16, B=16, p=6, q=6, eps=1e-05, device=cpu
+================================================================================
+Already ran case 45: N=64, G=1, A=16, B=16, p=6, q=6, eps=1e-05, device=gpu
+================================================================================
+Already ran case 46: N=64, G=1, A=16, B=16, p=6, q=6, eps=0.001, device=cpu
+================================================================================
+Already ran case 47: N=64, G=1, A=16, B=16, p=6, q=6, eps=0.001, device=gpu
+IGAMesh(id=8, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=8, name=None, shape=(12, 12), backend=geomdl)
+================================================================================
+Already ran case 48: N=256, G=1, A=12, B=12, p=2, q=2, eps=1e-08, device=cpu
+================================================================================
+Already ran case 49: N=256, G=1, A=12, B=12, p=2, q=2, eps=1e-08, device=gpu
+================================================================================
+Already ran case 50: N=256, G=1, A=12, B=12, p=2, q=2, eps=1e-05, device=cpu
+================================================================================
+Already ran case 51: N=256, G=1, A=12, B=12, p=2, q=2, eps=1e-05, device=gpu
+================================================================================
+Already ran case 52: N=256, G=1, A=12, B=12, p=2, q=2, eps=0.001, device=cpu
+================================================================================
+Already ran case 53: N=256, G=1, A=12, B=12, p=2, q=2, eps=0.001, device=gpu
+IGAMesh(id=9, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=9, name=None, shape=(13, 13), backend=geomdl)
+================================================================================
+Already ran case 54: N=256, G=1, A=13, B=13, p=3, q=3, eps=1e-08, device=cpu
+================================================================================
+Already ran case 55: N=256, G=1, A=13, B=13, p=3, q=3, eps=1e-08, device=gpu
+================================================================================
+Already ran case 56: N=256, G=1, A=13, B=13, p=3, q=3, eps=1e-05, device=cpu
+================================================================================
+Already ran case 57: N=256, G=1, A=13, B=13, p=3, q=3, eps=1e-05, device=gpu
+================================================================================
+Already ran case 58: N=256, G=1, A=13, B=13, p=3, q=3, eps=0.001, device=cpu
+================================================================================
+Already ran case 59: N=256, G=1, A=13, B=13, p=3, q=3, eps=0.001, device=gpu
+IGAMesh(id=10, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=10, name=None, shape=(14, 14), backend=geomdl)
+================================================================================
+Already ran case 60: N=256, G=1, A=14, B=14, p=4, q=4, eps=1e-08, device=cpu
+================================================================================
+Already ran case 61: N=256, G=1, A=14, B=14, p=4, q=4, eps=1e-08, device=gpu
+================================================================================
+Already ran case 62: N=256, G=1, A=14, B=14, p=4, q=4, eps=1e-05, device=cpu
+================================================================================
+Already ran case 63: N=256, G=1, A=14, B=14, p=4, q=4, eps=1e-05, device=gpu
+================================================================================
+Already ran case 64: N=256, G=1, A=14, B=14, p=4, q=4, eps=0.001, device=cpu
+================================================================================
+Already ran case 65: N=256, G=1, A=14, B=14, p=4, q=4, eps=0.001, device=gpu
+IGAMesh(id=11, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=11, name=None, shape=(16, 16), backend=geomdl)
+================================================================================
+Already ran case 66: N=256, G=1, A=16, B=16, p=6, q=6, eps=1e-08, device=cpu
+================================================================================
+Already ran case 67: N=256, G=1, A=16, B=16, p=6, q=6, eps=1e-08, device=gpu
+================================================================================
+Already ran case 68: N=256, G=1, A=16, B=16, p=6, q=6, eps=1e-05, device=cpu
+================================================================================
+Already ran case 69: N=256, G=1, A=16, B=16, p=6, q=6, eps=1e-05, device=gpu
+================================================================================
+Already ran case 70: N=256, G=1, A=16, B=16, p=6, q=6, eps=0.001, device=cpu
+================================================================================
+Already ran case 71: N=256, G=1, A=16, B=16, p=6, q=6, eps=0.001, device=gpu
+IGAMesh(id=12, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=12, name=None, shape=(12, 12), backend=geomdl)
+================================================================================
+Already ran case 72: N=1024, G=1, A=12, B=12, p=2, q=2, eps=1e-08, device=cpu
+================================================================================
+Already ran case 73: N=1024, G=1, A=12, B=12, p=2, q=2, eps=1e-08, device=gpu
+================================================================================
+Already ran case 74: N=1024, G=1, A=12, B=12, p=2, q=2, eps=1e-05, device=cpu
+================================================================================
+Already ran case 75: N=1024, G=1, A=12, B=12, p=2, q=2, eps=1e-05, device=gpu
+================================================================================
+Already ran case 76: N=1024, G=1, A=12, B=12, p=2, q=2, eps=0.001, device=cpu
+================================================================================
+Already ran case 77: N=1024, G=1, A=12, B=12, p=2, q=2, eps=0.001, device=gpu
+IGAMesh(id=13, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=13, name=None, shape=(13, 13), backend=geomdl)
+================================================================================
+Already ran case 78: N=1024, G=1, A=13, B=13, p=3, q=3, eps=1e-08, device=cpu
+================================================================================
+Already ran case 79: N=1024, G=1, A=13, B=13, p=3, q=3, eps=1e-08, device=gpu
+================================================================================
+Already ran case 80: N=1024, G=1, A=13, B=13, p=3, q=3, eps=1e-05, device=cpu
+================================================================================
+Already ran case 81: N=1024, G=1, A=13, B=13, p=3, q=3, eps=1e-05, device=gpu
+================================================================================
+Already ran case 82: N=1024, G=1, A=13, B=13, p=3, q=3, eps=0.001, device=cpu
+================================================================================
+Already ran case 83: N=1024, G=1, A=13, B=13, p=3, q=3, eps=0.001, device=gpu
+IGAMesh(id=14, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=14, name=None, shape=(14, 14), backend=geomdl)
+================================================================================
+Already ran case 84: N=1024, G=1, A=14, B=14, p=4, q=4, eps=1e-08, device=cpu
+================================================================================
+Already ran case 85: N=1024, G=1, A=14, B=14, p=4, q=4, eps=1e-08, device=gpu
+================================================================================
+Already ran case 86: N=1024, G=1, A=14, B=14, p=4, q=4, eps=1e-05, device=cpu
+================================================================================
+Already ran case 87: N=1024, G=1, A=14, B=14, p=4, q=4, eps=1e-05, device=gpu
+================================================================================
+Already ran case 88: N=1024, G=1, A=14, B=14, p=4, q=4, eps=0.001, device=cpu
+================================================================================
+Already ran case 89: N=1024, G=1, A=14, B=14, p=4, q=4, eps=0.001, device=gpu
+IGAMesh(id=15, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=15, name=None, shape=(16, 16), backend=geomdl)
+================================================================================
+Already ran case 90: N=1024, G=1, A=16, B=16, p=6, q=6, eps=1e-08, device=cpu
+================================================================================
+Already ran case 91: N=1024, G=1, A=16, B=16, p=6, q=6, eps=1e-08, device=gpu
+================================================================================
+Already ran case 92: N=1024, G=1, A=16, B=16, p=6, q=6, eps=1e-05, device=cpu
+================================================================================
+Already ran case 93: N=1024, G=1, A=16, B=16, p=6, q=6, eps=1e-05, device=gpu
+================================================================================
+Already ran case 94: N=1024, G=1, A=16, B=16, p=6, q=6, eps=0.001, device=cpu
+================================================================================
+Already ran case 95: N=1024, G=1, A=16, B=16, p=6, q=6, eps=0.001, device=gpu
+IGAMesh(id=16, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=16, name=None, shape=(12, 12), backend=geomdl)
+================================================================================
+Already ran case 96: N=4096, G=1, A=12, B=12, p=2, q=2, eps=1e-08, device=cpu
+================================================================================
+Already ran case 97: N=4096, G=1, A=12, B=12, p=2, q=2, eps=1e-08, device=gpu
+================================================================================
+Already ran case 98: N=4096, G=1, A=12, B=12, p=2, q=2, eps=1e-05, device=cpu
+================================================================================
+Already ran case 99: N=4096, G=1, A=12, B=12, p=2, q=2, eps=1e-05, device=gpu
+================================================================================
+Already ran case 100: N=4096, G=1, A=12, B=12, p=2, q=2, eps=0.001, device=cpu
+================================================================================
+Already ran case 101: N=4096, G=1, A=12, B=12, p=2, q=2, eps=0.001, device=gpu
+IGAMesh(id=17, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=17, name=None, shape=(13, 13), backend=geomdl)
+================================================================================
+Already ran case 102: N=4096, G=1, A=13, B=13, p=3, q=3, eps=1e-08, device=cpu
+================================================================================
+Already ran case 103: N=4096, G=1, A=13, B=13, p=3, q=3, eps=1e-08, device=gpu
+================================================================================
+Already ran case 104: N=4096, G=1, A=13, B=13, p=3, q=3, eps=1e-05, device=cpu
+================================================================================
+Already ran case 105: N=4096, G=1, A=13, B=13, p=3, q=3, eps=1e-05, device=gpu
+================================================================================
+Already ran case 106: N=4096, G=1, A=13, B=13, p=3, q=3, eps=0.001, device=cpu
+================================================================================
+Already ran case 107: N=4096, G=1, A=13, B=13, p=3, q=3, eps=0.001, device=gpu
+IGAMesh(id=18, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=18, name=None, shape=(14, 14), backend=geomdl)
+================================================================================
+Already ran case 108: N=4096, G=1, A=14, B=14, p=4, q=4, eps=1e-08, device=cpu
+================================================================================
+Already ran case 109: N=4096, G=1, A=14, B=14, p=4, q=4, eps=1e-08, device=gpu
+================================================================================
+Already ran case 110: N=4096, G=1, A=14, B=14, p=4, q=4, eps=1e-05, device=cpu
+================================================================================
+Already ran case 111: N=4096, G=1, A=14, B=14, p=4, q=4, eps=1e-05, device=gpu
+================================================================================
+Already ran case 112: N=4096, G=1, A=14, B=14, p=4, q=4, eps=0.001, device=cpu
+================================================================================
+Already ran case 113: N=4096, G=1, A=14, B=14, p=4, q=4, eps=0.001, device=gpu
+IGAMesh(id=19, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=19, name=None, shape=(16, 16), backend=geomdl)
+================================================================================
+Already ran case 114: N=4096, G=1, A=16, B=16, p=6, q=6, eps=1e-08, device=cpu
+================================================================================
+Already ran case 115: N=4096, G=1, A=16, B=16, p=6, q=6, eps=1e-08, device=gpu
+================================================================================
+Already ran case 116: N=4096, G=1, A=16, B=16, p=6, q=6, eps=1e-05, device=cpu
+================================================================================
+Already ran case 117: N=4096, G=1, A=16, B=16, p=6, q=6, eps=1e-05, device=gpu
+================================================================================
+Already ran case 118: N=4096, G=1, A=16, B=16, p=6, q=6, eps=0.001, device=cpu
+================================================================================
+Already ran case 119: N=4096, G=1, A=16, B=16, p=6, q=6, eps=0.001, device=gpu
+IGAMesh(id=20, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=20, name=None, shape=(12, 12), backend=geomdl)
+================================================================================
+Running case 120: N=16384, G=1, A=12, B=12, p=2, q=2, eps=1e-08, device=cpu
+START
+===========================================================================
+Running MatrixAssembler.build()
+Discretization: N = 16384, G = 1, P = 1, A = 12, B = 12
+Operators: H, S, q, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 20
+Step            Shape                     Compression  Elapsed Time (s)
+H               2359296,2359296                 1.00       20.76
+S               1,144,144                       1.00       20.98
+B_out           2359296,2359296                 1.00       23.54
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 24.1 s)
+Step            Shape                     Compression
+H               2359296,2359296             56850.51
+S               2359296,2359296           149438295.09
+q               2359296                         1.00
+B_out           2359296,2359296            914488.07
+===========================================================================
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 16384, G = 1, P = 1, A = 12, B = 12
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 20
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,14                            5.14        1.68
+Intg_str        1,38,2                          2.53        1.68
+H               3,3,3,3,3,90                 6407.50        1.68
+S               1,1,1,1,1,14              454686947.85        1.69
+Intg_out        1,4,130,62,32                 404.72        8.02
+B_out           4,130,62,62,62,32             401.05        8.11
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 10.04 s)
+Step            Ranks                     Compression
+H               3,3,3,40                  57493364.89
+S               1,1,1,14                  454761243.11
+B_out           4,130,62,32                157088.39
+===========================================================================
+TTS
+Running batched GMRES on CPU
+-- (1): |r| = 0.143439870506, |r|/|b| = 0.000146572473, Elapsed Time = 37.287 s
+-- (2): |r| = 0.006889223019, |r|/|b| = 0.000007039678, Elapsed Time = 74.499 s
+-- (3): |r| = 0.000737498360, |r|/|b| = 0.000000753605, Elapsed Time = 111.853 s
+-- Converged!
+GMRES
+NUMPY
+FINISHED CSR
+DONE with  CSR
+COMPLETE
+Finished iteration! Run time = 171.136 s, Elapsed time = 176.853
+================================================================================
+Running case 121: N=16384, G=1, A=12, B=12, p=2, q=2, eps=1e-08, device=gpu
+START
+MATS
+TTS
+Running batched GMRES on GPU 0
+-- (1): |r| = 0.143439870506, |r|/|b| = 0.000146572473, Elapsed Time = 0.463 s
+-- (2): |r| = 0.006889223019, |r|/|b| = 0.000007039678, Elapsed Time = 0.883 s
+-- (3): |r| = 0.000737498360, |r|/|b| = 0.000000753605, Elapsed Time = 1.303 s
+-- Converged!
+GMRES
+NUMPY
+FINISHED CSR
+DONE with  CSR
+COMPLETE
+Finished iteration! Run time = 3.459 s, Elapsed time = 180.365
+================================================================================
+Running case 122: N=16384, G=1, A=12, B=12, p=2, q=2, eps=1e-05, device=cpu
+START
+MATS
+Failed to build TT operators with error [enforce fail at alloc_cpu.cpp:124] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 2233517211648 bytes. Error code 12 (Cannot allocate memory)
+frame #0: <unknown function> + 0x92fbe (0x7fc1b697ffbe in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::ThrowEnforceNotMet(char const*, int, char const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, void const*) + 0x49 (0x7fc1b697f719 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: c10::alloc_cpu(unsigned long) + 0x36e (0x7fc1b696db9e in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #3: <unknown function> + 0x32912 (0x7fc1b691f912 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #4: <unknown function> + 0x15d64ad (0x7fc19621b4ad in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: at::detail::empty_strided_generic(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::Allocator*, c10::DispatchKeySet, c10::ScalarType) + 0x100 (0x7fc196216d00 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #6: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ScalarType, bool) + 0x4a (0x7fc1962172aa in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #7: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>) + 0x6c (0x7fc19621733c in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #8: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::TensorOptions const&) + 0xeb (0x7fc19621743b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #9: <unknown function> + 0x29d89c5 (0x7fc19761d9c5 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #10: <unknown function> + 0x29e24d0 (0x7fc1976274d0 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #11: at::meta::structured__linalg_svd::meta(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x265 (0x7fc1965ba395 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #12: <unknown function> + 0x29dbaf7 (0x7fc197620af7 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #13: <unknown function> + 0x29dbbfc (0x7fc197620bfc in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #14: at::_ops::_linalg_svd::redispatch(c10::DispatchKeySet, at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0xdd (0x7fc197439e6d in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #15: <unknown function> + 0x4c9dff1 (0x7fc1998e2ff1 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #16: <unknown function> + 0x4c9e83f (0x7fc1998e383f in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #17: at::_ops::_linalg_svd::call(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x213 (0x7fc1974a6183 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #18: at::native::linalg_svd(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x29 (0x7fc1965b6899 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #19: <unknown function> + 0x2be6a1b (0x7fc19782ba1b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #20: at::_ops::linalg_svd::call(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x1fc (0x7fc197205fec in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #21: ttnte::linalg::TTOperator::round(double const&, long const&, std::optional<long>) + 0x14f7 (0x7fc0ad9f1697 in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #22: <unknown function> + 0x4649f (0x7fc0ad9c449f in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #23: <unknown function> + 0x35f3e (0x7fc0ad9b3f3e in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #24: python3() [0x528db7]
+<omitting python frames>
+frame #27: python3() [0x5cd0aa]
+frame #29: python3() [0x5ed557]
+frame #30: python3() [0x5e9080]
+frame #31: python3() [0x5fde72]
+frame #36: <unknown function> + 0x29d90 (0x7fc258c8dd90 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #37: __libc_start_main + 0x80 (0x7fc258c8de40 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #38: python3() [0x5bcc43]
+
+TTS
+Finished iteration! Run time = 102.232 s, Elapsed time = 282.652
+================================================================================
+Running case 123: N=16384, G=1, A=12, B=12, p=2, q=2, eps=1e-05, device=gpu
+START
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 16384, G = 1, P = 1, A = 12, B = 12
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 20
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,7                            10.28        1.65
+Intg_str        1,20,2                          4.80        1.65
+H               3,3,3,3,3,47                12024.44        1.65
+S               1,1,1,1,1,7               544325994.10        1.65
+Intg_out        1,4,129,46,24                 590.59        7.83
+B_out           4,129,46,46,46,23             593.21        7.90
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 9.42 s)
+Step            Ranks                     Compression
+H               3,3,3,21                  64820635.55
+S               1,1,1,7                   544432474.14
+B_out           4,129,46,23                209455.98
+===========================================================================
+TTS
+Finished iteration! Run time = 9.520 s, Elapsed time = 292.216
+================================================================================
+Running case 124: N=16384, G=1, A=12, B=12, p=2, q=2, eps=0.001, device=cpu
+START
+MATS
+TTS
+Finished iteration! Run time = 92.627 s, Elapsed time = 384.884
+================================================================================
+Running case 125: N=16384, G=1, A=12, B=12, p=2, q=2, eps=0.001, device=gpu
+START
+MATS
+TTS
+Finished iteration! Run time = 0.041 s, Elapsed time = 384.968
+IGAMesh(id=21, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=21, name=None, shape=(13, 13), backend=geomdl)
+================================================================================
+Running case 126: N=16384, G=1, A=13, B=13, p=3, q=3, eps=1e-08, device=cpu
+START
+===========================================================================
+Running MatrixAssembler.build()
+Discretization: N = 16384, G = 1, P = 1, A = 13, B = 13
+Operators: H, S, q, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 21
+Step            Shape                     Compression  Elapsed Time (s)
+H               2768896,2768896                 1.00       41.60
+S               1,169,169                       1.00       42.05
+B_out           2768896,2768896                 1.00       46.49
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 46.85 s)
+Step            Shape                     Compression
+H               2768896,2768896             36988.65
+S               2768896,2768896           170097066.07
+q               2768896                         1.00
+B_out           2768896,2768896            916007.41
+===========================================================================
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 16384, G = 1, P = 1, A = 13, B = 13
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 21
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,14                            6.03        2.19
+Intg_str        1,41,2                          2.75        2.20
+H               3,3,3,3,3,96                 7081.68        2.20
+S               1,1,1,1,1,14              592395693.00        2.20
+Intg_out        1,4,130,81,45                 351.62       25.14
+B_out           4,130,81,81,81,45             348.19       25.25
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 27.42 s)
+Step            Ranks                     Compression
+H               3,3,3,44                  74060906.67
+S               1,1,1,14                  592487253.39
+B_out           4,130,80,45                169079.02
+===========================================================================
+TTS
+Running batched GMRES on CPU
+-- (1): |r| = 0.307012290205, |r|/|b| = 0.000322923638, Elapsed Time = 45.236 s
+-- (2): |r| = 0.034328097913, |r|/|b| = 0.000036107200, Elapsed Time = 89.787 s
+-- (3): |r| = 0.006414557724, |r|/|b| = 0.000006747001, Elapsed Time = 134.811 s
+-- (4): |r| = 0.001684027031, |r|/|b| = 0.000001771304, Elapsed Time = 179.408 s
+-- (5): |r| = 0.000498342555, |r|/|b| = 0.000000524170, Elapsed Time = 223.829 s
+-- Converged!
+GMRES
+NUMPY
+FINISHED CSR
+DONE with  CSR
+COMPLETE
+Finished iteration! Run time = 349.620 s, Elapsed time = 734.874
+================================================================================
+Running case 127: N=16384, G=1, A=13, B=13, p=3, q=3, eps=1e-08, device=gpu
+START
+MATS
+TTS
+Running batched GMRES on GPU 0
+-- (1): |r| = 0.307012290205, |r|/|b| = 0.000322923638, Elapsed Time = 0.541 s
+-- (2): |r| = 0.034328097885, |r|/|b| = 0.000036107200, Elapsed Time = 1.083 s
+-- (3): |r| = 0.006414557723, |r|/|b| = 0.000006747001, Elapsed Time = 1.625 s
+-- (4): |r| = 0.001684027038, |r|/|b| = 0.000001771304, Elapsed Time = 2.166 s
+-- (5): |r| = 0.000498342556, |r|/|b| = 0.000000524170, Elapsed Time = 2.708 s
+-- Converged!
+GMRES
+NUMPY
+FINISHED CSR
+DONE with  CSR
+COMPLETE
+Finished iteration! Run time = 6.251 s, Elapsed time = 741.179
+================================================================================
+Running case 128: N=16384, G=1, A=13, B=13, p=3, q=3, eps=1e-05, device=cpu
+START
+MATS
+Failed to build TT operators with error [enforce fail at alloc_cpu.cpp:124] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 2233517211648 bytes. Error code 12 (Cannot allocate memory)
+frame #0: <unknown function> + 0x92fbe (0x7fc1b697ffbe in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::ThrowEnforceNotMet(char const*, int, char const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, void const*) + 0x49 (0x7fc1b697f719 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: c10::alloc_cpu(unsigned long) + 0x36e (0x7fc1b696db9e in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #3: <unknown function> + 0x32912 (0x7fc1b691f912 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #4: <unknown function> + 0x15d64ad (0x7fc19621b4ad in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: at::detail::empty_strided_generic(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::Allocator*, c10::DispatchKeySet, c10::ScalarType) + 0x100 (0x7fc196216d00 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #6: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ScalarType, bool) + 0x4a (0x7fc1962172aa in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #7: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>) + 0x6c (0x7fc19621733c in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #8: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::TensorOptions const&) + 0xeb (0x7fc19621743b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #9: <unknown function> + 0x29d89c5 (0x7fc19761d9c5 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #10: <unknown function> + 0x29e24d0 (0x7fc1976274d0 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #11: at::meta::structured__linalg_svd::meta(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x265 (0x7fc1965ba395 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #12: <unknown function> + 0x29dbaf7 (0x7fc197620af7 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #13: <unknown function> + 0x29dbbfc (0x7fc197620bfc in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #14: at::_ops::_linalg_svd::redispatch(c10::DispatchKeySet, at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0xdd (0x7fc197439e6d in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #15: <unknown function> + 0x4c9dff1 (0x7fc1998e2ff1 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #16: <unknown function> + 0x4c9e83f (0x7fc1998e383f in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #17: at::_ops::_linalg_svd::call(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x213 (0x7fc1974a6183 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #18: at::native::linalg_svd(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x29 (0x7fc1965b6899 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #19: <unknown function> + 0x2be6a1b (0x7fc19782ba1b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #20: at::_ops::linalg_svd::call(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x1fc (0x7fc197205fec in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #21: ttnte::linalg::TTOperator::round(double const&, long const&, std::optional<long>) + 0x14f7 (0x7fc0ad9f1697 in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #22: <unknown function> + 0x4649f (0x7fc0ad9c449f in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #23: <unknown function> + 0x35f3e (0x7fc0ad9b3f3e in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #24: python3() [0x528db7]
+<omitting python frames>
+frame #27: python3() [0x5cd0aa]
+frame #29: python3() [0x5ed557]
+frame #30: python3() [0x5e9080]
+frame #31: python3() [0x5fde72]
+frame #36: <unknown function> + 0x29d90 (0x7fc258c8dd90 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #37: __libc_start_main + 0x80 (0x7fc258c8de40 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #38: python3() [0x5bcc43]
+
+TTS
+Finished iteration! Run time = 115.590 s, Elapsed time = 856.826
+================================================================================
+Running case 129: N=16384, G=1, A=13, B=13, p=3, q=3, eps=1e-05, device=gpu
+START
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 16384, G = 1, P = 1, A = 13, B = 13
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 21
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,7                            12.07        2.19
+Intg_str        1,20,2                          5.63        2.20
+H               3,3,3,3,3,47                14199.90        2.21
+S               1,1,1,1,1,7               724922944.29        2.21
+Intg_out        1,4,129,48,28                 707.72       25.27
+B_out           4,129,48,48,48,28             702.82       25.35
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 26.92 s)
+Step            Ranks                     Compression
+H               3,3,3,21                  87150287.12
+S               1,1,1,7                   725060058.52
+B_out           4,129,48,28                276700.33
+===========================================================================
+TTS
+Finished iteration! Run time = 27.034 s, Elapsed time = 883.904
+================================================================================
+Running case 130: N=16384, G=1, A=13, B=13, p=3, q=3, eps=0.001, device=cpu
+START
+MATS
+TTS
+Finished iteration! Run time = 86.004 s, Elapsed time = 969.954
+================================================================================
+Running case 131: N=16384, G=1, A=13, B=13, p=3, q=3, eps=0.001, device=gpu
+START
+MATS
+TTS
+Finished iteration! Run time = 0.041 s, Elapsed time = 970.038
+IGAMesh(id=22, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=22, name=None, shape=(14, 14), backend=geomdl)
+================================================================================
+Running case 132: N=16384, G=1, A=14, B=14, p=4, q=4, eps=1e-08, device=cpu
+START
+===========================================================================
+Running MatrixAssembler.build()
+Discretization: N = 16384, G = 1, P = 1, A = 14, B = 14
+Operators: H, S, q, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 22
+Step            Shape                     Compression  Elapsed Time (s)
+H               3211264,3211264                 1.00      112.01
+S               1,196,196                       1.00      112.80
+B_out           3211264,3211264                 1.00      120.97
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 121.35 s)
+Step            Shape                     Compression
+H               3211264,3211264             27766.36
+S               3211264,3211264           187740614.58
+q               3211264                         1.00
+B_out           3211264,3211264            947733.09
+===========================================================================
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 16384, G = 1, P = 1, A = 14, B = 14
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 22
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,14                            7.00        3.27
+Intg_str        1,42,2                          3.11        3.28
+H               3,3,3,3,3,98                 8067.88        3.28
+S               1,1,1,1,1,14              752826432.89        3.28
+Intg_out        1,4,130,79,50                 426.84      108.70
+B_out           4,130,79,79,79,50             423.26      108.82
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 110.99 s)
+Step            Ranks                     Compression
+H               3,3,3,45                  94558909.90
+S               1,1,1,14                  752936366.65
+B_out           4,130,78,49                232141.37
+===========================================================================
+TTS
+Running batched GMRES on CPU
+-- (1): |r| = 0.412900557714, |r|/|b| = 0.000448237078, Elapsed Time = 55.338 s
+-- (2): |r| = 0.067084780664, |r|/|b| = 0.000072825976, Elapsed Time = 110.486 s
+-- (3): |r| = 0.022613706822, |r|/|b| = 0.000024549015, Elapsed Time = 166.303 s
+-- (4): |r| = 0.011120658889, |r|/|b| = 0.000012072378, Elapsed Time = 221.225 s
+-- (5): |r| = 0.005049533287, |r|/|b| = 0.000005481678, Elapsed Time = 276.928 s
+-- (6): |r| = 0.002334135779, |r|/|b| = 0.000002533894, Elapsed Time = 331.664 s
+-- (7): |r| = 0.001274145852, |r|/|b| = 0.000001383189, Elapsed Time = 386.810 s
+-- (8): |r| = 0.000738739445, |r|/|b| = 0.000000801962, Elapsed Time = 441.035 s
+-- Converged!
+GMRES
+NUMPY
+FINISHED CSR
+DONE with  CSR
+COMPLETE
+Finished iteration! Run time = 769.649 s, Elapsed time = 1740.168
+================================================================================
+Running case 133: N=16384, G=1, A=14, B=14, p=4, q=4, eps=1e-08, device=gpu
+START
+MATS
+TTS
+Running batched GMRES on GPU 0
+-- (1): |r| = 0.412900557714, |r|/|b| = 0.000448237078, Elapsed Time = 0.689 s
+-- (2): |r| = 0.067084780606, |r|/|b| = 0.000072825976, Elapsed Time = 1.380 s
+-- (3): |r| = 0.022613706821, |r|/|b| = 0.000024549015, Elapsed Time = 2.071 s
+-- (4): |r| = 0.011120658886, |r|/|b| = 0.000012072378, Elapsed Time = 2.762 s
+-- (5): |r| = 0.005049533278, |r|/|b| = 0.000005481678, Elapsed Time = 3.453 s
+-- (6): |r| = 0.002334135778, |r|/|b| = 0.000002533894, Elapsed Time = 4.144 s
+-- (7): |r| = 0.001274145850, |r|/|b| = 0.000001383189, Elapsed Time = 4.838 s
+-- (8): |r| = 0.000738739449, |r|/|b| = 0.000000801962, Elapsed Time = 5.531 s
+-- Converged!
+GMRES
+NUMPY
+FINISHED CSR
+DONE with  CSR
+COMPLETE
+Finished iteration! Run time = 11.558 s, Elapsed time = 1751.787
+================================================================================
+Running case 134: N=16384, G=1, A=14, B=14, p=4, q=4, eps=1e-05, device=cpu
+START
+MATS
+Failed to build TT operators with error [enforce fail at alloc_cpu.cpp:124] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 2199023255552 bytes. Error code 12 (Cannot allocate memory)
+frame #0: <unknown function> + 0x92fbe (0x7fc1b697ffbe in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::ThrowEnforceNotMet(char const*, int, char const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, void const*) + 0x49 (0x7fc1b697f719 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: c10::alloc_cpu(unsigned long) + 0x36e (0x7fc1b696db9e in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #3: <unknown function> + 0x32912 (0x7fc1b691f912 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #4: <unknown function> + 0x15d64ad (0x7fc19621b4ad in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: at::detail::empty_strided_generic(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::Allocator*, c10::DispatchKeySet, c10::ScalarType) + 0x100 (0x7fc196216d00 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #6: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ScalarType, bool) + 0x4a (0x7fc1962172aa in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #7: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>) + 0x6c (0x7fc19621733c in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #8: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::TensorOptions const&) + 0xeb (0x7fc19621743b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #9: <unknown function> + 0x29d89c5 (0x7fc19761d9c5 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #10: <unknown function> + 0x29e24d0 (0x7fc1976274d0 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #11: at::meta::structured__linalg_svd::meta(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x265 (0x7fc1965ba395 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #12: <unknown function> + 0x29dbaf7 (0x7fc197620af7 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #13: <unknown function> + 0x29dbbfc (0x7fc197620bfc in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #14: at::_ops::_linalg_svd::redispatch(c10::DispatchKeySet, at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0xdd (0x7fc197439e6d in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #15: <unknown function> + 0x4c9dff1 (0x7fc1998e2ff1 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #16: <unknown function> + 0x4c9e83f (0x7fc1998e383f in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #17: at::_ops::_linalg_svd::call(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x213 (0x7fc1974a6183 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #18: at::native::linalg_svd(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x29 (0x7fc1965b6899 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #19: <unknown function> + 0x2be6a1b (0x7fc19782ba1b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #20: at::_ops::linalg_svd::call(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x1fc (0x7fc197205fec in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #21: ttnte::linalg::TTOperator::round(double const&, long const&, std::optional<long>) + 0x14f7 (0x7fc0ad9f1697 in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #22: <unknown function> + 0x4649f (0x7fc0ad9c449f in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #23: <unknown function> + 0x35f3e (0x7fc0ad9b3f3e in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #24: python3() [0x528db7]
+<omitting python frames>
+frame #27: python3() [0x5cd0aa]
+frame #29: python3() [0x5ed557]
+frame #30: python3() [0x5e9080]
+frame #31: python3() [0x5fde72]
+frame #36: <unknown function> + 0x29d90 (0x7fc258c8dd90 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #37: __libc_start_main + 0x80 (0x7fc258c8de40 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #38: python3() [0x5bcc43]
+
+TTS
+Finished iteration! Run time = 116.368 s, Elapsed time = 1868.212
+================================================================================
+Running case 135: N=16384, G=1, A=14, B=14, p=4, q=4, eps=1e-05, device=gpu
+START
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 16384, G = 1, P = 1, A = 14, B = 14
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 22
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,7                            13.99        3.28
+Intg_str        1,21,2                          6.22        3.30
+H               3,3,3,3,3,49                15894.94        3.30
+S               1,1,1,1,1,7               941411035.03        3.30
+Intg_out        1,4,128,50,31                 836.69      109.49
+B_out           4,128,49,49,49,30             858.68      109.56
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 112.76 s)
+Step            Ranks                     Compression
+H               3,3,3,22                  113291181.20
+S               1,1,1,7                   941582950.85
+B_out           4,128,49,29                367355.01
+===========================================================================
+TTS
+Finished iteration! Run time = 112.871 s, Elapsed time = 1981.132
+================================================================================
+Running case 136: N=16384, G=1, A=14, B=14, p=4, q=4, eps=0.001, device=cpu
+START
+MATS
+TTS
+Finished iteration! Run time = 361.328 s, Elapsed time = 2342.505
+================================================================================
+Running case 137: N=16384, G=1, A=14, B=14, p=4, q=4, eps=0.001, device=gpu
+START
+MATS
+TTS
+Finished iteration! Run time = 0.042 s, Elapsed time = 2342.592
+IGAMesh(id=23, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=23, name=None, shape=(16, 16), backend=geomdl)
+================================================================================
+Running case 138: N=16384, G=1, A=16, B=16, p=6, q=6, eps=1e-08, device=cpu
+START
+===========================================================================
+Running MatrixAssembler.build()
+Discretization: N = 16384, G = 1, P = 1, A = 16, B = 16
+Operators: H, S, q, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 23
+Step            Shape                     Compression  Elapsed Time (s)
+H               4194304,4194304                 1.00      171.26
+S               1,256,256                       1.00      173.20
+B_out           4194304,4194304                 1.00      199.16
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 199.57 s)
+Step            Shape                     Compression
+H               4194304,4194304             19392.82
+S               4194304,4194304           214413343.95
+q               4194304                         1.00
+B_out           4194304,4194304           1060533.25
+===========================================================================
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 16384, G = 1, P = 1, A = 16, B = 16
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 23
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,14                            9.14        7.62
+Intg_str        1,41,2                          4.16        7.65
+H               3,3,3,3,3,96                10792.89        7.65
+S               1,1,1,1,1,14              1143984006.01        7.65
+Intg_out        1,4,130,76,56                 606.81      369.97
+B_out           4,130,76,76,76,56             602.87      370.09
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 372.19 s)
+Step            Ranks                     Compression
+H               3,3,3,44                  148042497.34
+S               1,1,1,14                  1144132807.26
+B_out           4,130,75,55                407830.12
+===========================================================================
+TTS
+Running batched GMRES on CPU
+-- (1): |r| = 0.627799531377, |r|/|b| = 0.000732803136, Elapsed Time = 80.360 s
+-- (2): |r| = 0.169427651444, |r|/|b| = 0.000197765542, Elapsed Time = 160.705 s
+-- (3): |r| = 0.074460037417, |r|/|b| = 0.000086913969, Elapsed Time = 241.543 s
+-- (4): |r| = 0.040154908753, |r|/|b| = 0.000046871082, Elapsed Time = 322.077 s
+-- (5): |r| = 0.025987463305, |r|/|b| = 0.000030334038, Elapsed Time = 402.389 s
+-- (6): |r| = 0.017994176018, |r|/|b| = 0.000021003820, Elapsed Time = 482.626 s
+-- (7): |r| = 0.013196393176, |r|/|b| = 0.000015403577, Elapsed Time = 563.022 s
+-- (8): |r| = 0.010569109069, |r|/|b| = 0.000012336862, Elapsed Time = 643.657 s
+-- (9): |r| = 0.008764511981, |r|/|b| = 0.000010230434, Elapsed Time = 724.604 s
+-- (10): |r| = 0.007521459401, |r|/|b| = 0.000008779473, Elapsed Time = 805.478 s
+-- (11): |r| = 0.006219031730, |r|/|b| = 0.000007259206, Elapsed Time = 886.117 s
+-- (12): |r| = 0.005511270146, |r|/|b| = 0.000006433066, Elapsed Time = 966.612 s
+-- (13): |r| = 0.004896764443, |r|/|b| = 0.000005715781, Elapsed Time = 1047.001 s
+-- (14): |r| = 0.004415663908, |r|/|b| = 0.000005154213, Elapsed Time = 1127.285 s
+-- (15): |r| = 0.004059348713, |r|/|b| = 0.000004738302, Elapsed Time = 1207.681 s
+-- (16): |r| = 0.003736970664, |r|/|b| = 0.000004362004, Elapsed Time = 1287.956 s
+-- (17): |r| = 0.003473419967, |r|/|b| = 0.000004054372, Elapsed Time = 1368.654 s
+-- (18): |r| = 0.003266749492, |r|/|b| = 0.000003813135, Elapsed Time = 1449.585 s
+-- (19): |r| = 0.003084852807, |r|/|b| = 0.000003600815, Elapsed Time = 1529.891 s
+-- (20): |r| = 0.002918046463, |r|/|b| = 0.000003406109, Elapsed Time = 1610.687 s
+-- (21): |r| = 0.002782952920, |r|/|b| = 0.000003248420, Elapsed Time = 1691.674 s
+-- (22): |r| = 0.002667540245, |r|/|b| = 0.000003113704, Elapsed Time = 1772.257 s
+-- (23): |r| = 0.002552201164, |r|/|b| = 0.000002979074, Elapsed Time = 1852.844 s
+-- (24): |r| = 0.002449790816, |r|/|b| = 0.000002859534, Elapsed Time = 1933.210 s
+-- (25): |r| = 0.002364418153, |r|/|b| = 0.000002759883, Elapsed Time = 2013.709 s
+-- (26): |r| = 0.002282338737, |r|/|b| = 0.000002664075, Elapsed Time = 2094.185 s
+-- (27): |r| = 0.002201661523, |r|/|b| = 0.000002569904, Elapsed Time = 2174.969 s
+-- (28): |r| = 0.002131440577, |r|/|b| = 0.000002487938, Elapsed Time = 2255.764 s
+-- (29): |r| = 0.002069020362, |r|/|b| = 0.000002415078, Elapsed Time = 2336.705 s
+-- (30): |r| = 0.002006377412, |r|/|b| = 0.000002341957, Elapsed Time = 2417.617 s
+-- (31): |r| = 0.001946610587, |r|/|b| = 0.000002272194, Elapsed Time = 2498.236 s
+-- (32): |r| = 0.001895029851, |r|/|b| = 0.000002211986, Elapsed Time = 2578.929 s
+-- (33): |r| = 0.001845973212, |r|/|b| = 0.000002154724, Elapsed Time = 2659.908 s
+-- (34): |r| = 0.001794665217, |r|/|b| = 0.000002094835, Elapsed Time = 2740.720 s
+-- (35): |r| = 0.001749402293, |r|/|b| = 0.000002042001, Elapsed Time = 2820.937 s
+-- (36): |r| = 0.001709440025, |r|/|b| = 0.000001995355, Elapsed Time = 2901.002 s
+-- (37): |r| = 0.001667127611, |r|/|b| = 0.000001945966, Elapsed Time = 2981.698 s
+-- (38): |r| = 0.001625767068, |r|/|b| = 0.000001897687, Elapsed Time = 3062.466 s
+-- (39): |r| = 0.001590305480, |r|/|b| = 0.000001856295, Elapsed Time = 3143.480 s
+-- (40): |r| = 0.001555957510, |r|/|b| = 0.000001816202, Elapsed Time = 3224.051 s
+-- (41): |r| = 0.001518721490, |r|/|b| = 0.000001772738, Elapsed Time = 3304.369 s
+-- (42): |r| = 0.001484722545, |r|/|b| = 0.000001733052, Elapsed Time = 3384.724 s
+-- (43): |r| = 0.001454691072, |r|/|b| = 0.000001697998, Elapsed Time = 3464.892 s
+-- (44): |r| = 0.001423072466, |r|/|b| = 0.000001661091, Elapsed Time = 3545.115 s
+-- (45): |r| = 0.001390655649, |r|/|b| = 0.000001623252, Elapsed Time = 3625.470 s
+-- (46): |r| = 0.001362313171, |r|/|b| = 0.000001590169, Elapsed Time = 3706.044 s
+-- (47): |r| = 0.001334768224, |r|/|b| = 0.000001558017, Elapsed Time = 3786.707 s
+-- (48): |r| = 0.001304495792, |r|/|b| = 0.000001522681, Elapsed Time = 3867.627 s
+-- (49): |r| = 0.001276690757, |r|/|b| = 0.000001490226, Elapsed Time = 3948.550 s
+-- (50): |r| = 0.001252035600, |r|/|b| = 0.000001461447, Elapsed Time = 4029.227 s
+-- (51): |r| = 0.001225743903, |r|/|b| = 0.000001430758, Elapsed Time = 4109.630 s
+-- (52): |r| = 0.001198236400, |r|/|b| = 0.000001398649, Elapsed Time = 4190.612 s
+-- (53): |r| = 0.001174265225, |r|/|b| = 0.000001370669, Elapsed Time = 4271.633 s
+-- (54): |r| = 0.001151303720, |r|/|b| = 0.000001343867, Elapsed Time = 4352.632 s
+-- (55): |r| = 0.001125458827, |r|/|b| = 0.000001313699, Elapsed Time = 4433.193 s
+-- (56): |r| = 0.001101573924, |r|/|b| = 0.000001285819, Elapsed Time = 4513.830 s
+-- (57): |r| = 0.001080332615, |r|/|b| = 0.000001261025, Elapsed Time = 4594.538 s
+-- (58): |r| = 0.001057639135, |r|/|b| = 0.000001234536, Elapsed Time = 4675.148 s
+-- (59): |r| = 0.001033950105, |r|/|b| = 0.000001206885, Elapsed Time = 4755.799 s
+-- (60): |r| = 0.001013214064, |r|/|b| = 0.000001182681, Elapsed Time = 4836.559 s
+-- (61): |r| = 0.000993234482, |r|/|b| = 0.000001159359, Elapsed Time = 4917.268 s
+-- (62): |r| = 0.000970876701, |r|/|b| = 0.000001133262, Elapsed Time = 4998.181 s
+-- (63): |r| = 0.000950218185, |r|/|b| = 0.000001109148, Elapsed Time = 5079.405 s
+-- (64): |r| = 0.000932074043, |r|/|b| = 0.000001087970, Elapsed Time = 5160.402 s
+-- (65): |r| = 0.000912606506, |r|/|b| = 0.000001065246, Elapsed Time = 5241.323 s
+-- (66): |r| = 0.000892112341, |r|/|b| = 0.000001041324, Elapsed Time = 5321.965 s
+-- (67): |r| = 0.000874423641, |r|/|b| = 0.000001020677, Elapsed Time = 5402.348 s
+-- (68): |r| = 0.000857154870, |r|/|b| = 0.000001000520, Elapsed Time = 5483.092 s
+-- (69): |r| = 0.000837896163, |r|/|b| = 0.000000978040, Elapsed Time = 5563.571 s
+-- Converged!
+GMRES
+NUMPY
+FINISHED CSR
+DONE with  CSR
+COMPLETE
+Finished iteration! Run time = 6337.759 s, Elapsed time = 8681.122
+================================================================================
+Running case 139: N=16384, G=1, A=16, B=16, p=6, q=6, eps=1e-08, device=gpu
+START
+MATS
+TTS
+Running batched GMRES on GPU 0
+-- (1): |r| = 0.627799531377, |r|/|b| = 0.000732803136, Elapsed Time = 1.107 s
+-- (2): |r| = 0.169427651443, |r|/|b| = 0.000197765542, Elapsed Time = 2.218 s
+-- (3): |r| = 0.074460037418, |r|/|b| = 0.000086913969, Elapsed Time = 3.329 s
+-- (4): |r| = 0.040154908755, |r|/|b| = 0.000046871082, Elapsed Time = 4.440 s
+-- (5): |r| = 0.025987463305, |r|/|b| = 0.000030334038, Elapsed Time = 5.552 s
+-- (6): |r| = 0.017994176018, |r|/|b| = 0.000021003820, Elapsed Time = 6.666 s
+-- (7): |r| = 0.013196393177, |r|/|b| = 0.000015403577, Elapsed Time = 7.780 s
+-- (8): |r| = 0.010569109070, |r|/|b| = 0.000012336862, Elapsed Time = 8.893 s
+-- (9): |r| = 0.008764511981, |r|/|b| = 0.000010230434, Elapsed Time = 10.007 s
+-- (10): |r| = 0.007521459401, |r|/|b| = 0.000008779473, Elapsed Time = 11.122 s
+-- (11): |r| = 0.006219031730, |r|/|b| = 0.000007259206, Elapsed Time = 12.236 s
+-- (12): |r| = 0.005511270146, |r|/|b| = 0.000006433066, Elapsed Time = 13.351 s
+-- (13): |r| = 0.004896764445, |r|/|b| = 0.000005715781, Elapsed Time = 14.467 s
+-- (14): |r| = 0.004415663909, |r|/|b| = 0.000005154213, Elapsed Time = 15.583 s
+-- (15): |r| = 0.004059348716, |r|/|b| = 0.000004738302, Elapsed Time = 16.699 s
+-- (16): |r| = 0.003736970669, |r|/|b| = 0.000004362004, Elapsed Time = 17.816 s
+-- (17): |r| = 0.003473419994, |r|/|b| = 0.000004054372, Elapsed Time = 18.935 s
+-- (18): |r| = 0.003266749518, |r|/|b| = 0.000003813135, Elapsed Time = 20.054 s
+-- (19): |r| = 0.003084852833, |r|/|b| = 0.000003600815, Elapsed Time = 21.173 s
+-- (20): |r| = 0.002918046489, |r|/|b| = 0.000003406109, Elapsed Time = 22.292 s
+-- (21): |r| = 0.002782952928, |r|/|b| = 0.000003248420, Elapsed Time = 23.413 s
+-- (22): |r| = 0.002667540259, |r|/|b| = 0.000003113704, Elapsed Time = 24.534 s
+-- (23): |r| = 0.002552201167, |r|/|b| = 0.000002979074, Elapsed Time = 25.657 s
+-- (24): |r| = 0.002449790821, |r|/|b| = 0.000002859534, Elapsed Time = 26.779 s
+-- (25): |r| = 0.002364418165, |r|/|b| = 0.000002759883, Elapsed Time = 27.902 s
+-- (26): |r| = 0.002282338828, |r|/|b| = 0.000002664075, Elapsed Time = 29.026 s
+-- (27): |r| = 0.002201661596, |r|/|b| = 0.000002569904, Elapsed Time = 30.151 s
+-- (28): |r| = 0.002131440628, |r|/|b| = 0.000002487938, Elapsed Time = 31.276 s
+-- (29): |r| = 0.002069020389, |r|/|b| = 0.000002415078, Elapsed Time = 32.402 s
+-- (30): |r| = 0.002006377331, |r|/|b| = 0.000002341957, Elapsed Time = 33.527 s
+-- (31): |r| = 0.001946610588, |r|/|b| = 0.000002272194, Elapsed Time = 34.654 s
+-- (32): |r| = 0.001895029698, |r|/|b| = 0.000002211986, Elapsed Time = 35.782 s
+-- (33): |r| = 0.001845973103, |r|/|b| = 0.000002154724, Elapsed Time = 36.913 s
+-- (34): |r| = 0.001794665420, |r|/|b| = 0.000002094835, Elapsed Time = 38.043 s
+-- (35): |r| = 0.001749402566, |r|/|b| = 0.000002042002, Elapsed Time = 39.173 s
+-- (36): |r| = 0.001709440716, |r|/|b| = 0.000001995356, Elapsed Time = 40.305 s
+-- (37): |r| = 0.001667127968, |r|/|b| = 0.000001945966, Elapsed Time = 41.435 s
+-- (38): |r| = 0.001625767550, |r|/|b| = 0.000001897688, Elapsed Time = 42.568 s
+-- (39): |r| = 0.001590305437, |r|/|b| = 0.000001856294, Elapsed Time = 43.701 s
+-- (40): |r| = 0.001555958040, |r|/|b| = 0.000001816202, Elapsed Time = 44.834 s
+-- (41): |r| = 0.001518722420, |r|/|b| = 0.000001772739, Elapsed Time = 45.966 s
+-- (42): |r| = 0.001484723683, |r|/|b| = 0.000001733053, Elapsed Time = 47.101 s
+-- (43): |r| = 0.001454692677, |r|/|b| = 0.000001698000, Elapsed Time = 48.235 s
+-- (44): |r| = 0.001423076066, |r|/|b| = 0.000001661095, Elapsed Time = 49.372 s
+-- (45): |r| = 0.001390662128, |r|/|b| = 0.000001623260, Elapsed Time = 50.508 s
+-- (46): |r| = 0.001362316996, |r|/|b| = 0.000001590173, Elapsed Time = 51.645 s
+-- (47): |r| = 0.001334754484, |r|/|b| = 0.000001558001, Elapsed Time = 52.783 s
+-- (48): |r| = 0.001304468768, |r|/|b| = 0.000001522650, Elapsed Time = 53.922 s
+-- (49): |r| = 0.001276660430, |r|/|b| = 0.000001490190, Elapsed Time = 55.062 s
+-- (50): |r| = 0.001251995863, |r|/|b| = 0.000001461400, Elapsed Time = 56.202 s
+-- (51): |r| = 0.001225646432, |r|/|b| = 0.000001430644, Elapsed Time = 57.343 s
+-- (52): |r| = 0.001198169170, |r|/|b| = 0.000001398571, Elapsed Time = 58.485 s
+-- (53): |r| = 0.001174215157, |r|/|b| = 0.000001370610, Elapsed Time = 59.626 s
+-- (54): |r| = 0.001151186153, |r|/|b| = 0.000001343730, Elapsed Time = 60.767 s
+-- (55): |r| = 0.001125247432, |r|/|b| = 0.000001313452, Elapsed Time = 61.910 s
+-- (56): |r| = 0.001101381586, |r|/|b| = 0.000001285595, Elapsed Time = 63.054 s
+-- (57): |r| = 0.001080016850, |r|/|b| = 0.000001260657, Elapsed Time = 64.197 s
+-- (58): |r| = 0.001057190192, |r|/|b| = 0.000001234012, Elapsed Time = 65.342 s
+-- (59): |r| = 0.001033405861, |r|/|b| = 0.000001206250, Elapsed Time = 66.488 s
+-- (60): |r| = 0.001012664927, |r|/|b| = 0.000001182040, Elapsed Time = 67.636 s
+-- (61): |r| = 0.000992476048, |r|/|b| = 0.000001158474, Elapsed Time = 68.782 s
+-- (62): |r| = 0.000969886746, |r|/|b| = 0.000001132107, Elapsed Time = 69.929 s
+-- (63): |r| = 0.000949401296, |r|/|b| = 0.000001108195, Elapsed Time = 71.075 s
+-- (64): |r| = 0.000931403122, |r|/|b| = 0.000001087186, Elapsed Time = 72.222 s
+-- (65): |r| = 0.000911512247, |r|/|b| = 0.000001063969, Elapsed Time = 73.370 s
+-- (66): |r| = 0.000891046068, |r|/|b| = 0.000001040079, Elapsed Time = 74.518 s
+-- (67): |r| = 0.000873480854, |r|/|b| = 0.000001019576, Elapsed Time = 75.667 s
+-- (68): |r| = 0.000856142525, |r|/|b| = 0.000000999338, Elapsed Time = 76.816 s
+-- Converged!
+GMRES
+NUMPY
+FINISHED CSR
+DONE with  CSR
+COMPLETE
+Finished iteration! Run time = 90.913 s, Elapsed time = 8772.091
+================================================================================
+Running case 140: N=16384, G=1, A=16, B=16, p=6, q=6, eps=1e-05, device=cpu
+START
+MATS
+Failed to build TT operators with error [enforce fail at alloc_cpu.cpp:124] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 2164797734912 bytes. Error code 12 (Cannot allocate memory)
+frame #0: <unknown function> + 0x92fbe (0x7fc1b697ffbe in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::ThrowEnforceNotMet(char const*, int, char const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, void const*) + 0x49 (0x7fc1b697f719 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: c10::alloc_cpu(unsigned long) + 0x36e (0x7fc1b696db9e in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #3: <unknown function> + 0x32912 (0x7fc1b691f912 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #4: <unknown function> + 0x15d64ad (0x7fc19621b4ad in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: at::detail::empty_strided_generic(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::Allocator*, c10::DispatchKeySet, c10::ScalarType) + 0x100 (0x7fc196216d00 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #6: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ScalarType, bool) + 0x4a (0x7fc1962172aa in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #7: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>) + 0x6c (0x7fc19621733c in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #8: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::TensorOptions const&) + 0xeb (0x7fc19621743b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #9: <unknown function> + 0x29d89c5 (0x7fc19761d9c5 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #10: <unknown function> + 0x29e24d0 (0x7fc1976274d0 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #11: at::meta::structured__linalg_svd::meta(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x265 (0x7fc1965ba395 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #12: <unknown function> + 0x29dbaf7 (0x7fc197620af7 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #13: <unknown function> + 0x29dbbfc (0x7fc197620bfc in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #14: at::_ops::_linalg_svd::redispatch(c10::DispatchKeySet, at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0xdd (0x7fc197439e6d in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #15: <unknown function> + 0x4c9dff1 (0x7fc1998e2ff1 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #16: <unknown function> + 0x4c9e83f (0x7fc1998e383f in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #17: at::_ops::_linalg_svd::call(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x213 (0x7fc1974a6183 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #18: at::native::linalg_svd(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x29 (0x7fc1965b6899 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #19: <unknown function> + 0x2be6a1b (0x7fc19782ba1b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #20: at::_ops::linalg_svd::call(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x1fc (0x7fc197205fec in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #21: ttnte::linalg::TTOperator::round(double const&, long const&, std::optional<long>) + 0x14f7 (0x7fc0ad9f1697 in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #22: <unknown function> + 0x4649f (0x7fc0ad9c449f in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #23: <unknown function> + 0x35f3e (0x7fc0ad9b3f3e in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #24: python3() [0x528db7]
+<omitting python frames>
+frame #27: python3() [0x5cd0aa]
+frame #29: python3() [0x5ed557]
+frame #30: python3() [0x5e9080]
+frame #31: python3() [0x5fde72]
+frame #36: <unknown function> + 0x29d90 (0x7fc258c8dd90 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #37: __libc_start_main + 0x80 (0x7fc258c8de40 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #38: python3() [0x5bcc43]
+
+TTS
+Finished iteration! Run time = 117.389 s, Elapsed time = 8889.536
+================================================================================
+Running case 141: N=16384, G=1, A=16, B=16, p=6, q=6, eps=1e-05, device=gpu
+START
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 16384, G = 1, P = 1, A = 16, B = 16
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 23
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,7                            18.28        7.32
+Intg_str        1,20,2                          8.53        7.35
+H               3,3,3,3,3,47                21775.34        7.35
+S               1,1,1,1,1,7               1491621675.80        7.35
+Intg_out        1,4,127,48,32                1302.96      380.57
+B_out           4,126,48,48,48,31            1321.01      380.65
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 383.65 s)
+Step            Ranks                     Compression
+H               3,3,3,22                  182673471.97
+S               1,1,1,7                   1491874664.55
+B_out           4,124,47,30                669622.21
+===========================================================================
+TTS
+Finished iteration! Run time = 383.752 s, Elapsed time = 9273.336
+================================================================================
+Running case 142: N=16384, G=1, A=16, B=16, p=6, q=6, eps=0.001, device=cpu
+START
+MATS
+TTS
+Finished iteration! Run time = 306.011 s, Elapsed time = 9579.391
+================================================================================
+Running case 143: N=16384, G=1, A=16, B=16, p=6, q=6, eps=0.001, device=gpu
+START
+MATS
+TTS
+Finished iteration! Run time = 0.043 s, Elapsed time = 9579.482
+IGAMesh(id=24, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=24, name=None, shape=(12, 12), backend=geomdl)
+================================================================================
+Running case 144: N=65536, G=1, A=12, B=12, p=2, q=2, eps=1e-08, device=cpu
+START
+===========================================================================
+Running MatrixAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 12, B = 12
+Operators: H, S, q, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 24
+Step            Shape                     Compression  Elapsed Time (s)
+H               9437184,9437184                 1.00       76.68
+S               1,144,144                       1.00       77.50
+B_out           9437184,9437184                 1.00       86.27
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 86.68 s)
+Step            Shape                     Compression
+H               9437184,9437184            227402.02
+S               9437184,9437184           1029267310.58
+q               9437184                         1.00
+B_out           9437184,9437184           3657345.84
+===========================================================================
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 12, B = 12
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 24
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,14                            5.14        1.76
+Intg_str        1,38,2                          2.53        1.76
+H               3,3,3,3,3,90                25084.99        1.77
+S               1,1,1,1,1,14              2418937526.48        1.78
+Intg_out        1,4,258,62,32                 550.21       28.61
+B_out           4,258,62,62,62,32             548.50       28.84
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 42.22 s)
+Step            Ranks                     Compression
+H               3,3,3,40                  280064282.55
+S               1,1,1,14                  2419068933.34
+B_out           4,258,62,32                318896.31
+===========================================================================
+TTS
+Running batched GMRES on CPU
+-- (1): |r| = 0.286380723295, |r|/|b| = 0.000146317516, Elapsed Time = 150.848 s
+-- (2): |r| = 0.013722295082, |r|/|b| = 0.000007010989, Elapsed Time = 301.853 s
+-- (3): |r| = 0.001232945958, |r|/|b| = 0.000000629936, Elapsed Time = 452.800 s
+-- Converged!
+GMRES
+NUMPY
+FINISHED CSR
+DONE with  CSR
+COMPLETE
+Finished iteration! Run time = 717.704 s, Elapsed time = 10298.880
+================================================================================
+Running case 145: N=65536, G=1, A=12, B=12, p=2, q=2, eps=1e-08, device=gpu
+START
+MATS
+TTS
+Running batched GMRES on GPU 0
+-- (1): |r| = 0.286380723295, |r|/|b| = 0.000146317516, Elapsed Time = 5.716 s
+-- (2): |r| = 0.013722295092, |r|/|b| = 0.000007010989, Elapsed Time = 11.426 s
+-- (3): |r| = 0.001232945961, |r|/|b| = 0.000000629936, Elapsed Time = 17.131 s
+-- Converged!
+GMRES
+NUMPY
+FINISHED CSR
+DONE with  CSR
+COMPLETE
+Finished iteration! Run time = 24.069 s, Elapsed time = 10323.006
+================================================================================
+Running case 146: N=65536, G=1, A=12, B=12, p=2, q=2, eps=1e-05, device=cpu
+START
+MATS
+Failed to build TT operators with error [enforce fail at alloc_cpu.cpp:124] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 4544075399168 bytes. Error code 12 (Cannot allocate memory)
+frame #0: <unknown function> + 0x92fbe (0x7fc1b697ffbe in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::ThrowEnforceNotMet(char const*, int, char const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, void const*) + 0x49 (0x7fc1b697f719 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: c10::alloc_cpu(unsigned long) + 0x36e (0x7fc1b696db9e in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #3: <unknown function> + 0x32912 (0x7fc1b691f912 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #4: <unknown function> + 0x15d64ad (0x7fc19621b4ad in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: at::detail::empty_strided_generic(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::Allocator*, c10::DispatchKeySet, c10::ScalarType) + 0x100 (0x7fc196216d00 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #6: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ScalarType, bool) + 0x4a (0x7fc1962172aa in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #7: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>) + 0x6c (0x7fc19621733c in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #8: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::TensorOptions const&) + 0xeb (0x7fc19621743b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #9: <unknown function> + 0x29d89c5 (0x7fc19761d9c5 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #10: <unknown function> + 0x29e24d0 (0x7fc1976274d0 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #11: at::meta::structured__linalg_svd::meta(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x265 (0x7fc1965ba395 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #12: <unknown function> + 0x29dbaf7 (0x7fc197620af7 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #13: <unknown function> + 0x29dbbfc (0x7fc197620bfc in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #14: at::_ops::_linalg_svd::redispatch(c10::DispatchKeySet, at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0xdd (0x7fc197439e6d in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #15: <unknown function> + 0x4c9dff1 (0x7fc1998e2ff1 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #16: <unknown function> + 0x4c9e83f (0x7fc1998e383f in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #17: at::_ops::_linalg_svd::call(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x213 (0x7fc1974a6183 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #18: at::native::linalg_svd(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x29 (0x7fc1965b6899 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #19: <unknown function> + 0x2be6a1b (0x7fc19782ba1b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #20: at::_ops::linalg_svd::call(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x1fc (0x7fc197205fec in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #21: ttnte::linalg::TTOperator::round(double const&, long const&, std::optional<long>) + 0x14f7 (0x7fc0ad9f1697 in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #22: <unknown function> + 0x4649f (0x7fc0ad9c449f in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #23: <unknown function> + 0x35f3e (0x7fc0ad9b3f3e in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #24: python3() [0x528db7]
+<omitting python frames>
+frame #27: python3() [0x5cd0aa]
+frame #29: python3() [0x5ed557]
+frame #30: python3() [0x5e9080]
+frame #31: python3() [0x5fde72]
+frame #36: <unknown function> + 0x29d90 (0x7fc258c8dd90 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #37: __libc_start_main + 0x80 (0x7fc258c8de40 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #38: python3() [0x5bcc43]
+
+TTS
+Finished iteration! Run time = 19.141 s, Elapsed time = 10342.203
+================================================================================
+Running case 147: N=65536, G=1, A=12, B=12, p=2, q=2, eps=1e-05, device=gpu
+START
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 12, B = 12
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 24
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,7                            10.28        1.76
+Intg_str        1,20,2                          4.80        1.76
+H               3,3,3,3,3,47                46213.51        1.77
+S               1,1,1,1,1,7               2559061026.66        1.78
+Intg_out        1,4,250,46,24                 771.06       28.63
+B_out           4,249,46,46,46,23             774.99       28.83
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 43.95 s)
+Step            Ranks                     Compression
+H               3,3,3,21                  290046251.66
+S               1,1,1,7                   2559208099.13
+B_out           4,247,46,23                439808.72
+===========================================================================
+TTS
+Finished iteration! Run time = 44.276 s, Elapsed time = 10386.524
+================================================================================
+Running case 148: N=65536, G=1, A=12, B=12, p=2, q=2, eps=0.001, device=cpu
+START
+MATS
+Failed to build TT operators with error [enforce fail at alloc_cpu.cpp:124] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 1565515579392 bytes. Error code 12 (Cannot allocate memory)
+frame #0: <unknown function> + 0x92fbe (0x7fc1b697ffbe in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::ThrowEnforceNotMet(char const*, int, char const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, void const*) + 0x49 (0x7fc1b697f719 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: c10::alloc_cpu(unsigned long) + 0x36e (0x7fc1b696db9e in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #3: <unknown function> + 0x32912 (0x7fc1b691f912 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #4: <unknown function> + 0x15d64ad (0x7fc19621b4ad in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: at::detail::empty_strided_generic(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::Allocator*, c10::DispatchKeySet, c10::ScalarType) + 0x100 (0x7fc196216d00 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #6: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ScalarType, bool) + 0x4a (0x7fc1962172aa in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #7: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>) + 0x6c (0x7fc19621733c in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #8: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::TensorOptions const&) + 0xeb (0x7fc19621743b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #9: <unknown function> + 0x29d89c5 (0x7fc19761d9c5 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #10: <unknown function> + 0x29e24d0 (0x7fc1976274d0 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #11: at::meta::structured__linalg_svd::meta(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x265 (0x7fc1965ba395 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #12: <unknown function> + 0x29dbaf7 (0x7fc197620af7 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #13: <unknown function> + 0x29dbbfc (0x7fc197620bfc in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #14: at::_ops::_linalg_svd::redispatch(c10::DispatchKeySet, at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0xdd (0x7fc197439e6d in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #15: <unknown function> + 0x4c9dff1 (0x7fc1998e2ff1 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #16: <unknown function> + 0x4c9e83f (0x7fc1998e383f in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #17: at::_ops::_linalg_svd::call(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x213 (0x7fc1974a6183 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #18: at::native::linalg_svd(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x29 (0x7fc1965b6899 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #19: <unknown function> + 0x2be6a1b (0x7fc19782ba1b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #20: at::_ops::linalg_svd::call(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x1fc (0x7fc197205fec in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #21: ttnte::linalg::TTOperator::round(double const&, long const&, std::optional<long>) + 0x14f7 (0x7fc0ad9f1697 in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #22: <unknown function> + 0x4649f (0x7fc0ad9c449f in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #23: <unknown function> + 0x35f3e (0x7fc0ad9b3f3e in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #24: python3() [0x528db7]
+<omitting python frames>
+frame #27: python3() [0x5cd0aa]
+frame #29: python3() [0x5ed557]
+frame #30: python3() [0x5e9080]
+frame #31: python3() [0x5fde72]
+frame #36: <unknown function> + 0x29d90 (0x7fc258c8dd90 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #37: __libc_start_main + 0x80 (0x7fc258c8de40 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #38: python3() [0x5bcc43]
+
+TTS
+Finished iteration! Run time = 18.351 s, Elapsed time = 10404.919
+================================================================================
+Running case 149: N=65536, G=1, A=12, B=12, p=2, q=2, eps=0.001, device=gpu
+START
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 12, B = 12
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 24
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,3                            23.97        1.74
+Intg_str        1,8,2                          11.98        1.75
+H               3,3,3,3,3,19               102346.32        1.75
+S               1,1,1,1,1,3               2646669891.53        1.76
+Intg_out        1,4,29,25,15                 8295.16       18.11
+B_out           4,28,24,24,24,14             8945.20       18.13
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 19.27 s)
+Step            Ranks                     Compression
+H               3,3,3,9                   296725711.16
+S               1,1,1,3                   2646827206.66
+B_out           4,26,23,14                7710850.08
+===========================================================================
+TTS
+Finished iteration! Run time = 19.360 s, Elapsed time = 10424.323
+IGAMesh(id=25, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=25, name=None, shape=(13, 13), backend=geomdl)
+================================================================================
+Running case 150: N=65536, G=1, A=13, B=13, p=3, q=3, eps=1e-08, device=cpu
+START
+===========================================================================
+Running MatrixAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 13, B = 13
+Operators: H, S, q, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 25
+Step            Shape                     Compression  Elapsed Time (s)
+H               11075584,11075584               1.00      156.56
+S               1,169,169                       1.00      158.32
+B_out           11075584,11075584               1.00      175.14
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 175.59 s)
+Step            Shape                     Compression
+H               11075584,11075584          147954.60
+S               11075584,11075584         1300102391.46
+q               11075584                        1.00
+B_out           11075584,11075584         3664661.33
+===========================================================================
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 13, B = 13
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 25
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,14                            6.03        2.32
+Intg_str        1,41,2                          2.75        2.33
+H               3,3,3,3,3,96                27841.35        2.33
+S               1,1,1,1,1,14              3269592220.83        2.34
+Intg_out        1,4,258,81,45                 545.60       62.76
+B_out           4,258,81,81,81,45             543.52       63.14
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 79.49 s)
+Step            Ranks                     Compression
+H               3,3,3,44                  377785801.66
+S               1,1,1,14                  3269766524.71
+B_out           4,258,80,45                344874.81
+===========================================================================
+TTS
+Running batched GMRES on CPU
+-- (1): |r| = 0.613776392594, |r|/|b| = 0.000322793113, Elapsed Time = 179.380 s
+-- (2): |r| = 0.068838596645, |r|/|b| = 0.000036203127, Elapsed Time = 358.876 s
+-- (3): |r| = 0.013036290591, |r|/|b| = 0.000006855957, Elapsed Time = 539.472 s
+-- (4): |r| = 0.003302059801, |r|/|b| = 0.000001736597, Elapsed Time = 718.947 s
+-- (5): |r| = 0.000900167539, |r|/|b| = 0.000000473410, Elapsed Time = 898.677 s
+-- Converged!
+GMRES
+NUMPY
+FINISHED CSR
+DONE with  CSR
+COMPLETE
+Finished iteration! Run time = 1341.203 s, Elapsed time = 11766.372
+================================================================================
+Running case 151: N=65536, G=1, A=13, B=13, p=3, q=3, eps=1e-08, device=gpu
+START
+MATS
+TTS
+Running batched GMRES on GPU 0
+-- (1): |r| = 0.613776392594, |r|/|b| = 0.000322793113, Elapsed Time = 6.901 s
+-- (2): |r| = 0.068838596860, |r|/|b| = 0.000036203127, Elapsed Time = 13.796 s
+-- (3): |r| = 0.013036290580, |r|/|b| = 0.000006855957, Elapsed Time = 20.690 s
+-- (4): |r| = 0.003302059793, |r|/|b| = 0.000001736597, Elapsed Time = 27.574 s
+-- (5): |r| = 0.000900167446, |r|/|b| = 0.000000473410, Elapsed Time = 34.454 s
+-- Converged!
+GMRES
+NUMPY
+FINISHED CSR
+DONE with  CSR
+COMPLETE
+Finished iteration! Run time = 47.695 s, Elapsed time = 11814.126
+================================================================================
+Running case 152: N=65536, G=1, A=13, B=13, p=3, q=3, eps=1e-05, device=cpu
+START
+MATS
+Failed to build TT operators with error [enforce fail at alloc_cpu.cpp:124] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 5156108238848 bytes. Error code 12 (Cannot allocate memory)
+frame #0: <unknown function> + 0x92fbe (0x7fc1b697ffbe in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::ThrowEnforceNotMet(char const*, int, char const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, void const*) + 0x49 (0x7fc1b697f719 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: c10::alloc_cpu(unsigned long) + 0x36e (0x7fc1b696db9e in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #3: <unknown function> + 0x32912 (0x7fc1b691f912 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #4: <unknown function> + 0x15d64ad (0x7fc19621b4ad in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: at::detail::empty_strided_generic(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::Allocator*, c10::DispatchKeySet, c10::ScalarType) + 0x100 (0x7fc196216d00 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #6: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ScalarType, bool) + 0x4a (0x7fc1962172aa in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #7: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>) + 0x6c (0x7fc19621733c in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #8: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::TensorOptions const&) + 0xeb (0x7fc19621743b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #9: <unknown function> + 0x29d89c5 (0x7fc19761d9c5 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #10: <unknown function> + 0x29e24d0 (0x7fc1976274d0 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #11: at::meta::structured__linalg_svd::meta(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x265 (0x7fc1965ba395 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #12: <unknown function> + 0x29dbaf7 (0x7fc197620af7 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #13: <unknown function> + 0x29dbbfc (0x7fc197620bfc in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #14: at::_ops::_linalg_svd::redispatch(c10::DispatchKeySet, at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0xdd (0x7fc197439e6d in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #15: <unknown function> + 0x4c9dff1 (0x7fc1998e2ff1 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #16: <unknown function> + 0x4c9e83f (0x7fc1998e383f in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #17: at::_ops::_linalg_svd::call(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x213 (0x7fc1974a6183 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #18: at::native::linalg_svd(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x29 (0x7fc1965b6899 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #19: <unknown function> + 0x2be6a1b (0x7fc19782ba1b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #20: at::_ops::linalg_svd::call(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x1fc (0x7fc197205fec in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #21: ttnte::linalg::TTOperator::round(double const&, long const&, std::optional<long>) + 0x14f7 (0x7fc0ad9f1697 in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #22: <unknown function> + 0x4649f (0x7fc0ad9c449f in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #23: <unknown function> + 0x35f3e (0x7fc0ad9b3f3e in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #24: python3() [0x528db7]
+<omitting python frames>
+frame #27: python3() [0x5cd0aa]
+frame #29: python3() [0x5ed557]
+frame #30: python3() [0x5e9080]
+frame #31: python3() [0x5fde72]
+frame #36: <unknown function> + 0x29d90 (0x7fc258c8dd90 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #37: __libc_start_main + 0x80 (0x7fc258c8de40 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #38: python3() [0x5bcc43]
+
+TTS
+Finished iteration! Run time = 20.087 s, Elapsed time = 11834.270
+================================================================================
+Running case 153: N=65536, G=1, A=13, B=13, p=3, q=3, eps=1e-05, device=gpu
+START
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 13, B = 13
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 25
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,7                            12.07        2.31
+Intg_str        1,20,2                          5.63        2.32
+H               3,3,3,3,3,47                54881.07        2.32
+S               1,1,1,1,1,7               3489660928.00        2.33
+Intg_out        1,4,249,48,28                 990.76       61.71
+B_out           4,247,48,48,48,28             995.35       61.94
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 77.87 s)
+Step            Ranks                     Compression
+H               3,3,3,21                  396785315.31
+S               1,1,1,7                   3489859486.23
+B_out           4,244,48,28                589434.96
+===========================================================================
+TTS
+Finished iteration! Run time = 78.232 s, Elapsed time = 11912.545
+================================================================================
+Running case 154: N=65536, G=1, A=13, B=13, p=3, q=3, eps=0.001, device=cpu
+START
+MATS
+Failed to build TT operators with error [enforce fail at alloc_cpu.cpp:124] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 1565515579392 bytes. Error code 12 (Cannot allocate memory)
+frame #0: <unknown function> + 0x92fbe (0x7fc1b697ffbe in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::ThrowEnforceNotMet(char const*, int, char const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, void const*) + 0x49 (0x7fc1b697f719 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: c10::alloc_cpu(unsigned long) + 0x36e (0x7fc1b696db9e in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #3: <unknown function> + 0x32912 (0x7fc1b691f912 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #4: <unknown function> + 0x15d64ad (0x7fc19621b4ad in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: at::detail::empty_strided_generic(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::Allocator*, c10::DispatchKeySet, c10::ScalarType) + 0x100 (0x7fc196216d00 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #6: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ScalarType, bool) + 0x4a (0x7fc1962172aa in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #7: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>) + 0x6c (0x7fc19621733c in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #8: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::TensorOptions const&) + 0xeb (0x7fc19621743b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #9: <unknown function> + 0x29d89c5 (0x7fc19761d9c5 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #10: <unknown function> + 0x29e24d0 (0x7fc1976274d0 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #11: at::meta::structured__linalg_svd::meta(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x265 (0x7fc1965ba395 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #12: <unknown function> + 0x29dbaf7 (0x7fc197620af7 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #13: <unknown function> + 0x29dbbfc (0x7fc197620bfc in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #14: at::_ops::_linalg_svd::redispatch(c10::DispatchKeySet, at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0xdd (0x7fc197439e6d in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #15: <unknown function> + 0x4c9dff1 (0x7fc1998e2ff1 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #16: <unknown function> + 0x4c9e83f (0x7fc1998e383f in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #17: at::_ops::_linalg_svd::call(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x213 (0x7fc1974a6183 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #18: at::native::linalg_svd(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x29 (0x7fc1965b6899 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #19: <unknown function> + 0x2be6a1b (0x7fc19782ba1b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #20: at::_ops::linalg_svd::call(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x1fc (0x7fc197205fec in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #21: ttnte::linalg::TTOperator::round(double const&, long const&, std::optional<long>) + 0x14f7 (0x7fc0ad9f1697 in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #22: <unknown function> + 0x4649f (0x7fc0ad9c449f in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #23: <unknown function> + 0x35f3e (0x7fc0ad9b3f3e in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #24: python3() [0x528db7]
+<omitting python frames>
+frame #27: python3() [0x5cd0aa]
+frame #29: python3() [0x5ed557]
+frame #30: python3() [0x5e9080]
+frame #31: python3() [0x5fde72]
+frame #36: <unknown function> + 0x29d90 (0x7fc258c8dd90 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #37: __libc_start_main + 0x80 (0x7fc258c8de40 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #38: python3() [0x5bcc43]
+
+TTS
+Finished iteration! Run time = 18.603 s, Elapsed time = 11931.194
+================================================================================
+Running case 155: N=65536, G=1, A=13, B=13, p=3, q=3, eps=0.001, device=gpu
+START
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 13, B = 13
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 25
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,3                            28.14        2.29
+Intg_str        1,8,2                          14.07        2.30
+H               3,3,3,3,3,19               123321.50        2.30
+S               1,1,1,1,1,3               3629247365.12        2.31
+Intg_out        1,4,27,24,14                12003.55       50.36
+B_out           4,26,23,23,23,14            12671.61       50.38
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 51.36 s)
+Step            Ranks                     Compression
+H               3,3,3,9                   407477182.54
+S               1,1,1,3                   3629462126.19
+B_out           4,25,22,13                11464142.56
+===========================================================================
+TTS
+Finished iteration! Run time = 51.444 s, Elapsed time = 11982.683
+IGAMesh(id=26, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=26, name=None, shape=(14, 14), backend=geomdl)
+================================================================================
+Running case 156: N=65536, G=1, A=14, B=14, p=4, q=4, eps=1e-08, device=cpu
+START
+===========================================================================
+Running MatrixAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 14, B = 14
+Operators: H, S, q, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 26
+Step            Shape                     Compression  Elapsed Time (s)
+H               12845056,12845056               1.00      276.09
+S               1,196,196                       1.00      279.22
+B_out           12845056,12845056               1.00      310.53
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 311.03 s)
+Step            Shape                     Compression
+H               12845056,12845056          111065.42
+S               12845056,12845056         1583328186.35
+q               12845056                        1.00
+B_out           12845056,12845056         3791553.58
+===========================================================================
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 14, B = 14
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 26
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,14                            7.00        3.36
+Intg_str        1,42,2                          3.11        3.37
+H               3,3,3,3,3,98                31801.92        3.37
+S               1,1,1,1,1,14              4310902012.94        3.38
+Intg_out        1,4,258,79,50                 714.22      315.66
+B_out           4,258,79,79,79,50             711.70      316.04
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 332.2 s)
+Step            Ranks                     Compression
+H               3,3,3,45                  499622891.36
+S               1,1,1,14                  4311127290.01
+B_out           4,258,78,49                474972.91
+===========================================================================
+TTS
+Running batched GMRES on CPU
+-- (1): |r| = 0.825557111718, |r|/|b| = 0.000448104635, Elapsed Time = 212.415 s
+-- (2): |r| = 0.134293828512, |r|/|b| = 0.000072893427, Elapsed Time = 425.494 s
+-- (3): |r| = 0.045292319334, |r|/|b| = 0.000024584245, Elapsed Time = 638.251 s
+-- (4): |r| = 0.022185636503, |r|/|b| = 0.000012042155, Elapsed Time = 851.770 s
+-- (5): |r| = 0.010073403476, |r|/|b| = 0.000005467749, Elapsed Time = 1066.868 s
+-- (6): |r| = 0.004648950232, |r|/|b| = 0.000002523406, Elapsed Time = 1282.144 s
+-- (7): |r| = 0.002541331492, |r|/|b| = 0.000001379411, Elapsed Time = 1494.579 s
+-- (8): |r| = 0.001477325478, |r|/|b| = 0.000000801878, Elapsed Time = 1707.691 s
+-- Converged!
+GMRES
+NUMPY
+FINISHED CSR
+DONE with  CSR
+COMPLETE
+Finished iteration! Run time = 2684.806 s, Elapsed time = 14669.117
+================================================================================
+Running case 157: N=65536, G=1, A=14, B=14, p=4, q=4, eps=1e-08, device=gpu
+START
+MATS
+TTS
+Running batched GMRES on GPU 0
+-- (1): |r| = 0.825557111718, |r|/|b| = 0.000448104635, Elapsed Time = 8.253 s
+-- (2): |r| = 0.134293829122, |r|/|b| = 0.000072893427, Elapsed Time = 16.499 s
+-- (3): |r| = 0.045292319348, |r|/|b| = 0.000024584245, Elapsed Time = 24.737 s
+-- (4): |r| = 0.022185636536, |r|/|b| = 0.000012042155, Elapsed Time = 32.973 s
+-- (5): |r| = 0.010073403461, |r|/|b| = 0.000005467749, Elapsed Time = 41.199 s
+-- (6): |r| = 0.004648950207, |r|/|b| = 0.000002523406, Elapsed Time = 49.422 s
+-- (7): |r| = 0.002541331492, |r|/|b| = 0.000001379411, Elapsed Time = 57.647 s
+-- (8): |r| = 0.001477325453, |r|/|b| = 0.000000801878, Elapsed Time = 65.866 s
+-- Converged!
+GMRES
+NUMPY
+FINISHED CSR
+DONE with  CSR
+COMPLETE
+Finished iteration! Run time = 88.971 s, Elapsed time = 14758.148
+================================================================================
+Running case 158: N=65536, G=1, A=14, B=14, p=4, q=4, eps=1e-05, device=cpu
+START
+MATS
+Failed to build TT operators with error [enforce fail at alloc_cpu.cpp:124] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 5156108238848 bytes. Error code 12 (Cannot allocate memory)
+frame #0: <unknown function> + 0x92fbe (0x7fc1b697ffbe in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::ThrowEnforceNotMet(char const*, int, char const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, void const*) + 0x49 (0x7fc1b697f719 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: c10::alloc_cpu(unsigned long) + 0x36e (0x7fc1b696db9e in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #3: <unknown function> + 0x32912 (0x7fc1b691f912 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #4: <unknown function> + 0x15d64ad (0x7fc19621b4ad in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: at::detail::empty_strided_generic(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::Allocator*, c10::DispatchKeySet, c10::ScalarType) + 0x100 (0x7fc196216d00 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #6: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ScalarType, bool) + 0x4a (0x7fc1962172aa in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #7: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>) + 0x6c (0x7fc19621733c in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #8: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::TensorOptions const&) + 0xeb (0x7fc19621743b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #9: <unknown function> + 0x29d89c5 (0x7fc19761d9c5 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #10: <unknown function> + 0x29e24d0 (0x7fc1976274d0 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #11: at::meta::structured__linalg_svd::meta(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x265 (0x7fc1965ba395 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #12: <unknown function> + 0x29dbaf7 (0x7fc197620af7 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #13: <unknown function> + 0x29dbbfc (0x7fc197620bfc in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #14: at::_ops::_linalg_svd::redispatch(c10::DispatchKeySet, at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0xdd (0x7fc197439e6d in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #15: <unknown function> + 0x4c9dff1 (0x7fc1998e2ff1 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #16: <unknown function> + 0x4c9e83f (0x7fc1998e383f in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #17: at::_ops::_linalg_svd::call(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x213 (0x7fc1974a6183 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #18: at::native::linalg_svd(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x29 (0x7fc1965b6899 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #19: <unknown function> + 0x2be6a1b (0x7fc19782ba1b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #20: at::_ops::linalg_svd::call(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x1fc (0x7fc197205fec in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #21: ttnte::linalg::TTOperator::round(double const&, long const&, std::optional<long>) + 0x14f7 (0x7fc0ad9f1697 in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #22: <unknown function> + 0x4649f (0x7fc0ad9c449f in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #23: <unknown function> + 0x35f3e (0x7fc0ad9b3f3e in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #24: python3() [0x528db7]
+<omitting python frames>
+frame #27: python3() [0x5cd0aa]
+frame #29: python3() [0x5ed557]
+frame #30: python3() [0x5e9080]
+frame #31: python3() [0x5fde72]
+frame #36: <unknown function> + 0x29d90 (0x7fc258c8dd90 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #37: __libc_start_main + 0x80 (0x7fc258c8de40 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #38: python3() [0x5bcc43]
+
+TTS
+Finished iteration! Run time = 20.663 s, Elapsed time = 14778.868
+================================================================================
+Running case 159: N=65536, G=1, A=14, B=14, p=4, q=4, eps=1e-05, device=gpu
+START
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 14, B = 14
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 26
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,7                            13.99        3.34
+Intg_str        1,21,2                          6.22        3.35
+H               3,3,3,3,3,49                61782.36        3.35
+S               1,1,1,1,1,7               4643835171.49        3.36
+Intg_out        1,4,248,50,31                1243.85      314.21
+B_out           4,245,49,49,49,30            1283.92      314.43
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 329.62 s)
+Step            Ranks                     Compression
+H               3,3,3,22                  528479294.71
+S               1,1,1,7                   4644096589.82
+B_out           4,241,49,29                787353.26
+===========================================================================
+TTS
+Finished iteration! Run time = 330.007 s, Elapsed time = 15108.918
+================================================================================
+Running case 160: N=65536, G=1, A=14, B=14, p=4, q=4, eps=0.001, device=cpu
+START
+MATS
+Failed to build TT operators with error [enforce fail at alloc_cpu.cpp:124] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 1451698946048 bytes. Error code 12 (Cannot allocate memory)
+frame #0: <unknown function> + 0x92fbe (0x7fc1b697ffbe in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::ThrowEnforceNotMet(char const*, int, char const*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, void const*) + 0x49 (0x7fc1b697f719 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: c10::alloc_cpu(unsigned long) + 0x36e (0x7fc1b696db9e in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #3: <unknown function> + 0x32912 (0x7fc1b691f912 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #4: <unknown function> + 0x15d64ad (0x7fc19621b4ad in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #5: at::detail::empty_strided_generic(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::Allocator*, c10::DispatchKeySet, c10::ScalarType) + 0x100 (0x7fc196216d00 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #6: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::ScalarType, bool) + 0x4a (0x7fc1962172aa in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #7: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, std::optional<c10::ScalarType>, std::optional<c10::Layout>, std::optional<c10::Device>, std::optional<bool>) + 0x6c (0x7fc19621733c in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #8: at::detail::empty_strided_cpu(c10::ArrayRef<long>, c10::ArrayRef<long>, c10::TensorOptions const&) + 0xeb (0x7fc19621743b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #9: <unknown function> + 0x29d89c5 (0x7fc19761d9c5 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #10: <unknown function> + 0x29e24d0 (0x7fc1976274d0 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #11: at::meta::structured__linalg_svd::meta(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x265 (0x7fc1965ba395 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #12: <unknown function> + 0x29dbaf7 (0x7fc197620af7 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #13: <unknown function> + 0x29dbbfc (0x7fc197620bfc in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #14: at::_ops::_linalg_svd::redispatch(c10::DispatchKeySet, at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0xdd (0x7fc197439e6d in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #15: <unknown function> + 0x4c9dff1 (0x7fc1998e2ff1 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #16: <unknown function> + 0x4c9e83f (0x7fc1998e383f in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #17: at::_ops::_linalg_svd::call(at::Tensor const&, bool, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x213 (0x7fc1974a6183 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #18: at::native::linalg_svd(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x29 (0x7fc1965b6899 in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #19: <unknown function> + 0x2be6a1b (0x7fc19782ba1b in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #20: at::_ops::linalg_svd::call(at::Tensor const&, bool, std::optional<std::basic_string_view<char, std::char_traits<char> > >) + 0x1fc (0x7fc197205fec in /home/myerspat/anaconda3/envs/ttnte/lib/python3.11/site-packages/torch/lib/libtorch_cpu.so)
+frame #21: ttnte::linalg::TTOperator::round(double const&, long const&, std::optional<long>) + 0x14f7 (0x7fc0ad9f1697 in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #22: <unknown function> + 0x4649f (0x7fc0ad9c449f in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #23: <unknown function> + 0x35f3e (0x7fc0ad9b3f3e in /home/myerspat/research/tensor_trains/ttnte/ttnte/cpp/linalg.so)
+frame #24: python3() [0x528db7]
+<omitting python frames>
+frame #27: python3() [0x5cd0aa]
+frame #29: python3() [0x5ed557]
+frame #30: python3() [0x5e9080]
+frame #31: python3() [0x5fde72]
+frame #36: <unknown function> + 0x29d90 (0x7fc258c8dd90 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #37: __libc_start_main + 0x80 (0x7fc258c8de40 in /lib/x86_64-linux-gnu/libc.so.6)
+frame #38: python3() [0x5bcc43]
+
+TTS
+Finished iteration! Run time = 18.543 s, Elapsed time = 15127.509
+================================================================================
+Running case 161: N=65536, G=1, A=14, B=14, p=4, q=4, eps=0.001, device=gpu
+START
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 14, B = 14
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 26
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,3                            32.64        3.34
+Intg_str        1,8,2                          16.32        3.35
+H               3,3,3,3,3,19               146119.04        3.35
+S               1,1,1,1,1,3               4858237549.12        3.36
+Intg_out        1,4,27,23,14                15815.76      156.21
+B_out           4,26,23,23,23,14            16057.75      156.24
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 157.24 s)
+Step            Ranks                     Compression
+H               3,3,3,9                   546313651.08
+S               1,1,1,3                   4858523664.40
+B_out           4,24,22,13                16046577.17
+===========================================================================
+TTS
+Finished iteration! Run time = 157.333 s, Elapsed time = 15284.887
+IGAMesh(id=27, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=27, name=None, shape=(16, 16), backend=geomdl)
+================================================================================
+Running case 162: N=65536, G=1, A=16, B=16, p=6, q=6, eps=1e-08, device=cpu
+START
+===========================================================================
+Running MatrixAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 16, B = 16
+Operators: H, S, q, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Failed to build matrices with error A process in the process pool was terminated abruptly while the future was running or pending.
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 16, B = 16
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+
+Intel oneMKL ERROR: Parameter 12 was incorrect on entry to DGESDD.
+Assembling Patch 27
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,14                            9.14        8.63
+Intg_str        1,41,2                          4.16        8.66
+H               3,3,3,3,3,96                42677.39        8.66
+S               1,1,1,1,1,14              7044976140.33        8.67
+Intg_out        1,4,258,76,56                1146.61     5151.28
+B_out           4,258,76,76,76,56            1143.08     5151.66
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 5170.57 s)
+Step            Ranks                     Compression
+H               3,3,3,44                  827828621.92
+S               1,1,1,14                  7045328812.34
+B_out           4,258,75,55                840201.66
+===========================================================================
+Failed to build TT operators with error 
+Failed to run case 162 with run time 5649.711190462112 s with error:
+Operators failed to build
+================================================================================
+Running case 163: N=65536, G=1, A=16, B=16, p=6, q=6, eps=1e-08, device=gpu
+START
+===========================================================================
+Running MatrixAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 16, B = 16
+Operators: H, S, q, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Failed to build matrices with error A process in the process pool was terminated abruptly while the future was running or pending.
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 16, B = 16
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+
+Intel oneMKL ERROR: Parameter 12 was incorrect on entry to DGESDD.
+Assembling Patch 27
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,14                            9.14        8.31
+Intg_str        1,41,2                          4.16        8.33
+H               3,3,3,3,3,96                42677.39        8.33
+S               1,1,1,1,1,14              7044976140.33        8.34
+Intg_out        1,4,258,76,56                1146.61     5159.79
+B_out           4,258,76,76,76,56            1143.08     5160.17
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 5178.76 s)
+Step            Ranks                     Compression
+H               3,3,3,44                  827828621.92
+S               1,1,1,14                  7045328812.34
+B_out           4,258,75,55                840201.66
+===========================================================================
+Failed to build TT operators with error 
+Failed to run case 163 with run time 5625.163692712784 s with error:
+Operators failed to build
+================================================================================
+Running case 164: N=65536, G=1, A=16, B=16, p=6, q=6, eps=1e-05, device=cpu
+START
+===========================================================================
+Running MatrixAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 16, B = 16
+Operators: H, S, q, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Failed to build matrices with error A process in the process pool was terminated abruptly while the future was running or pending.
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 16, B = 16
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+
+Intel oneMKL ERROR: Parameter 12 was incorrect on entry to DGESDD.
+Assembling Patch 27
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,7                            18.28        8.26
+Intg_str        1,20,2                          8.53        8.28
+H               3,3,3,3,3,47                85112.90        8.28
+S               1,1,1,1,1,7               7739207498.23        8.29
+Intg_out        1,4,244,49,32                2079.97     4979.82
+B_out           4,240,48,48,48,31            2157.27     4980.02
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 4994.69 s)
+Step            Ranks                     Compression
+H               3,3,3,22                  886568867.83
+S               1,1,1,7                   7739633103.57
+B_out           4,235,47,30               1430761.07
+===========================================================================
+Failed to build TT operators with error 
+Failed to run case 164 with run time 5446.623644113541 s with error:
+Operators failed to build
+================================================================================
+Running case 165: N=65536, G=1, A=16, B=16, p=6, q=6, eps=1e-05, device=gpu
+START
+===========================================================================
+Running MatrixAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 16, B = 16
+Operators: H, S, q, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Failed to build matrices with error A process in the process pool was terminated abruptly while the future was running or pending.
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 16, B = 16
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+
+Intel oneMKL ERROR: Parameter 12 was incorrect on entry to DGESDD.
+Assembling Patch 27
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,7                            18.28        8.32
+Intg_str        1,20,2                          8.53        8.34
+H               3,3,3,3,3,47                85112.90        8.35
+S               1,1,1,1,1,7               7739207498.23        8.36
+Intg_out        1,4,244,49,32                2079.97     4987.90
+B_out           4,240,48,48,48,31            2157.27     4988.11
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 5002.9 s)
+Step            Ranks                     Compression
+H               3,3,3,22                  886568867.83
+S               1,1,1,7                   7739633103.57
+B_out           4,235,47,30               1430761.07
+===========================================================================
+Failed to build TT operators with error 
+Failed to run case 165 with run time 5453.447804927826 s with error:
+Operators failed to build
+================================================================================
+Running case 166: N=65536, G=1, A=16, B=16, p=6, q=6, eps=0.001, device=cpu
+START
+===========================================================================
+Running MatrixAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 16, B = 16
+Operators: H, S, q, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Failed to build matrices with error A process in the process pool was terminated abruptly while the future was running or pending.
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 16, B = 16
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 27
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,4                            31.98        8.37
+Intg_str        1,8,2                          21.32        8.39
+H               3,3,3,3,3,20               188260.16        8.39
+S               1,1,1,1,1,4               8080466690.90        8.40
+Intg_out        1,4,27,23,15                23154.84      487.44
+B_out           4,25,22,22,22,14            25777.64      487.47
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 488.68 s)
+Step            Ranks                     Compression
+H               3,3,3,10                  922264012.81
+S               1,1,1,4                   8080930658.90
+B_out           4,24,21,13                28421251.16
+===========================================================================
+Failed to build TT operators with error 
+Failed to run case 166 with run time 938.224606513977 s with error:
+Operators failed to build
+================================================================================
+Running case 167: N=65536, G=1, A=16, B=16, p=6, q=6, eps=0.001, device=gpu
+START
+===========================================================================
+Running MatrixAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 16, B = 16
+Operators: H, S, q, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Failed to build matrices with error A process in the process pool was terminated abruptly while the future was running or pending.
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 65536, G = 1, P = 1, A = 16, B = 16
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 27
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,4                            31.98        8.42
+Intg_str        1,8,2                          21.32        8.44
+H               3,3,3,3,3,20               188260.16        8.45
+S               1,1,1,1,1,4               8080466690.90        8.46
+Intg_out        1,4,27,23,15                23154.84      490.54
+B_out           4,25,22,22,22,14            25777.64      490.57
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 491.81 s)
+Step            Ranks                     Compression
+H               3,3,3,10                  922264012.81
+S               1,1,1,4                   8080930658.90
+B_out           4,24,21,13                28421251.16
+===========================================================================
+Failed to build TT operators with error 
+Failed to run case 167 with run time 936.1331808567047 s with error:
+Operators failed to build
+IGAMesh(id=28, name=None, num_patches=1, reflective_boundaries=False)
+  -> Patch(material=Source, source=IsotropicInternalSource, id=28, name=None, shape=(12, 12), backend=geomdl)
+================================================================================
+Running case 168: N=262144, G=1, A=12, B=12, p=2, q=2, eps=1e-08, device=cpu
+START
+===========================================================================
+Running MatrixAssembler.build()
+Discretization: N = 262144, G = 1, P = 1, A = 12, B = 12
+Operators: H, S, q, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 28
+Step            Shape                     Compression  Elapsed Time (s)
+H               37748736,37748736               1.00      479.98
+S               1,144,144                       1.00      483.25
+B_out           37748736,37748736               1.00      518.94
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 519.56 s)
+Step            Shape                     Compression
+H               37748736,37748736          909608.10
+S               37748736,37748736         5028254395.32
+q               37748736                        1.00
+B_out           37748736,37748736         14629950.96
+===========================================================================
+MATS
+===========================================================================
+Running TTAssembler.build()
+Discretization: N = 262144, G = 1, P = 1, A = 12, B = 12
+Operators: H, S, B_out
+---------------------------------------------------------------------------
+  0%|          | 0/1 [00:00<?, ?it/s]
+Assembling Patch 28
+Step            Ranks                     Compression  Elapsed Time (s)
+Intg_int        1,14                            5.14        1.78
+Intg_str        1,38,2                          2.53        1.79
+H               3,3,3,3,3,90                96246.64        1.79
+S               1,1,1,1,1,14              10545781364.97        1.80
+Intg_out        1,4,510,62,32                 610.27       62.66
+B_out           4,510,62,62,62,32             609.74       64.18
+---------------------------------------------------------------------------
+Final Operators (Elapsed Time: 212.26 s)
+Step            Ranks                     Compression
+H               3,3,3,40                  1184771279.48
+S               1,1,1,14                  10545937460.02
+B_out           4,510,62,32                645882.66
+===========================================================================
+TTS
+Running batched GMRES on CPU
+-- (1): |r| = 0.572466027990, |r|/|b| = 0.000146242048, Elapsed Time = 580.570 s
+-- (2): |r| = 0.027193215985, |r|/|b| = 0.000006946773, Elapsed Time = 1159.130 s
+-- (3): |r| = 0.002282203374, |r|/|b| = 0.000000583011, Elapsed Time = 1736.792 s
+-- Converged!
+GMRES
+NUMPY
+FINISHED CSR
+DONE with  CSR
+COMPLETE
+Finished iteration! Run time = 2943.332 s, Elapsed time = 42280.654
+================================================================================
+Running case 169: N=262144, G=1, A=12, B=12, p=2, q=2, eps=1e-08, device=gpu
+START
+MATS
+TTS
+Running batched GMRES on GPU 0
+-- (1): |r| = 0.572466027990, |r|/|b| = 0.000146242048, Elapsed Time = 22.924 s
+-- (2): |r| = 0.027193215696, |r|/|b| = 0.000006946773, Elapsed Time = 45.769 s
+-- (3): |r| = 0.002282203296, |r|/|b| = 0.000000583011, Elapsed Time = 68.592 s
+-- Converged!

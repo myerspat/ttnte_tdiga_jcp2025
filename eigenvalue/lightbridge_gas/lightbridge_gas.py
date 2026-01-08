@@ -17,6 +17,10 @@ from ttnte.iga import IGAMesh
 from ttnte.linalg import LinearSolverOptions, TTOperator, cpp_available, power
 from ttnte.xs.benchmarks import kaist
 
+plt.rcParams["font.size"] = 14
+plt.rcParams["axes.labelsize"] = 16
+plt.rcParams["xtick.labelsize"] = 14
+plt.rcParams["ytick.labelsize"] = 14
 plt.rcParams["legend.fontsize"] = 14
 
 
@@ -214,8 +218,8 @@ if __name__ == "__main__":
     # =====================================================================
     solutions = {}
     for name, get_ops in zip(
-        ["TT"],
-        [tt_only],
+        ["CSR", "TT", "Mixed"],
+        [csr_only, tt_only, mixed],
     ):
         T, F = get_ops()
         print(f"Total Compression: {T.compression}")
@@ -241,13 +245,20 @@ if __name__ == "__main__":
     with open("solutions.pkl", "wb") as f:
         pickle.dump(solutions, f)
 
+    # with open("solutions.pkl", "rb") as f:
+    #     solutions = pickle.load(f)
+
     # =====================================================================
     # Load OpenMC solution
     # =====================================================================
     # Get OpenMC solution
     k_mc = [1.256694399791112, 6.641896241106302e-05]
-    phi_mc = np.load("./openmc/mesh_flux.npy")
-    phi_mc_stdev = np.load("./openmc/mesh_stdev.npy")
+    phi_mc = np.load(
+        "../../../ttnte/notebooks/eigenvalue/lightbridge/openmc/openmc_gas/data/mesh_flux.npy"
+    )
+    phi_mc_stdev = np.load(
+        "../../../ttnte/notebooks/eigenvalue/lightbridge/openmc/openmc_gas/data/mesh_stdev.npy"
+    )
 
     # Ensure OpenMC solution is normalized
     phi_mc_stdev /= np.linalg.norm(phi_mc.flatten(), 2)
@@ -260,7 +271,7 @@ if __name__ == "__main__":
     # Calculate statistics
     # =====================================================================
     stats = {
-        "methods": ["CSR", "Mixed", "TT", "TT (rounded)"],
+        "methods": ["CSR", "Mixed", "TT"],
         "k": {
             "error": [],
             "relative_error": [],
@@ -329,8 +340,8 @@ if __name__ == "__main__":
             ["error", "relative_error", "zscore"],
             [
                 phi_avg - phi_mc,
-                (phi_avg - phi_mc) / phi_mc,
-                (phi_avg - phi_mc) / phi_mc_stdev,
+                np.abs(phi_avg - phi_mc) / phi_mc,
+                np.abs(phi_avg - phi_mc) / phi_mc_stdev,
             ],
         ):
             # Flatten error
@@ -391,6 +402,30 @@ if __name__ == "__main__":
     phi = assembler.angular_integral(psi).numpy()
     phi /= np.linalg.norm(phi.flatten())
 
+    plot_labals = {
+        "error": lambda case, g: r"$\mathbf{\Phi}_"
+        + str(g + 1)
+        + r"^{\text{"
+        + case
+        + r"}}-\mathbf{\Phi}^{\text{MC}}_"
+        + str(g + 1)
+        + "$",
+        "relative_error": lambda case, g: r"$\frac{\left|\mathbf{\Phi}_"
+        + str(g + 1)
+        + r"^{\text{"
+        + case
+        + r"}}-\mathbf{\Phi}^{\text{MC}}_"
+        + str(g + 1)
+        + r"\right|}{\mathbf{\Phi}^{\text{MC}}_"
+        + str(g + 1)
+        + "}$",
+        "zscore": lambda case, g: r"$\mathbf{z}_"
+        + str(g + 1)
+        + r"^{\text{"
+        + case
+        + "}}$",
+    }
+
     # Average on each mesh element in the regular mesh of OpenMC
     phi_avg = np.zeros(phi_mc.shape)
     for g in range(xs_server.num_groups):
@@ -405,37 +440,44 @@ if __name__ == "__main__":
         ax, cbar = mesh.plot(plot_ctrlpts=False)
         cbar.set_label(f"$\\phi_{g + 1}" + "(\\hat{x}, \\hat{y})$", fontsize=14)
         cbar.ax.tick_params(labelsize=12)
-        ax.axis("off")
         plt.tight_layout()
         plt.savefig(f"./figs/phi_{g + 1}.png", dpi=300)
 
     phi_avg /= np.linalg.norm(phi_avg.flatten())
 
-    for error_name, error in zip(
-        [
-            "Scalar Flux Error",
-            "Scalar Flux Relative Error",
-            "Scalar Flux Number of Standard Deviations",
-        ],
-        [
-            phi_avg - phi_mc,
-            (phi_avg - phi_mc) / phi_mc,
-            (phi_avg - phi_mc) / phi_mc_stdev,
-        ],
-    ):
-        for g in range(xs_server.num_groups):
-            plt.clf()
-            ax = plt.gca()
-            cmesh = ax.pcolormesh(X, Y, error[g,], cmap="plasma")
-            divider = make_axes_locatable(ax)
-            cbar = plt.colorbar(
-                cmesh,
-                cax=divider.append_axes("right", size="5%", pad=0.05),
-            )
-            cbar.set_label(error_name)
-            ax.set_aspect("equal")
-            ax.set_xlabel(r"$x(\hat{x}, \hat{y})~(cm)$")
-            ax.set_ylabel(r"$y(\hat{x}, \hat{y})~(cm)$")
-            ax.axis("off")
-            plt.tight_layout()
-            plt.savefig(f"./figs/{error_name}_{g + 1}.png", transparent=True, dpi=300)
+    for case in ["CSR", "Mixed"]:
+        psi, k = solutions[case]
+
+        # Integrate angular component to get scalar flux
+        phi = assembler.angular_integral(psi).numpy()
+        phi /= np.linalg.norm(phi.flatten())
+
+        for error_name, error in zip(
+            ["error", "relative_error", "zscore"],
+            [
+                phi_avg - phi_mc,
+                np.abs(phi_avg - phi_mc) / phi_mc,
+                np.abs(phi_avg - phi_mc) / phi_mc_stdev,
+            ],
+        ):
+            for g in range(xs_server.num_groups):
+                plt.clf()
+                ax = plt.gca()
+                cmesh = ax.pcolormesh(X, Y, error[g,], cmap="plasma")
+                divider = make_axes_locatable(ax)
+                cbar = plt.colorbar(
+                    cmesh,
+                    cax=divider.append_axes("right", size="5%", pad=0.05),
+                )
+                cbar.set_label(
+                    plot_labals[error_name](
+                        case if case != "Mixed" else "Mixed (rounded)", g
+                    )
+                )
+                ax.set_aspect("equal")
+                ax.set_xlabel(r"$x(\hat{x}, \hat{y})~(cm)$")
+                ax.set_ylabel(r"$y(\hat{x}, \hat{y})~(cm)$")
+                plt.tight_layout()
+                plt.savefig(
+                    f"./figs/{error_name}_{g + 1}_{case}.png", transparent=True, dpi=300
+                )

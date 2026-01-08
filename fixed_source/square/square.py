@@ -57,7 +57,7 @@ def get_mesh(factor: Union[int, Tuple[int]], degree: Union[int, Tuple[int]]):
     patch.set_source(source)
 
     # Create mesh
-    mesh = IGAMesh(max_processes=32)
+    mesh = IGAMesh(max_processes=10)
     mesh.add_patch(patch)
 
     # Refine mesh resolution
@@ -123,28 +123,28 @@ if __name__ == "__main__":
         lsoptions=lsoptions,
     )
 
-    # # =======================================================
-    # # Mesh scaling study
-    # num_ordinates = [256]
-    # factors = np.geomspace(5, 100, 8).astype(int).tolist()
-    #
-    # # Create runner
-    # runner = Runner(
-    #     study_name="meshsize",
-    #     study_path=dir / "meshsize",
-    #     num_ordinates=num_ordinates,
-    #     num_groups=num_groups,
-    #     factors=factors,
-    #     degrees=degrees,
-    #     eps=eps,
-    #     gpu_idx=0,
-    #     cpu_and_gpu=True,
-    #     verbose=True,
-    # )
-    #
-    # # Run problems
-    # runner.run(
-    #     get_xs=get_xs,
-    #     get_mesh=get_mesh,
-    #     lsoptions=lsoptions,
-    # )
+    # =======================================================
+    # Mesh scaling study
+    num_ordinates = [256]
+    factors = np.geomspace(5, 100, 12).astype(int).tolist()
+
+    # Create runner
+    runner = Runner(
+        study_name="meshsize",
+        study_path=dir / "meshsize",
+        num_ordinates=num_ordinates,
+        num_groups=num_groups,
+        factors=factors,
+        degrees=degrees,
+        eps=eps,
+        gpu_idx=0,
+        cpu_and_gpu=True,
+        verbose=True,
+    )
+
+    # Run problems
+    runner.run(
+        get_xs=get_xs,
+        get_mesh=get_mesh,
+        lsoptions=lsoptions,
+    )

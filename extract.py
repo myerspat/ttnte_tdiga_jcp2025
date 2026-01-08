@@ -28,6 +28,7 @@ def get_jsonl_data(path: Union[str, Path], get_data: Callable):
                             "degree",
                             "eps",
                             "device",
+                            "solve_method",
                         ]
                     }
                 )
