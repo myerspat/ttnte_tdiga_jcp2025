@@ -28,15 +28,15 @@ The results in `lightbridge_gas/` are shown in both the PHYSOR and journal paper
 - `quarter_circle/`
   - `quarter_circle.py`: Python script for generating the solution for each case presented in the journal paper for the quarter circle problem, as well as producing timing results.
   - `plot.py`: Python script for computing errors and plotting.
-  - `data.pkl`: All solutions, errors, and timing results. (Raw data used in the journal papers is stored in Zenodo)
+  - `data.pkl`: All solutions, errors, TT-ranks, compression, and timing results. (Raw data used in the journal papers is stored in Zenodo)
   - `figs/`: Directory for figures.
 - `pincell/`
   - `pincell.py`: Python script for generating the solution for each case presented in the journal paper for the pincell problem, as well as producing timing results.
   - `plot.py`: Python script for computing errors and plotting.
-  - `data.pkl`: All solutions, errors, and timing results. (Raw data used in the journal papers is stored in Zenodo)
+  - `data.pkl`: All solutions, errors, TT-ranks, compression, and timing results. (Raw data used in the journal papers is stored in Zenodo)
   - `figs/`: Directory for figures.
 - `lightbridge_ba/`
   - `lightbridge_ba.py`: Python script for generating the solution for each case presented in the journal paper for the infinite array of cruciform fuel with a BA displacer problem, as well as producing timing results.
   - `plot.py`: Python script for computing errors and plotting.
-  - `data.pkl`: All solutions, errors, and timing results. (Raw data used in the journal papers is stored in Zenodo)
+  - `data.pkl`: All solutions, errors, TT-ranks, compression, and timing results. (Raw data used in the journal papers is stored in Zenodo)
   - `figs/`: Directory for figures.
