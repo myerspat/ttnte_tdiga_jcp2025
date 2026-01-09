@@ -5,7 +5,7 @@ This repository stores all figures and scripts to generate the results for the s
 - Corresponding Authors: Patrick A. Myers (myerspat@umich.edu) and Brian C. Kiedrowski (bckiedro@umich.edu)
 - Target Journal: Journal of Computational Physics
 
-This repository also has the results for our 2026 PHSYOR submission "Tensor Train Decomposition Applied to the Isogeometric Discontinuous Galerkin 2-D Neutron Transport Equation". All results for that are located in `eigenvalue/`.
+This repository also has the results for our 2026 PHSYOR conference submission "Tensor Train Decomposition Applied to the Isogeometric Discontinuous Galerkin 2-D Neutron Transport Equation". All results for that are located in `eigenvalue/`.
 - Authors: Patrick A. Myers, Majdi I. Redaideh, and Brian C. Kiedrowski
 - Corresponding Authors: Patrick A. Myers (myerspat@umich.edu) and Brian C. Kiedrowski (bckiedro@umich.edu)
 
