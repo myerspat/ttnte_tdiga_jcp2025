@@ -5,6 +5,10 @@ This repository stores all figures and scripts to generate the results for the s
 - Corresponding Authors: Patrick A. Myers (myerspat@umich.edu) and Brian C. Kiedrowski (bckiedro@umich.edu)
 - Target Journal: Journal of Computational Physics
 
+This repository also has the results for our 2026 PHSYOR submission "Tensor Train Decomposition Applied to the Isogeometric Discontinuous Galerkin 2-D Neutron Transport Equation". All results for that are located in `eigenvalue/`.
+- Authors: Patrick A. Myers, Majdi I. Redaideh, and Brian C. Kiedrowski
+- Corresponding Authors: Patrick A. Myers (myerspat@umich.edu) and Brian C. Kiedrowski (bckiedro@umich.edu)
+
 Specifications of the cluster used to generate these results:
 - CPU: AMD Ryzen Threadripper PRO 7985WX 64-Cores
 - GPU: NVIDIA RTX PRO 6000 Blackwell Max-Q
@@ -66,9 +70,9 @@ cd ttnte_tdiga_jcp2025
 
 ### Directories
 
-- `fixed_source`: Contains all scripts and figures for the fixed source problems. Refer to that directory for specifics.
-- `eigenvalue`: Contains all scripts and figures for the eigenvalue problems. Refer to that directory for specifics.
-- `other`: Supporting scripts and figures used in the Background of the paper.
+- `fixed_source/`: Contains all scripts and figures for the fixed source problems. Refer to that directory for specifics.
+- `eigenvalue/`: Contains all scripts and figures for the eigenvalue problems. Refer to that directory for specifics.
+- `other/`: Supporting scripts and figures used in the Background of the paper.
 
 ## Raw Data
 
