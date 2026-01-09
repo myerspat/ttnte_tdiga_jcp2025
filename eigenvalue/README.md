@@ -1,6 +1,6 @@
 # k-Eigenvalue Numerical Examples
 
-The $k$-eigenvalue problems presented in the journal paper and the conference paper are located in the following directories:
+The k-eigenvalue problems presented in the journal paper and the conference paper are located in the following directories:
 
 - `circle/`: The homogeneous circle problem from Section 4.1.1 of ["Analytical benchmark test set for criticality code verification"](https://doi-org.proxy.lib.umich.edu/10.1016/S0149-1970(02)00098-7).
 - `quarter_circle/`: The same problem represented as a quarter circle with reflecting boundary conditions.
