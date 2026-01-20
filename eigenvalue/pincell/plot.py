@@ -76,7 +76,7 @@ if __name__ == "__main__":
     dy = 0.01 * (ax.get_ylim()[1] - ax.get_ylim()[0])
     plt.xlim((ax.get_xlim()[0] - dx, ax.get_xlim()[1] + dx))
     plt.ylim((ax.get_ylim()[0] - dy, ax.get_ylim()[1] + dy))
-    plt.savefig("./figs/pincell.png", dpi=300, transparent=True)
+    plt.savefig("./figs/pincell.tif", dpi=700, transparent=False)
 
     # Create matrix assembler
     assembler = MatrixAssembler(mesh, get_xs(data["num_groups"]), data["num_ordinates"])
@@ -97,7 +97,7 @@ if __name__ == "__main__":
         ax, cbar = mesh.plot(plot_ctrlpts=False)
         cbar.set_label(r"$\phi_{" + str(g + 1) + r"}(\hat{x}, \hat{y})$")
         plt.tight_layout()
-        plt.savefig(f"./figs/phi_{g + 1}.png", dpi=300, transparent=True)
+        plt.savefig(f"./figs/phi_{g + 1}.tif", dpi=700, transparent=False)
 
     # Get mapping for mesh element averaging
     pids, coords = mesh.map_regular_mesh(shape=phi_mc.shape[1:], N=(5, 5))
@@ -215,7 +215,9 @@ if __name__ == "__main__":
                 ax.set_ylabel(r"$y(\hat{x}, \hat{y})~(cm)$")
                 plt.tight_layout()
                 plt.savefig(
-                    f"./figs/{error_name}_{g + 1}_{name}.png", transparent=True, dpi=300
+                    f"./figs/{error_name}_{g + 1}_{name}.tif",
+                    transparent=False,
+                    dpi=700,
                 )
 
             minimum[-1] = np.min(minimum[:-1])
