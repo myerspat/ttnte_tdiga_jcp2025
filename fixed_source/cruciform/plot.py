@@ -314,4 +314,4 @@ if __name__ == "__main__":
     plt.grid()
     # plt.legend()
     plt.tight_layout()
-    plt.savefig("./figs/gmres_convergence.tif", dpi=700, transparent=False)
+    plt.savefig("./figs/gmres_convergence.eps", dpi=700, transparent=False)
