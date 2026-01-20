@@ -145,10 +145,9 @@ if __name__ == "__main__":
     mesh.set_phi(phi[0,])
     ax, cbar = mesh.plot(plot_ctrlpts=False)
     cbar.set_label(r"$\phi(\hat{x}, \hat{y})$")
+    ax.grid(False)
     plt.tight_layout()
-    plt.grid(False)
     plt.savefig(f"./direction/figs/phi.tif", dpi=700, transparent=False)
-    plt.grid(True)
     assert 0 == 1
 
     # ========================================================================
