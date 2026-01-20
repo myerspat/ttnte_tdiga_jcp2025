@@ -23,7 +23,7 @@ plt.rcParams["font.size"] = 14
 plt.rcParams["axes.labelsize"] = 16
 plt.rcParams["xtick.labelsize"] = 14
 plt.rcParams["ytick.labelsize"] = 14
-plt.rcParams["legend.fontsize"] = 10
+plt.rcParams["legend.fontsize"] = 14
 plt.rcParams["axes.grid"] = True
 
 
