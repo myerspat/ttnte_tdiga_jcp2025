@@ -145,6 +145,7 @@ if __name__ == "__main__":
             )
 
             # Make list of files
+            last_case = None
             for N, factor, degree, device in product(
                 num_ordinates, factors, [2, 3, 4, 6], ["cpu", "gpu"]
             ):
@@ -156,6 +157,16 @@ if __name__ == "__main__":
                     )
                 )
                 if file_path.exists():
+                    case = {
+                        "num_ordinates": N,
+                        "factor": factor,
+                        "degree": degree,
+                        "eps": 1e-8,
+                        "solve_method": "CSR",
+                    }
+                    if case == last_case:
+                        continue
+
                     # Set discretization
                     discretization = {
                         "$i_{q}$": 4,
@@ -188,11 +199,7 @@ if __name__ == "__main__":
                         f.write(
                             json.dumps(
                                 {
-                                    "num_ordinates": N,
-                                    "factor": factor,
-                                    "degree": degree,
-                                    "eps": 1e-8,
-                                    "solve_method": "CSR",
+                                    **case,
                                     "device": device,
                                     **data,
                                 },
@@ -200,6 +207,9 @@ if __name__ == "__main__":
                             )
                             + "\n"
                         )
+
+                    # Update last case
+                    last_case = case
 
     # =======================================================
     # Angular and mesh resolution studies

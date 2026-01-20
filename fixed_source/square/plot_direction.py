@@ -88,7 +88,7 @@ if __name__ == "__main__":
     mesh = get_mesh(factor=10, degree=2)
     mesh.plot(figsize=(6, 6))
     plt.grid(False)
-    plt.savefig("./direction/figs/square.png", dpi=700, transparent=True)
+    plt.savefig("./direction/figs/square.tif", dpi=700, transparent=False)
     plt.grid(True)
 
     # Create matrix assembler
@@ -140,7 +140,7 @@ if __name__ == "__main__":
     ax.xaxis.line.set_color((1.0, 1.0, 1.0, 0.0))  # Invisible line
     ax.yaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
     ax.zaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
-    plt.savefig(f"./direction/figs/phi.png", dpi=700, transparent=True)
+    plt.savefig(f"./direction/figs/phi.tif", dpi=700, transparent=False)
 
     # ========================================================================
     # Leakage Fraction Plots
@@ -199,7 +199,7 @@ if __name__ == "__main__":
     plt.grid()
     plt.legend()
     plt.tight_layout()
-    plt.savefig("./direction/figs/leakage.png", dpi=700, transparent=True)
+    plt.savefig("./direction/figs/leakage.jpeg", dpi=700, transparent=False)
 
     # Plot CSR leakage fraction Z-score to OpenMC
     plt.clf()
@@ -254,7 +254,7 @@ if __name__ == "__main__":
     plt.yscale("log")
     plt.legend(ncol=2)
     plt.tight_layout()
-    plt.savefig("./direction/figs/leakage_zscore.png", dpi=700, transparent=True)
+    plt.savefig("./direction/figs/leakage_zscore.jpeg", dpi=700, transparent=False)
 
     # Plot CSR leakage fraction error to OpenMC
     plt.clf()
@@ -317,7 +317,7 @@ if __name__ == "__main__":
     plt.yscale("log")
     plt.legend(ncol=2, loc="upper right")
     plt.tight_layout()
-    plt.savefig("./direction/figs/leakage_relerror.png", dpi=700, transparent=True)
+    plt.savefig("./direction/figs/leakage_relerror.jpeg", dpi=700, transparent=False)
 
     # Look at errors relative to CSR
     plt.clf()
@@ -403,9 +403,9 @@ if __name__ == "__main__":
             plt.legend(fontsize=14)
             plt.tight_layout()
             plt.savefig(
-                f"./direction/figs/leakage_relerror_p{degree}_{solve_method}.png",
+                f"./direction/figs/leakage_relerror_p{degree}_{solve_method}.eps",
                 dpi=700,
-                transparent=True,
+                transparent=False,
             )
 
     # ========================================================================
@@ -447,7 +447,7 @@ if __name__ == "__main__":
             plt.legend()
             plt.tight_layout()
             plt.savefig(
-                f"./direction/figs/ranks_p{degree}_{op}.png", dpi=700, transparent=True
+                f"./direction/figs/ranks_p{degree}_{op}.eps", dpi=700, transparent=False
             )
 
     data = get_jsonl_data(
@@ -573,9 +573,9 @@ if __name__ == "__main__":
             plt.legend()
             plt.tight_layout()
             plt.savefig(
-                f"./direction/figs/compression_p{degree}_{op}.png",
+                f"./direction/figs/compression_p{degree}_{op}.eps",
                 dpi=700,
-                transparent=True,
+                transparent=False,
             )
 
             plt.clf()
@@ -621,9 +621,9 @@ if __name__ == "__main__":
             plt.legend()
             plt.tight_layout()
             plt.savefig(
-                f"./direction/figs/compression_ratio_p{degree}_{op}.png",
+                f"./direction/figs/compression_ratio_p{degree}_{op}.eps",
                 dpi=700,
-                transparent=True,
+                transparent=False,
             )
 
     data = get_jsonl_data(
@@ -709,9 +709,9 @@ if __name__ == "__main__":
             plt.legend()
             plt.tight_layout()
             plt.savefig(
-                f"./direction/figs/compression_p{degree}_eps{eps[i]}_T.png",
+                f"./direction/figs/compression_p{degree}_eps{eps[i]}_T.eps",
                 dpi=700,
-                transparent=True,
+                transparent=False,
             )
 
     # Get angular flux compression ranks and compression
@@ -790,7 +790,7 @@ if __name__ == "__main__":
         plt.legend(fontsize=14)
         plt.tight_layout()
         plt.savefig(
-            f"./direction/figs/ranks_p{degree}_psi.png", dpi=700, transparent=True
+            f"./direction/figs/ranks_p{degree}_psi.eps", dpi=700, transparent=False
         )
 
     for degree in degrees:
@@ -853,7 +853,9 @@ if __name__ == "__main__":
         plt.legend(fontsize=14)
         plt.tight_layout()
         plt.savefig(
-            f"./direction/figs/compression_p{degree}_psi.png", dpi=700, transparent=True
+            f"./direction/figs/compression_p{degree}_psi.eps",
+            dpi=700,
+            transparent=False,
         )
 
     # ========================================================================
@@ -965,9 +967,9 @@ if __name__ == "__main__":
         plt.legend(ncol=2, fontsize=10)
         plt.tight_layout()
         plt.savefig(
-            f"./direction/figs/matvec_time_p{degree}_eps{eps[0]}.png",
+            f"./direction/figs/matvec_time_p{degree}_eps{eps[0]}.jpeg",
             dpi=700,
-            transparent=True,
+            transparent=False,
         )
 
     # ========================================================================
@@ -1030,9 +1032,9 @@ if __name__ == "__main__":
         plt.legend(ncol=2, fontsize=10)
         plt.tight_layout()
         plt.savefig(
-            f"./direction/figs/gmres_time_p{degree}_eps{eps[0]}.png",
+            f"./direction/figs/gmres_time_p{degree}_eps{eps[0]}.eps",
             dpi=700,
-            transparent=True,
+            transparent=False,
         )
 
     # ========================================================================
@@ -1109,7 +1111,7 @@ if __name__ == "__main__":
     plt.yscale("log")
     plt.legend(ncol=2)
     plt.tight_layout()
-    plt.savefig("./direction/figs/flux_l2error.png", dpi=700, transparent=True)
+    plt.savefig("./direction/figs/flux_l2error.eps", dpi=700, transparent=False)
 
     data = get_jsonl_data(
         dir / "direction/processed_direction.jsonl",
@@ -1167,7 +1169,7 @@ if __name__ == "__main__":
             plt.legend(fontsize=14)
             plt.tight_layout()
             plt.savefig(
-                f"./direction/figs/flux_l2error2csr_p{degree}_{case}.png",
+                f"./direction/figs/flux_l2error2csr_p{degree}_{case}.jpeg",
                 dpi=700,
-                transparent=True,
+                transparent=False,
             )
