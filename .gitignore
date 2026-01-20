@@ -3,6 +3,27 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Results data
+eigenvalue/circle/solutions.pkl
+eigenvalue/lightbridge_ba/data.pkl
+eigenvalue/lightbridge_gas/solutions.pkl
+eigenvalue/pincell/data.pkl
+eigenvalue/quarter_circle/data.pkl
+fixed_source/circle/direction/meshes/
+fixed_source/circle/direction/rnorms/
+fixed_source/circle/meshsize/meshes/
+fixed_source/circle/meshsize/rnorms/
+fixed_source/cruciform/data.pkl
+fixed_source/quarter_circle/direction/meshes/
+fixed_source/quarter_circle/direction/rnorms/
+fixed_source/quarter_circle/meshsize/meshes/
+fixed_source/quarter_circle/meshsize/rnorms/
+fixed_source/square/direction/meshes/
+fixed_source/square/direction/rnorms/
+fixed_source/square/meshsize/meshes/
+fixed_source/square/meshsize/rnorms/
+ttnte_tdiga_jcp2025_data.tar.gz
+
 # C extensions
 *.so
 

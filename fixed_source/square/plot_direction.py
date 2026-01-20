@@ -1,5 +1,6 @@
 import multiprocessing
 import os
+import pickle
 import sys
 from pathlib import Path
 
@@ -9,8 +10,11 @@ if __name__ == "__main__":
 
 import matplotlib.pyplot as plt
 import numpy as np
+import torch as tn
 from scipy import stats
+from ttnte.assemblers import MatrixAssembler
 
+from square import get_mesh, get_xs
 from extract import get_jsonl_data
 
 # Change plotting label sizes
@@ -52,8 +56,12 @@ if __name__ == "__main__":
 
     # Solutions from OpenMC
     leakage_frac_openmc = [0.42095701399999963, 2.2038687252709062e-05]
-    phi_mc = np.load("../../../ttnte/notebooks/fixed_source/square/openmc/data/mesh_flux.npy")
-    phi_mc_stdev = np.load("../../../ttnte/notebooks/fixed_source/square/openmc/data/mesh_stdev.npy")
+    phi_mc = np.load(
+        "../../../ttnte/notebooks/fixed_source/square/openmc/data/mesh_flux.npy"
+    )
+    phi_mc_stdev = np.load(
+        "../../../ttnte/notebooks/fixed_source/square/openmc/data/mesh_stdev.npy"
+    )
 
     num_ordinates = [16, 64, 256, 1024, 4096, 16384, 65536, 262144]
     degrees = [2, 3, 4, 6]
@@ -79,7 +87,9 @@ if __name__ == "__main__":
     N = 16384
     mesh = get_mesh(factor=10, degree=2)
     mesh.plot(figsize=(6, 6))
-    plt.savefig("./direction/figs/square.png", dpi=300, transparent=True)
+    plt.grid(False)
+    plt.savefig("./direction/figs/square.png", dpi=700, transparent=True)
+    plt.grid(True)
 
     # Create matrix assembler
     assembler = MatrixAssembler(mesh, get_xs(1), 16384)
@@ -130,7 +140,7 @@ if __name__ == "__main__":
     ax.xaxis.line.set_color((1.0, 1.0, 1.0, 0.0))  # Invisible line
     ax.yaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
     ax.zaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
-    plt.savefig(f"./direction/figs/phi.png", dpi=300, transparent=True)
+    plt.savefig(f"./direction/figs/phi.png", dpi=700, transparent=True)
 
     # ========================================================================
     # Leakage Fraction Plots
@@ -189,7 +199,7 @@ if __name__ == "__main__":
     plt.grid()
     plt.legend()
     plt.tight_layout()
-    plt.savefig("./direction/figs/leakage.png", dpi=300, transparent=True)
+    plt.savefig("./direction/figs/leakage.png", dpi=700, transparent=True)
 
     # Plot CSR leakage fraction Z-score to OpenMC
     plt.clf()
@@ -244,7 +254,7 @@ if __name__ == "__main__":
     plt.yscale("log")
     plt.legend(ncol=2)
     plt.tight_layout()
-    plt.savefig("./direction/figs/leakage_zscore.png", dpi=300, transparent=True)
+    plt.savefig("./direction/figs/leakage_zscore.png", dpi=700, transparent=True)
 
     # Plot CSR leakage fraction error to OpenMC
     plt.clf()
@@ -307,7 +317,7 @@ if __name__ == "__main__":
     plt.yscale("log")
     plt.legend(ncol=2, loc="upper right")
     plt.tight_layout()
-    plt.savefig("./direction/figs/leakage_relerror.png", dpi=300, transparent=True)
+    plt.savefig("./direction/figs/leakage_relerror.png", dpi=700, transparent=True)
 
     # Look at errors relative to CSR
     plt.clf()
@@ -394,7 +404,7 @@ if __name__ == "__main__":
             plt.tight_layout()
             plt.savefig(
                 f"./direction/figs/leakage_relerror_p{degree}_{solve_method}.png",
-                dpi=300,
+                dpi=700,
                 transparent=True,
             )
 
@@ -437,7 +447,7 @@ if __name__ == "__main__":
             plt.legend()
             plt.tight_layout()
             plt.savefig(
-                f"./direction/figs/ranks_p{degree}_{op}.png", dpi=300, transparent=True
+                f"./direction/figs/ranks_p{degree}_{op}.png", dpi=700, transparent=True
             )
 
     data = get_jsonl_data(
@@ -564,7 +574,7 @@ if __name__ == "__main__":
             plt.tight_layout()
             plt.savefig(
                 f"./direction/figs/compression_p{degree}_{op}.png",
-                dpi=300,
+                dpi=700,
                 transparent=True,
             )
 
@@ -612,7 +622,7 @@ if __name__ == "__main__":
             plt.tight_layout()
             plt.savefig(
                 f"./direction/figs/compression_ratio_p{degree}_{op}.png",
-                dpi=300,
+                dpi=700,
                 transparent=True,
             )
 
@@ -700,7 +710,7 @@ if __name__ == "__main__":
             plt.tight_layout()
             plt.savefig(
                 f"./direction/figs/compression_p{degree}_eps{eps[i]}_T.png",
-                dpi=300,
+                dpi=700,
                 transparent=True,
             )
 
@@ -780,7 +790,7 @@ if __name__ == "__main__":
         plt.legend(fontsize=14)
         plt.tight_layout()
         plt.savefig(
-            f"./direction/figs/ranks_p{degree}_psi.png", dpi=300, transparent=True
+            f"./direction/figs/ranks_p{degree}_psi.png", dpi=700, transparent=True
         )
 
     for degree in degrees:
@@ -843,7 +853,7 @@ if __name__ == "__main__":
         plt.legend(fontsize=14)
         plt.tight_layout()
         plt.savefig(
-            f"./direction/figs/compression_p{degree}_psi.png", dpi=300, transparent=True
+            f"./direction/figs/compression_p{degree}_psi.png", dpi=700, transparent=True
         )
 
     # ========================================================================
@@ -956,7 +966,7 @@ if __name__ == "__main__":
         plt.tight_layout()
         plt.savefig(
             f"./direction/figs/matvec_time_p{degree}_eps{eps[0]}.png",
-            dpi=300,
+            dpi=700,
             transparent=True,
         )
 
@@ -1021,7 +1031,7 @@ if __name__ == "__main__":
         plt.tight_layout()
         plt.savefig(
             f"./direction/figs/gmres_time_p{degree}_eps{eps[0]}.png",
-            dpi=300,
+            dpi=700,
             transparent=True,
         )
 
@@ -1099,7 +1109,7 @@ if __name__ == "__main__":
     plt.yscale("log")
     plt.legend(ncol=2)
     plt.tight_layout()
-    plt.savefig("./direction/figs/flux_l2error.png", dpi=300, transparent=True)
+    plt.savefig("./direction/figs/flux_l2error.png", dpi=700, transparent=True)
 
     data = get_jsonl_data(
         dir / "direction/processed_direction.jsonl",
@@ -1158,6 +1168,6 @@ if __name__ == "__main__":
             plt.tight_layout()
             plt.savefig(
                 f"./direction/figs/flux_l2error2csr_p{degree}_{case}.png",
-                dpi=300,
+                dpi=700,
                 transparent=True,
             )
