@@ -73,7 +73,7 @@ if __name__ == "__main__":
         color_by="material",
     )
     plt.tight_layout()
-    plt.savefig("./figs/quarter_circle.png", dpi=300, transparent=True)
+    plt.savefig("./figs/quarter_circle.tif", dpi=700, transparent=False)
 
     # Create matrix assembler
     assembler = MatrixAssembler(mesh, get_xs(data["num_groups"]), data["num_ordinates"])
