@@ -86,61 +86,61 @@ if __name__ == "__main__":
     degree = 2
     N = 16384
     mesh = get_mesh(factor=10, degree=2)
-    mesh.plot(figsize=(6, 6))
-    plt.grid(False)
-    plt.savefig("./direction/figs/square.tif", dpi=700, transparent=False)
-    plt.grid(True)
-
-    # Create matrix assembler
-    assembler = MatrixAssembler(mesh, get_xs(1), 16384)
-
-    # Load data
-    psi = pickle.load(
-        open(
-            f"./direction/meshes/N{N}_G1_A{factor + degree}_B{factor + degree}_p{degree}_q{degree}_eps1e-08cpu.pkl",
-            "rb",
-        )
-    )["CSR"].reshape(assembler.discretization)
-
-    # Calculate scalar flux
-    phi = assembler.angular_integral(tn.tensor(psi))
-
-    # Plot data
-    plt.clf()
-    mesh.set_phi(phi[0,])
-    ax = mesh.plot(plot_ctrlpts=False, use_3d=True, figsize=(6, 8))
-    fig = ax.figure
-    # Get the position of the main 3D axes
-    pos = ax.get_position()  # returns Bbox: (x0, y0, x1, y1)
-
-    # Choose a new width for the colorbar (e.g., 40% of figure)
-    cbar_width = 0.6
-    cbar_height = 0.03
-    cbar_bottom = 0.18  # your chosen vertical position
-
-    # Compute centered left coordinate relative to the 3D plot
-    left = pos.x0 + (pos.width - cbar_width) / 2 + 0.005
-    cax = fig.add_axes([left, cbar_bottom + 0.05, cbar_width, cbar_height])
-    cbar = fig.colorbar(ax.collections[0], cax=cax, orientation="horizontal")
-    cbar.ax.tick_params(labelrotation=0, labelsize=12)
-    cbar.set_label("$\\phi(\\hat{x}, \\hat{y})$", rotation=0, fontsize=14)
-    ax.grid(False)
-    # Turn off panes and ticks
-    ax.set_xticks([])
-    ax.set_yticks([])
-    ax.set_zticks([])
-    ax.set_ylabel(None)
-    ax.set_xlabel(None)
-
-    ax.xaxis.pane.set_visible(False)
-    ax.yaxis.pane.set_visible(False)
-    ax.zaxis.pane.set_visible(False)
-
-    # Turn off axis lines
-    ax.xaxis.line.set_color((1.0, 1.0, 1.0, 0.0))  # Invisible line
-    ax.yaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
-    ax.zaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
-    plt.savefig(f"./direction/figs/phi.tif", dpi=700, transparent=False)
+    # mesh.plot(figsize=(6, 6))
+    # plt.grid(False)
+    # plt.savefig("./direction/figs/square.tif", dpi=700, transparent=False)
+    # plt.grid(True)
+    #
+    # # Create matrix assembler
+    # assembler = MatrixAssembler(mesh, get_xs(1), 16384)
+    #
+    # # Load data
+    # psi = pickle.load(
+    #     open(
+    #         f"./direction/meshes/N{N}_G1_A{factor + degree}_B{factor + degree}_p{degree}_q{degree}_eps1e-08cpu.pkl",
+    #         "rb",
+    #     )
+    # )["CSR"].reshape(assembler.discretization)
+    #
+    # # Calculate scalar flux
+    # phi = assembler.angular_integral(tn.tensor(psi))
+    #
+    # # Plot data
+    # plt.clf()
+    # mesh.set_phi(phi[0,])
+    # ax = mesh.plot(plot_ctrlpts=False, use_3d=True, figsize=(6, 8))
+    # fig = ax.figure
+    # # Get the position of the main 3D axes
+    # pos = ax.get_position()  # returns Bbox: (x0, y0, x1, y1)
+    #
+    # # Choose a new width for the colorbar (e.g., 40% of figure)
+    # cbar_width = 0.6
+    # cbar_height = 0.03
+    # cbar_bottom = 0.18  # your chosen vertical position
+    #
+    # # Compute centered left coordinate relative to the 3D plot
+    # left = pos.x0 + (pos.width - cbar_width) / 2 + 0.005
+    # cax = fig.add_axes([left, cbar_bottom + 0.05, cbar_width, cbar_height])
+    # cbar = fig.colorbar(ax.collections[0], cax=cax, orientation="horizontal")
+    # cbar.ax.tick_params(labelrotation=0, labelsize=12)
+    # cbar.set_label("$\\phi(\\hat{x}, \\hat{y})$", rotation=0, fontsize=14)
+    # ax.grid(False)
+    # # Turn off panes and ticks
+    # ax.set_xticks([])
+    # ax.set_yticks([])
+    # ax.set_zticks([])
+    # ax.set_ylabel(None)
+    # ax.set_xlabel(None)
+    #
+    # ax.xaxis.pane.set_visible(False)
+    # ax.yaxis.pane.set_visible(False)
+    # ax.zaxis.pane.set_visible(False)
+    #
+    # # Turn off axis lines
+    # ax.xaxis.line.set_color((1.0, 1.0, 1.0, 0.0))  # Invisible line
+    # ax.yaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
+    # ax.zaxis.line.set_color((1.0, 1.0, 1.0, 0.0))
+    # plt.savefig(f"./direction/figs/phi.tif", dpi=700, transparent=False)
 
     # ========================================================================
     # Leakage Fraction Plots
