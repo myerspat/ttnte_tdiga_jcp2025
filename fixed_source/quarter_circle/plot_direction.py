@@ -88,65 +88,65 @@ if __name__ == "__main__":
     degree = 2
     N = 16384
     mesh = get_mesh(factor=factor, degree=degree)
-    ax = mesh.plot(
-        figsize=(6, 6),
-        color_by="material",
-        colors={"Source": "#E69F00", "Void": "#0072B2"},
-    )
-
-    # Plot boundaries of patches
-    for patch in mesh.patches.values():
-        # Get boundary in parametric space
-        coords = np.zeros((4, 128, 2))
-        coords[0, :, 0] = np.linspace(0, 1, 128)
-        coords[1, :, 0] = 1
-        coords[1, :, 1] = np.linspace(0, 1, 128)
-        coords[2, :, 1] = 1
-        coords[2, :, 0] = np.linspace(0, 1, 128)[::-1]
-        coords[3, :, 1] = np.linspace(0, 1, 128)[::-1]
-
-        boundary = patch(coords.reshape((-1, 2)))
-
-        # Create outline
-        outline = Polygon(
-            boundary[:, :-1],
-            closed=True,
-            edgecolor="black",
-            facecolor="none",
-            linewidth=1.5,
-        )
-        ax.add_patch(outline)
-
-    plt.tight_layout()
-    dx = 0.01 * (ax.get_xlim()[1] - ax.get_xlim()[0])
-    dy = 0.01 * (ax.get_ylim()[1] - ax.get_ylim()[0])
-    plt.xlim((ax.get_xlim()[0] - dx, ax.get_xlim()[1] + dx))
-    plt.ylim((ax.get_ylim()[0] - dy, ax.get_ylim()[1] + dy))
-    plt.grid()
-    plt.savefig("./direction/figs/quarter_circle.png", dpi=300, transparent=True)
-
-    # Create matrix assembler
-    assembler = MatrixAssembler(mesh, get_xs(1), 16384)
-
-    # Load data
-    psi = pickle.load(
-        open(
-            f"./direction/meshes/N{N}_G1_A{factor + degree}_B{factor + degree}_p{degree}_q{degree}_eps1e-08gpu.pkl",
-            "rb",
-        )
-    )["CSR"].reshape(assembler.discretization)
-
-    # Calculate scalar flux
-    phi = assembler.angular_integral(tn.tensor(psi))
-
-    # Plot CSR
-    plt.clf()
-    mesh.set_phi(phi[0,])
-    ax, cbar = mesh.plot(plot_ctrlpts=False)
-    cbar.set_label(r"$\phi(\hat{x}, \hat{y})$")
-    ax.grid(False)
-    plt.tight_layout()
-    plt.savefig(f"./direction/figs/phi.png", dpi=300, transparent=True)
+    # ax = mesh.plot(
+    #     figsize=(6, 6),
+    #     color_by="material",
+    #     colors={"Source": "#E69F00", "Void": "#0072B2"},
+    # )
+    #
+    # # Plot boundaries of patches
+    # for patch in mesh.patches.values():
+    #     # Get boundary in parametric space
+    #     coords = np.zeros((4, 128, 2))
+    #     coords[0, :, 0] = np.linspace(0, 1, 128)
+    #     coords[1, :, 0] = 1
+    #     coords[1, :, 1] = np.linspace(0, 1, 128)
+    #     coords[2, :, 1] = 1
+    #     coords[2, :, 0] = np.linspace(0, 1, 128)[::-1]
+    #     coords[3, :, 1] = np.linspace(0, 1, 128)[::-1]
+    #
+    #     boundary = patch(coords.reshape((-1, 2)))
+    #
+    #     # Create outline
+    #     outline = Polygon(
+    #         boundary[:, :-1],
+    #         closed=True,
+    #         edgecolor="black",
+    #         facecolor="none",
+    #         linewidth=1.5,
+    #     )
+    #     ax.add_patch(outline)
+    #
+    # plt.tight_layout()
+    # dx = 0.01 * (ax.get_xlim()[1] - ax.get_xlim()[0])
+    # dy = 0.01 * (ax.get_ylim()[1] - ax.get_ylim()[0])
+    # plt.xlim((ax.get_xlim()[0] - dx, ax.get_xlim()[1] + dx))
+    # plt.ylim((ax.get_ylim()[0] - dy, ax.get_ylim()[1] + dy))
+    # plt.grid(False)
+    # plt.savefig("./direction/figs/quarter_circle.tif", dpi=700, transparent=False)
+    #
+    # # Create matrix assembler
+    # assembler = MatrixAssembler(mesh, get_xs(1), 16384)
+    #
+    # # Load data
+    # psi = pickle.load(
+    #     open(
+    #         f"./direction/meshes/N{N}_G1_A{factor + degree}_B{factor + degree}_p{degree}_q{degree}_eps1e-08gpu.pkl",
+    #         "rb",
+    #     )
+    # )["CSR"].reshape(assembler.discretization)
+    #
+    # # Calculate scalar flux
+    # phi = assembler.angular_integral(tn.tensor(psi))
+    #
+    # # Plot CSR
+    # plt.clf()
+    # mesh.set_phi(phi[0,])
+    # ax, cbar = mesh.plot(plot_ctrlpts=False)
+    # cbar.set_label(r"$\phi(\hat{x}, \hat{y})$")
+    # plt.tight_layout()
+    # plt.savefig(f"./direction/figs/phi.tif", dpi=700, transparent=False)
+    # plt.grid(True)
 
     # ========================================================================
     # Leakage Fraction Plots
@@ -205,7 +205,7 @@ if __name__ == "__main__":
     plt.grid()
     plt.legend()
     plt.tight_layout()
-    plt.savefig("./direction/figs/leakage.png", dpi=300, transparent=True)
+    plt.savefig("./direction/figs/leakage.jpeg", dpi=700, transparent=False)
 
     # # Plot CSR leakage fraction Z-score to OpenMC
     # plt.clf()
@@ -260,7 +260,7 @@ if __name__ == "__main__":
     # plt.yscale("log")
     # plt.legend(ncol=2)
     # plt.tight_layout()
-    # plt.savefig("./direction/figs/leakage_zscore.png", dpi=300, transparent=True)
+    # plt.savefig("./direction/figs/leakage_zscore.eps", dpi=700, transparent=False)
 
     # Plot CSR leakage fraction error to OpenMC
     plt.clf()
@@ -323,7 +323,7 @@ if __name__ == "__main__":
     plt.yscale("log")
     plt.legend(ncol=2, loc="upper right", fontsize=10)
     plt.tight_layout()
-    plt.savefig("./direction/figs/leakage_relerror.png", dpi=300, transparent=True)
+    plt.savefig("./direction/figs/leakage_relerror.jpeg", dpi=700, transparent=False)
 
     # Look at errors relative to CSR
     plt.clf()
@@ -409,9 +409,9 @@ if __name__ == "__main__":
             plt.legend(fontsize=14)
             plt.tight_layout()
             plt.savefig(
-                f"./direction/figs/leakage_relerror_p{degree}_{solve_method}.png",
-                dpi=300,
-                transparent=True,
+                f"./direction/figs/leakage_relerror_p{degree}_{solve_method}.eps",
+                dpi=700,
+                transparent=False,
             )
 
     # ========================================================================
@@ -453,7 +453,9 @@ if __name__ == "__main__":
             plt.legend()
             plt.tight_layout()
             plt.savefig(
-                f"./direction/figs/ranks_p{degree}_{op}.png", dpi=300, transparent=True
+                f"./direction/figs/ranks_p{degree}_{op}.eps",
+                dpi=700,
+                transparent=False,
             )
 
     data = get_jsonl_data(
@@ -579,9 +581,9 @@ if __name__ == "__main__":
             plt.legend()
             plt.tight_layout()
             plt.savefig(
-                f"./direction/figs/compression_p{degree}_{op}.png",
-                dpi=300,
-                transparent=True,
+                f"./direction/figs/compression_p{degree}_{op}.eps",
+                dpi=700,
+                transparent=False,
             )
 
             plt.clf()
@@ -627,9 +629,9 @@ if __name__ == "__main__":
             plt.legend()
             plt.tight_layout()
             plt.savefig(
-                f"./direction/figs/compression_ratio_p{degree}_{op}.png",
-                dpi=300,
-                transparent=True,
+                f"./direction/figs/compression_ratio_p{degree}_{op}.eps",
+                dpi=700,
+                transparent=False,
             )
 
     data = get_jsonl_data(
@@ -715,9 +717,9 @@ if __name__ == "__main__":
             plt.legend()
             plt.tight_layout()
             plt.savefig(
-                f"./direction/figs/compression_p{degree}_eps{eps[i]}_T.png",
-                dpi=300,
-                transparent=True,
+                f"./direction/figs/compression_p{degree}_eps{eps[i]}_T.eps",
+                dpi=700,
+                transparent=False,
             )
 
     # Get angular flux compression ranks and compression
@@ -796,7 +798,7 @@ if __name__ == "__main__":
         plt.legend(fontsize=14)
         plt.tight_layout()
         plt.savefig(
-            f"./direction/figs/ranks_p{degree}_psi.png", dpi=300, transparent=True
+            f"./direction/figs/ranks_p{degree}_psi.eps", dpi=700, transparent=False
         )
 
     for degree in degrees:
@@ -859,7 +861,9 @@ if __name__ == "__main__":
         plt.legend(fontsize=14)
         plt.tight_layout()
         plt.savefig(
-            f"./direction/figs/compression_p{degree}_psi.png", dpi=300, transparent=True
+            f"./direction/figs/compression_p{degree}_psi.eps",
+            dpi=700,
+            transparent=False,
         )
 
     # ========================================================================
@@ -969,9 +973,9 @@ if __name__ == "__main__":
         plt.legend(ncol=2, fontsize=10)
         plt.tight_layout()
         plt.savefig(
-            f"./direction/figs/matvec_time_p{degree}_eps{eps[0]}.png",
-            dpi=300,
-            transparent=True,
+            f"./direction/figs/matvec_time_p{degree}_eps{eps[0]}.jpeg",
+            dpi=700,
+            transparent=False,
         )
 
     # ========================================================================
@@ -1032,9 +1036,9 @@ if __name__ == "__main__":
         plt.legend(ncol=2, fontsize=10)
         plt.tight_layout()
         plt.savefig(
-            f"./direction/figs/gmres_time_p{degree}_eps{eps[0]}.png",
-            dpi=300,
-            transparent=True,
+            f"./direction/figs/gmres_time_p{degree}_eps{eps[0]}.eps",
+            dpi=700,
+            transparent=False,
         )
 
     # ========================================================================
@@ -1045,7 +1049,13 @@ if __name__ == "__main__":
     data = get_jsonl_data(
         dir / "direction/processed_direction.jsonl",
         lambda line_data: (
-            (True, {**line_data["flux_stats"], "converged": line_data["gmres"]["converged"]})
+            (
+                True,
+                {
+                    **line_data["flux_stats"],
+                    "converged": line_data["gmres"]["converged"],
+                },
+            )
             if line_data["eps"] == eps[0] and line_data["device"] == "gpu"
             else (False, None)
         ),
@@ -1112,7 +1122,9 @@ if __name__ == "__main__":
                 [
                     d["l2 error"][0][0]
                     for d in data
-                    if d["eps"] == eps[0] and d["degree"] == degree and d["converged"][0]
+                    if d["eps"] == eps[0]
+                    and d["degree"] == degree
+                    and d["converged"][0]
                 ]
             ),
             "o",
@@ -1122,7 +1134,9 @@ if __name__ == "__main__":
             [
                 d["num_ordinates"]
                 for d in data
-                if d["eps"] == eps[0] and d["degree"] == degree and not d["converged"][0]
+                if d["eps"] == eps[0]
+                and d["degree"] == degree
+                and not d["converged"][0]
             ],
             np.array(
                 [
@@ -1146,7 +1160,7 @@ if __name__ == "__main__":
     plt.yscale("log")
     plt.legend(ncol=2, fontsize=10)
     plt.tight_layout()
-    plt.savefig("./direction/figs/flux_l2error.png", dpi=300, transparent=True)
+    plt.savefig("./direction/figs/flux_l2error.jpeg", dpi=700, transparent=False)
 
     data = get_jsonl_data(
         dir / "direction/processed_direction.jsonl",
@@ -1204,7 +1218,7 @@ if __name__ == "__main__":
             plt.legend(fontsize=14)
             plt.tight_layout()
             plt.savefig(
-                f"./direction/figs/flux_l2error2csr_p{degree}_{case}.png",
-                dpi=300,
-                transparent=True,
+                f"./direction/figs/flux_l2error2csr_p{degree}_{case}.eps",
+                dpi=700,
+                transparent=False,
             )

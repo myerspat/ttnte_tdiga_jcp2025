@@ -50,10 +50,10 @@ if __name__ == "__main__":
     # Solutions from OpenMC
     leakage_frac_openmc = [0.43995486599999994, 2.2442114486922458e-05]
     phi_mc = np.load(
-        "../../../tt_nte/notebooks/fixed_source/quarter_circle/openmc/data/mesh_flux.npy"
+        "../../../ttnte/notebooks/fixed_source/quarter_circle/openmc/data/mesh_flux.npy"
     )
     phi_mc_stdev = np.load(
-        "../../../tt_nte/notebooks/fixed_source/quarter_circle/openmc/data/mesh_stdev.npy"
+        "../../../ttnte/notebooks/fixed_source/quarter_circle/openmc/data/mesh_stdev.npy"
     )
 
     # Discretization
@@ -130,7 +130,7 @@ if __name__ == "__main__":
     plt.xscale("log")
     plt.legend()
     plt.tight_layout()
-    plt.savefig("./meshsize/figs/leakage.png", dpi=300, transparent=True)
+    plt.savefig("./meshsize/figs/leakage.jpeg", dpi=700, transparent=False)
 
     # Plot CSR leakage fraction error to OpenMC
     plt.clf()
@@ -192,7 +192,7 @@ if __name__ == "__main__":
     plt.yscale("log")
     plt.legend()
     plt.tight_layout()
-    plt.savefig("./meshsize/figs/leakage_relerror.png", dpi=300, transparent=True)
+    plt.savefig("./meshsize/figs/leakage_relerror.jpeg", dpi=700, transparent=False)
 
     # Look at errors relative to CSR
     plt.clf()
@@ -278,9 +278,9 @@ if __name__ == "__main__":
             plt.legend(fontsize=14)
             plt.tight_layout()
             plt.savefig(
-                f"./meshsize/figs/leakage_relerror_p{degree}_{solve_method}.png",
-                dpi=300,
-                transparent=True,
+                f"./meshsize/figs/leakage_relerror_p{degree}_{solve_method}.eps",
+                dpi=700,
+                transparent=False,
             )
 
     # ========================================================================
@@ -322,7 +322,7 @@ if __name__ == "__main__":
             plt.legend()
             plt.tight_layout()
             plt.savefig(
-                f"./meshsize/figs/ranks_p{degree}_{op}.png", dpi=300, transparent=True
+                f"./meshsize/figs/ranks_p{degree}_{op}.eps", dpi=700, transparent=False
             )
 
     data = get_jsonl_data(
@@ -459,9 +459,9 @@ if __name__ == "__main__":
             plt.legend()
             plt.tight_layout()
             plt.savefig(
-                f"./meshsize/figs/compression_p{degree}_{op}.png",
-                dpi=300,
-                transparent=True,
+                f"./meshsize/figs/compression_p{degree}_{op}.eps",
+                dpi=700,
+                transparent=False,
             )
 
             plt.clf()
@@ -513,9 +513,9 @@ if __name__ == "__main__":
             plt.legend()
             plt.tight_layout()
             plt.savefig(
-                f"./meshsize/figs/compression_ratio_p{degree}_{op}.png",
-                dpi=300,
-                transparent=True,
+                f"./meshsize/figs/compression_ratio_p{degree}_{op}.eps",
+                dpi=700,
+                transparent=False,
             )
 
     data = get_jsonl_data(
@@ -584,9 +584,9 @@ if __name__ == "__main__":
             plt.legend()
             plt.tight_layout()
             plt.savefig(
-                f"./meshsize/figs/compression_p{degree}_eps{eps[i]}_T.png",
-                dpi=300,
-                transparent=True,
+                f"./meshsize/figs/compression_p{degree}_eps{eps[i]}_T.eps",
+                dpi=700,
+                transparent=False,
             )
 
     # Get angular flux compression ranks and compression
@@ -665,7 +665,7 @@ if __name__ == "__main__":
         plt.legend(fontsize=14)
         plt.tight_layout()
         plt.savefig(
-            f"./meshsize/figs/ranks_p{degree}_psi.png", dpi=300, transparent=True
+            f"./meshsize/figs/ranks_p{degree}_psi.eps", dpi=700, transparent=False
         )
 
     for degree in degrees:
@@ -728,7 +728,7 @@ if __name__ == "__main__":
         plt.legend(fontsize=14)
         plt.tight_layout()
         plt.savefig(
-            f"./meshsize/figs/compression_p{degree}_psi.png", dpi=300, transparent=True
+            f"./meshsize/figs/compression_p{degree}_psi.eps", dpi=700, transparent=False
         )
 
     # ========================================================================
@@ -793,7 +793,8 @@ if __name__ == "__main__":
                 )
                 meshsize = (np.array(factor) + degree) ** 2
                 plt.plot(
-                    4 * num_ords[
+                    4
+                    * num_ords[
                         np.isin(
                             num_ords,
                             np.array(meshsize)[(2 if degree == 2 else 0) :],
@@ -810,7 +811,8 @@ if __name__ == "__main__":
                     label=f"{case}, {device.upper()}",
                 )
                 plt.fill_between(
-                    4 * num_ords[
+                    4
+                    * num_ords[
                         np.isin(
                             num_ords,
                             np.array(meshsize)[(2 if degree == 2 else 0) :],
@@ -839,9 +841,9 @@ if __name__ == "__main__":
         plt.legend(ncol=2, fontsize=10)
         plt.tight_layout()
         plt.savefig(
-            f"./meshsize/figs/matvec_time_p{degree}_eps{eps[0]}.png",
-            dpi=300,
-            transparent=True,
+            f"./meshsize/figs/matvec_time_p{degree}_eps{eps[0]}.jpeg",
+            dpi=700,
+            transparent=False,
         )
 
     # ========================================================================
@@ -902,9 +904,9 @@ if __name__ == "__main__":
         plt.legend(ncol=2, fontsize=10)
         plt.tight_layout()
         plt.savefig(
-            f"./meshsize/figs/gmres_time_p{degree}_eps{eps[0]}.png",
-            dpi=300,
-            transparent=True,
+            f"./meshsize/figs/gmres_time_p{degree}_eps{eps[0]}.eps",
+            dpi=700,
+            transparent=False,
         )
 
     # ========================================================================
@@ -1037,7 +1039,7 @@ if __name__ == "__main__":
     plt.yscale("log")
     plt.legend(fontsize=10)
     plt.tight_layout()
-    plt.savefig("./meshsize/figs/flux_l2error.png", dpi=300, transparent=True)
+    plt.savefig("./meshsize/figs/flux_l2error.eps", dpi=700, transparent=False)
 
     data = get_jsonl_data(
         dir / "meshsize/processed_meshsize.jsonl",
@@ -1095,7 +1097,7 @@ if __name__ == "__main__":
             plt.legend(fontsize=14)
             plt.tight_layout()
             plt.savefig(
-                f"./meshsize/figs/flux_l2error2csr_p{degree}_{case}.png",
-                dpi=300,
-                transparent=True,
+                f"./meshsize/figs/flux_l2error2csr_p{degree}_{case}.eps",
+                dpi=700,
+                transparent=False,
             )
