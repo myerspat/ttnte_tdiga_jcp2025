@@ -106,8 +106,8 @@ if __name__ == "__main__":
     # Calculate statistics
     # =====================================================================
     X, Y = np.meshgrid(
-        np.linspace(0, 5, phi_mc.shape[1]),
-        np.linspace(0, 5, phi_mc.shape[2]),
+        np.linspace(0, 1.26 / 2, phi_mc.shape[1]),
+        np.linspace(0, 1.26 / 2, phi_mc.shape[2]),
     )
     data["k"]["error"] = []
     data["k"]["relerror"] = []
