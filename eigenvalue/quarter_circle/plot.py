@@ -93,7 +93,7 @@ if __name__ == "__main__":
     ax, cbar = mesh.plot(plot_ctrlpts=False)
     cbar.set_label(r"$\phi(\hat{x}, \hat{y})$")
     plt.tight_layout()
-    plt.savefig(f"./figs/phi.png", dpi=300, transparent=True)
+    plt.savefig(f"./figs/phi.tif", dpi=700, transparent=False)
 
     # =====================================================================
     # Calculate statistics
@@ -144,7 +144,7 @@ if __name__ == "__main__":
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig(f"./figs/error_0.5rc.png", dpi=300)
+    plt.savefig(f"./figs/error_0.5rc.eps", dpi=700)
 
     plt.clf()
     ax = plt.gca()
@@ -183,7 +183,7 @@ if __name__ == "__main__":
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig(f"./figs/error_rc.png", dpi=300)
+    plt.savefig(f"./figs/error_rc.eps", dpi=700)
 
     # Save data
     with open("data.pkl", "wb") as f:
