@@ -156,7 +156,7 @@ if __name__ == "__main__":
     dy = 0.01 * (ax.get_ylim()[1] - ax.get_ylim()[0])
     plt.xlim((ax.get_xlim()[0] - dx, ax.get_xlim()[1] + dx))
     plt.ylim((ax.get_ylim()[0] - dy, ax.get_ylim()[1] + dy))
-    plt.savefig("./figs/four_lobe.png", dpi=300)
+    plt.savefig("./figs/four_lobe.tif", dpi=700)
 
     # =====================================================================
     # Get mesh we're actually going to use
@@ -441,7 +441,7 @@ if __name__ == "__main__":
         cbar.set_label(f"$\\phi_{g + 1}" + "(\\hat{x}, \\hat{y})$", fontsize=14)
         cbar.ax.tick_params(labelsize=12)
         plt.tight_layout()
-        plt.savefig(f"./figs/phi_{g + 1}.png", dpi=300)
+        plt.savefig(f"./figs/phi_{g + 1}.tif", dpi=700)
 
     phi_avg /= np.linalg.norm(phi_avg.flatten())
 
@@ -479,5 +479,7 @@ if __name__ == "__main__":
                 ax.set_ylabel(r"$y(\hat{x}, \hat{y})~(cm)$")
                 plt.tight_layout()
                 plt.savefig(
-                    f"./figs/{error_name}_{g + 1}_{case}.png", transparent=True, dpi=300
+                    f"./figs/{error_name}_{g + 1}_{case}.tif",
+                    transparent=False,
+                    dpi=700,
                 )
