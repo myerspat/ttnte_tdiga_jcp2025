@@ -7,13 +7,14 @@ from ttnte.cad import Patch
 from ttnte.cad.surfaces import circle
 from ttnte.iga import IGAMesh
 
+plt.rcParams["font.size"] = 14
+# plt.rcParams["axes.titlsize"] = 14
+plt.rcParams["axes.labelsize"] = 16
+plt.rcParams["xtick.labelsize"] = 14
+plt.rcParams["ytick.labelsize"] = 14
+plt.rcParams["legend.fontsize"] = 10
+
 if __name__ == "__main__":
-    
-    plt.rcParams.update({
-        'xtick.labelsize': 12,
-        'ytick.labelsize': 12,
-        'axes.labelsize': 14,
-    })
 
     radius = 0.54  # cm
 
@@ -77,7 +78,7 @@ if __name__ == "__main__":
     plt.xlabel(r"$x(\hat{x}, \hat{y})$")
     plt.ylabel(r"$y(\hat{x}, \hat{y})$")
     plt.tight_layout()
-    plt.savefig("./figs/physical.png", dpi=300)
+    plt.savefig("./figs/physical.jpeg", dpi=700)
 
     plt.clf()
     fig, ax = plt.subplots()
@@ -119,7 +120,7 @@ if __name__ == "__main__":
     plt.xlabel(r"$\hat{x}$")
     plt.ylabel(r"$\hat{y}$")
     plt.tight_layout()
-    plt.savefig("./figs/parametric.png", dpi=300)
+    plt.savefig("./figs/parametric.jpeg", dpi=700)
 
     plt.clf()
     fig, ax = plt.subplots()
@@ -159,4 +160,4 @@ if __name__ == "__main__":
     plt.xlabel(r"$\tilde{x}(\hat{x})$")
     plt.ylabel(r"$\tilde{y}(\hat{y})$")
     plt.tight_layout()
-    plt.savefig("./figs/parent.png", dpi=300)
+    plt.savefig("./figs/parent.jpeg", dpi=700)

@@ -41,7 +41,7 @@ if __name__ == "__main__":
     plt.xlabel(None)
     plt.ylabel(None)
     plt.axis("off")
-    plt.savefig("./figs/pincell.png", dpi=300)
+    plt.savefig("./figs/pincell.tif", dpi=700)
 
     # Translate
     quadmeshes = [m for m in ax.collections if isinstance(m, mcoll.QuadMesh)]
@@ -65,4 +65,4 @@ if __name__ == "__main__":
 
     plt.xlim((-(1.26 + 0.2) / 2, (1.26 + 0.2) / 2))
     plt.ylim((-(1.26 + 0.2) / 2, (1.26 + 0.2) / 2))
-    plt.savefig("./figs/pincell_patches.png", dpi=300)
+    plt.savefig("./figs/pincell_patches.tif", dpi=700)
