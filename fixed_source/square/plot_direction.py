@@ -1111,7 +1111,7 @@ if __name__ == "__main__":
     plt.yscale("log")
     plt.legend(ncol=2)
     plt.tight_layout()
-    plt.savefig("./direction/figs/flux_l2error.eps", dpi=700, transparent=False)
+    plt.savefig("./direction/figs/flux_l2error.jpeg", dpi=700, transparent=False)
 
     data = get_jsonl_data(
         dir / "direction/processed_direction.jsonl",
