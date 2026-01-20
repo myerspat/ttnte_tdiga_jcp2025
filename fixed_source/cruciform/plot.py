@@ -27,10 +27,10 @@ if __name__ == "__main__":
     # Solutions from OpenMC
     leakage_frac_openmc = [0.06913173400000001, 1.1401809264552177e-05]
     phi_mc = np.load(
-        "../../../tt_nte/notebooks/fixed_source/cruciform/openmc/void/data/mesh_flux.npy"
+        "../../../ttnte/notebooks/fixed_source/cruciform/openmc/void/data/mesh_flux.npy"
     )
     phi_mc_stdev = np.load(
-        "../../../tt_nte/notebooks/fixed_source/cruciform/openmc/void/data/mesh_stdev.npy"
+        "../../../ttnte/notebooks/fixed_source/cruciform/openmc/void/data/mesh_stdev.npy"
     )
 
     # Read in data
@@ -76,7 +76,7 @@ if __name__ == "__main__":
     dy = 0.01 * (ax.get_ylim()[1] - ax.get_ylim()[0])
     plt.xlim((ax.get_xlim()[0] - dx, ax.get_xlim()[1] + dx))
     plt.ylim((ax.get_ylim()[0] - dy, ax.get_ylim()[1] + dy))
-    plt.savefig("./figs/cruciform.png", dpi=300, transparent=True)
+    plt.savefig("./figs/cruciform.tif", dpi=700, transparent=False)
 
     # Create matrix assembler
     assembler = MatrixAssembler(mesh, get_xs(data["num_groups"]), data["num_ordinates"])
@@ -96,7 +96,7 @@ if __name__ == "__main__":
     ax, cbar = mesh.plot(plot_ctrlpts=False)
     cbar.set_label(r"$\phi(\hat{x}, \hat{y})$")
     plt.tight_layout()
-    plt.savefig("./figs/phi.png", dpi=300, transparent=True)
+    plt.savefig("./figs/phi.tif", dpi=700, transparent=False)
 
     # Get mapping for mesh element averaging
     pids, coords = mesh.map_regular_mesh(shape=phi_mc.shape[1:], N=(5, 5))
@@ -165,10 +165,7 @@ if __name__ == "__main__":
             + r"}}-\mathbf{\Phi}^{\text{MC}}"
             + r"\right|}{\mathbf{\Phi}^{\text{MC}}"
             + "}$",
-            "zscore": lambda case, g: r"$\mathbf{z}"
-            + r"^{\text{"
-            + case
-            + "}}$",
+            "zscore": lambda case, g: r"$\mathbf{z}" + r"^{\text{" + case + "}}$",
         }
         phi_avg = np.zeros(phi_mc.shape)
 
@@ -220,7 +217,9 @@ if __name__ == "__main__":
                 ax.set_ylabel(r"$y(\hat{x}, \hat{y})~(cm)$")
                 plt.tight_layout()
                 plt.savefig(
-                    f"./figs/{error_name}_{g + 1}_{name}.png", transparent=True, dpi=300
+                    f"./figs/{error_name}_{g + 1}_{name}.tif",
+                    transparent=False,
+                    dpi=700,
                 )
 
             minimum[-1] = np.min(minimum[:-1])
@@ -315,4 +314,4 @@ if __name__ == "__main__":
     plt.grid()
     # plt.legend()
     plt.tight_layout()
-    plt.savefig("./figs/gmres_convergence.png", dpi=300, transparent=True)
+    plt.savefig("./figs/gmres_convergence.tif", dpi=700, transparent=False)
