@@ -88,65 +88,68 @@ if __name__ == "__main__":
     degree = 2
     N = 16384
     mesh = get_mesh(factor=factor, degree=degree)
-    # ax = mesh.plot(
-    #     figsize=(6, 6),
-    #     color_by="material",
-    #     colors={"Source": "#E69F00", "Void": "#0072B2"},
-    # )
-    #
-    # # Plot boundaries of patches
-    # for patch in mesh.patches.values():
-    #     # Get boundary in parametric space
-    #     coords = np.zeros((4, 128, 2))
-    #     coords[0, :, 0] = np.linspace(0, 1, 128)
-    #     coords[1, :, 0] = 1
-    #     coords[1, :, 1] = np.linspace(0, 1, 128)
-    #     coords[2, :, 1] = 1
-    #     coords[2, :, 0] = np.linspace(0, 1, 128)[::-1]
-    #     coords[3, :, 1] = np.linspace(0, 1, 128)[::-1]
-    #
-    #     boundary = patch(coords.reshape((-1, 2)))
-    #
-    #     # Create outline
-    #     outline = Polygon(
-    #         boundary[:, :-1],
-    #         closed=True,
-    #         edgecolor="black",
-    #         facecolor="none",
-    #         linewidth=1.5,
-    #     )
-    #     ax.add_patch(outline)
-    #
-    # plt.tight_layout()
-    # dx = 0.01 * (ax.get_xlim()[1] - ax.get_xlim()[0])
-    # dy = 0.01 * (ax.get_ylim()[1] - ax.get_ylim()[0])
-    # plt.xlim((ax.get_xlim()[0] - dx, ax.get_xlim()[1] + dx))
-    # plt.ylim((ax.get_ylim()[0] - dy, ax.get_ylim()[1] + dy))
-    # plt.grid(False)
-    # plt.savefig("./direction/figs/quarter_circle.tif", dpi=700, transparent=False)
-    #
-    # # Create matrix assembler
-    # assembler = MatrixAssembler(mesh, get_xs(1), 16384)
-    #
-    # # Load data
-    # psi = pickle.load(
-    #     open(
-    #         f"./direction/meshes/N{N}_G1_A{factor + degree}_B{factor + degree}_p{degree}_q{degree}_eps1e-08gpu.pkl",
-    #         "rb",
-    #     )
-    # )["CSR"].reshape(assembler.discretization)
-    #
-    # # Calculate scalar flux
-    # phi = assembler.angular_integral(tn.tensor(psi))
-    #
-    # # Plot CSR
-    # plt.clf()
-    # mesh.set_phi(phi[0,])
-    # ax, cbar = mesh.plot(plot_ctrlpts=False)
-    # cbar.set_label(r"$\phi(\hat{x}, \hat{y})$")
-    # plt.tight_layout()
-    # plt.savefig(f"./direction/figs/phi.tif", dpi=700, transparent=False)
-    # plt.grid(True)
+    ax = mesh.plot(
+        figsize=(6, 6),
+        color_by="material",
+        colors={"Source": "#E69F00", "Void": "#0072B2"},
+    )
+
+    # Plot boundaries of patches
+    for patch in mesh.patches.values():
+        # Get boundary in parametric space
+        coords = np.zeros((4, 128, 2))
+        coords[0, :, 0] = np.linspace(0, 1, 128)
+        coords[1, :, 0] = 1
+        coords[1, :, 1] = np.linspace(0, 1, 128)
+        coords[2, :, 1] = 1
+        coords[2, :, 0] = np.linspace(0, 1, 128)[::-1]
+        coords[3, :, 1] = np.linspace(0, 1, 128)[::-1]
+
+        boundary = patch(coords.reshape((-1, 2)))
+
+        # Create outline
+        outline = Polygon(
+            boundary[:, :-1],
+            closed=True,
+            edgecolor="black",
+            facecolor="none",
+            linewidth=1.5,
+        )
+        ax.add_patch(outline)
+
+    plt.tight_layout()
+    dx = 0.01 * (ax.get_xlim()[1] - ax.get_xlim()[0])
+    dy = 0.01 * (ax.get_ylim()[1] - ax.get_ylim()[0])
+    plt.xlim((ax.get_xlim()[0] - dx, ax.get_xlim()[1] + dx))
+    plt.ylim((ax.get_ylim()[0] - dy, ax.get_ylim()[1] + dy))
+    plt.grid(False)
+    plt.savefig("./direction/figs/quarter_circle.tif", dpi=700, transparent=False)
+    plt.grid(True)
+
+    # Create matrix assembler
+    assembler = MatrixAssembler(mesh, get_xs(1), 16384)
+
+    # Load data
+    psi = pickle.load(
+        open(
+            f"./direction/meshes/N{N}_G1_A{factor + degree}_B{factor + degree}_p{degree}_q{degree}_eps1e-08gpu.pkl",
+            "rb",
+        )
+    )["CSR"].reshape(assembler.discretization)
+
+    # Calculate scalar flux
+    phi = assembler.angular_integral(tn.tensor(psi))
+
+    # Plot CSR
+    plt.clf()
+    mesh.set_phi(phi[0,])
+    ax, cbar = mesh.plot(plot_ctrlpts=False)
+    cbar.set_label(r"$\phi(\hat{x}, \hat{y})$")
+    plt.tight_layout()
+    plt.grid(False)
+    plt.savefig(f"./direction/figs/phi.tif", dpi=700, transparent=False)
+    plt.grid(True)
+    assert 0 == 1
 
     # ========================================================================
     # Leakage Fraction Plots
