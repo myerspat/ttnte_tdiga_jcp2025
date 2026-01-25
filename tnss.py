@@ -138,7 +138,7 @@ if __name__ == "__main__":
             num_ordinates, factors = (
                 (
                     [int(16 * 4**i) for i in range(8)],
-                    [10 if dir != "fixed_source/quarter_circle" else 8],
+                    [10 if dir != Path("fixed_source/quarter_circle") else 8],
                 )
                 if subdir == "direction/meshes"
                 else ([256], np.geomspace(5, 100, 12).astype(int).tolist())
@@ -222,7 +222,7 @@ if __name__ == "__main__":
             "eigenvalue/quarter_circle/data.pkl",
             "eigenvalue/pincell/data.pkl",
             "eigenvalue/lightbridge_ba/data.pkl",
-            "eigenvalue/lightbridge_gas/solutrions.pkl",
+            "eigenvalue/lightbridge_gas/solutions.pkl",
         ]
     ]
 
