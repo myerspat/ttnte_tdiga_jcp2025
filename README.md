@@ -76,4 +76,24 @@ cd ttnte_tdiga_jcp2025
 
 ## Raw Data
 
-Add description of this once it is on Zenodo.
+The data was submitted on January 22, 2026 and is currently in review for the Neutronics community on Zenodo. This will be updated when it is approved. Here is the DOI: [https://doi.org/10.5281/zenodo.18294213](https://doi.org/10.5281/zenodo.18294213) and citation:
+
+```BibTex
+@dataset{myers_2026_18294213,
+  author       = {Myers, Patrick A. and
+                  Bogdan, Joe A. and
+                  Radaideh, Majdi I. and
+                  Kiedrowski, Brian C.},
+  title        = {Raw Data for "Tensorized Discontinuous
+                   Isogeometric Analysis Method for the 2-D Time-
+                   Independent Linearized Boltzmann Transport
+                   Equation"
+                  },
+  month        = jan,
+  year         = 2026,
+  publisher    = {Zenodo},
+  version      = {1.0.0},
+  doi          = {10.5281/zenodo.18294213},
+  url          = {https://doi.org/10.5281/zenodo.18294213},
+}
+```

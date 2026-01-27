@@ -383,7 +383,7 @@ if __name__ == "__main__":
         error = (phi_avg - phi_mc).reshape((xs_server.num_groups, -1))
         for g in range(xs_server.num_groups):
             l2[g] = np.linalg.norm(error[g,]) / np.linalg.norm(phi_mc[g,].flatten())
-        l2[-1] = np.linalg.norm(error.flatten()) / np.linalg.norm(phi_mc.flatten())
+        l2[-1] = np.linalg.norm(l2[:-1])
 
         # Add this to the results
         stats["psi"]["l2 error"].append(l2)
